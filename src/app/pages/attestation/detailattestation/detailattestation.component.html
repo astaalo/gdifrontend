@@ -1,0 +1,47 @@
+<div class="all-container">
+    <div id="htmlData" class="content-pdf-attestation">
+        <div class="context-info-pdf-attestation">
+            <div class="content-head-attestation">
+                <div class="content-sonatel">
+                    <p class="sonatel-label">sonatel</p>
+                </div>
+                <div class="content-reference">
+                    
+                </div>
+            </div>
+            <div class="content-head-attestation">
+                <div class="content-sonatel">
+                    <p class="structure-label">Direction {{direction}}</p>
+                    <p class="structure-label">Département {{departement}}</p>
+                    <p class="structure-label">Service {{service}}</p>
+                </div>
+                <div class="content-reference">
+                    <p class="reference-label">{{reference}}</p>
+                </div>
+            </div>
+            <div class="content-title-attestation">
+                <p class="title-attestation">Attestation de présence</p>
+            </div>
+            <div class="content-text-attestation">
+                <p class="text-attestation">
+                    Je soussigné, M. <span class="mot-importatnt-attestation">{{prenom_manager}} {{nom_manager}}</span>, 
+                    {{posteManager}}, atteste que M. 
+                    <span class="mot-importatnt-attestation">{{prenom}} {{nom}} Mle {{matricule}}</span>, 
+                    a travaillé dans la structure durant la période du 
+                    <span class="mot-importatnt-attestation">{{dateDebut}}</span> au 
+                    <span class="mot-importatnt-attestation">{{dateFin}}</span>.
+                </p>
+                <p class="text-attestation">
+                    En foi de quoi, cette présente attestation est délivrée pour servir et faire
+                    valoir ce que de droit.
+                </p>
+            </div>
+            <div class="content-date-creation-attestation">
+                <p class="date-creation-attestation">Fait à Dakar, le 26/04/2021</p>
+            </div>
+        </div>
+    </div>
+    <div class="content-button-telecharger-attestation">
+        <button (click)="openPDF(prenom, nom)" class="button-telecharger-attestation">Télécharger</button>
+    </div>
+</div>

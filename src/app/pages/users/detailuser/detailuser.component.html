@@ -1,0 +1,183 @@
+<div class="all-container">
+    <div class="compte">
+        <div class="content-header">
+            <div class="content-details">
+                <p class="detail">Détails Utilisateur</p>
+            </div>
+        </div>
+        <div class="grid-container" *ngIf="item">
+            <div class="image">
+                <div class="ima">
+                    <img class="image-interimaire"  src="{{photo}}" alt="photo">
+                   
+                    <p class="prenom">{{dataUser?.prenom}} {{dataUser?.nom}}</p>
+                    <p class="fonction">{{dataUser?.profil.libelle}}</p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="lot1">
+                    <p *ngIf="dataUser?.profil.id != 3" class="key">Matricule: <span class="value">{{dataUser?.matricule}}</span> </p>
+                    <p class="key">Email: <span class="value">{{dataUser?.email}}</span> </p>
+                    <p class="key">Téléphone: <span class="value">{{dataUser?.telephone}}</span> </p>
+                    <p class="key">Fonction: <span class="value">{{dataUser?.fonction}}</span> </p>
+                </div>
+                <!--<div class="lot">
+                    <p class="lot2">Catégorie: <span class="value">{{dataInter?.categorie.libelle}}</span> </p>
+                    <p class="key">Agence Interim: <span class="value">{{dataInter?.agence.nom}}</span> </p>
+                    <p class="key">Société: <span class="value">{{dataInter?.structure.libelle}}</span> </p>
+                    <p class="key">Direction: <span class="value">{{dataInter?.structure.direction?.libelle}}</span> </p>
+                    <p class="key">Département: <span class="value">{{dataInter?.structure.departement}}</span> </p>
+                    <p class="key">Service: <span class="value">{{dataInter?.structure.service}}</span> </p>
+                </div>-->
+            </div>
+        </div>
+        <div *ngIf="role != 'INT'" class="lesbouton">
+            <button *ngIf="role != 'MNG'" class="button1" (click)="modifierUser()">Modifier</button>
+            <div *ngIf="role == 'DRH'">
+                <button *ngIf="dataUser?.isBlocked == false" (click)="openModal('custom-modal-7');" class="button-desactiver-user" >Désactiver Utilisateur</button>
+                <button *ngIf="dataUser?.isBlocked == true" (click)="openModal('custom-modal-8');" class="button-activer-user" >Activer Utilisateur</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal 8-->
+<!-- <div class="modal">
+    <jw-modal id="custom-modal-1">
+        <form [formGroup]="userForm">
+            <div class="tableau">
+                <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-1');" class="clear">clear</mat-icon>
+                <p class="dtl1">Modifier Utilisateur</p>
+                <div class="grid-container-detail-user">
+                    <div class="content-image">
+                        <img src="../../../assets/images/default.png" alt="">
+                        <img src="" alt="">
+                        <input type="file">
+                    </div>
+                    <div>
+                        <div class="input-v">
+                            <p class="libelle-motif">Matricule</p>
+                            <input class="input-valider" type="text" formControlName="matricule" placeholder="Matricule">
+                        </div>
+                        <div class="input-v">
+                            <p class="libelle-motif">Email</p>
+                            <input class="input-valider" type="text" formControlName="email" placeholder="Email">
+                        </div>
+                        <div class="input-v">
+                            <p class="libelle-motif">Matricule</p>
+                            <input class="input-valider" type="text" formControlName="matricule" placeholder="Matricule">
+                        </div>
+                        <div class="input-v">
+                            <p class="libelle-motif">Email</p>
+                            <input class="input-valider" type="text" formControlName="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="btns3">
+                        <button (click)="validerInterimaire() "  class="button5">Valider</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </jw-modal>
+</div> -->
+
+
+<!--modal7-->
+<div class="modal">
+    <jw-modal id="custom-modal-7">
+        <form [formGroup]="bloquerForm">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-7');" class="clear">clear</mat-icon>
+            <p class="dtl1">Désactiver {{prenom}} {{nom}}</p>
+            <p class="text-droit">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Doloribus harum sapiente a voluptatum inventore consectetur 
+                in ipsa explicabo est nulla at tempora doloremque eaque 
+                veritatis consequuntur necessitatibus, eligendi recusandae quia!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Laudantium molestiae alias dolores suscipit at voluptatibus
+                reiciendis doloremque voluptate nemo quae unde deserunt temporibus 
+                exercitationem aperiam, corporis recusandae incidunt ratione maxime?
+            </p>
+            <p class="text-droit">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Doloribus harum sapiente a voluptatum inventore consectetur 
+                in ipsa explicabo est nulla at tempora doloremque eaque 
+                veritatis consequuntur necessitatibus, eligendi recusandae quia!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Laudantium molestiae alias dolores suscipit at voluptatibus
+                reiciendis doloremque voluptate nemo quae unde deserunt temporibus 
+                exercitationem aperiam, corporis recusandae incidunt ratione maxime?
+            </p>
+            <!-- <div class="content-motif">
+                <p class="libelle-motif">Motif pour désactiver {{prenom}} {{nom}}</p>
+                <textarea class="textarea-motif" formControlName="action" name="motif"  placeholder="Motif de Bannir l'intérimaire"></textarea>
+            </div> -->
+            <div class="content-error-msg" *ngIf="successMsgBannir == false">
+                <p class="error-alert">{{ dataBannir?.message}}</p>
+            </div>
+            <div class="content-button-block">
+                <button (click)="bloquerUser()" class="button-desactiver">Désactiver</button>
+            </div>
+        </div>
+    </form>
+    </jw-modal>
+</div>
+
+<!--modal7-->
+<div class="modal">
+    <jw-modal id="custom-modal-8">
+        <form [formGroup]="bloquerForm">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-8');" class="clear">clear</mat-icon>
+            <p class="dtl1">Activer {{prenom}} {{nom}}</p>
+            <p class="text-droit">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Doloribus harum sapiente a voluptatum inventore consectetur 
+                in ipsa explicabo est nulla at tempora doloremque eaque 
+                veritatis consequuntur necessitatibus, eligendi recusandae quia!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Laudantium molestiae alias dolores suscipit at voluptatibus
+                reiciendis doloremque voluptate nemo quae unde deserunt temporibus 
+                exercitationem aperiam, corporis recusandae incidunt ratione maxime?
+            </p>
+            <p class="text-droit">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Doloribus harum sapiente a voluptatum inventore consectetur 
+                in ipsa explicabo est nulla at tempora doloremque eaque 
+                veritatis consequuntur necessitatibus, eligendi recusandae quia!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Laudantium molestiae alias dolores suscipit at voluptatibus
+                reiciendis doloremque voluptate nemo quae unde deserunt temporibus 
+                exercitationem aperiam, corporis recusandae incidunt ratione maxime?
+            </p>
+            <!-- <div class="content-motif">
+                <p class="libelle-motif">Motif pour activer {{prenom}} {{nom}}</p>
+                <textarea class="textarea-motif" formControlName="action" name="motif"  placeholder="Motif de Bannir l'intérimaire"></textarea>
+            </div> -->
+            <div class="content-error-msg" *ngIf="successMsgBannir == false">
+                <p class="error-alert">{{ dataBannir?.message}}</p>
+            </div>
+            <div class="content-button-block">
+                <button (click)="activerUser()" class="button-activer">Activer</button>
+            </div>
+        </div>
+    </form>
+    </jw-modal>
+</div>
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

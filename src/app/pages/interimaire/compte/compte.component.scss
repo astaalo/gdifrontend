@@ -1,0 +1,708 @@
+.all-container {
+    background-color: #f5f6f9;
+}
+.compte{
+    background-color: white;
+    margin-right: 0px;
+    padding: 10px;
+}
+.detail{
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    color: #222222;
+    margin-top: 0;
+}
+.progres {
+    background-color: white;
+    height: 100px;
+    margin-top: 0px;
+}
+.duree{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #222222; 
+    text-align: center;
+    margin-top: 0px;
+    span{
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: -0.12px;
+    } 
+}
+.bar{
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+#progress_bar{
+    margin-bottom: 20px;
+    height:11px;
+    background-color: #f5f6f9;
+}
+
+#green_bar{
+    height:11px;
+    float:left;
+    overflow:hidden;
+    background:#ff7900;
+}
+.position{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 3px solid;
+    position: absolute;
+    top: -10px;
+    background-color: white;
+}
+.datedebut {
+    font-size: 14px;
+    font-weight: bold;
+}
+.datefin {
+    text-align: right;
+    margin-top: -35px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 180px  1fr;
+    grid-gap: 1px;
+    margin-top: 10px;
+}
+.ima {
+    position: relative;
+}
+.image-interimaire {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    border: 3px solid #009393;
+}
+.image-contact {
+    width: 30px;
+    height: 30px;
+}
+    .im1 {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+    }
+    .im2 {
+        position: absolute;
+        top: 100px;
+        right: 10px;
+    }
+.prenom{
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.16px;
+    text-align: center;
+    color: #222222;
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+.fonction{
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: -0.13px;
+    text-align: center;
+    color: #222222;
+    margin: 0;
+}
+.key{
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 8px;
+    margin-left: 15px;
+    .value {
+        font-weight: bold;
+    }
+}
+.lot2{
+    margin-left: 15px;
+    margin-top: 30px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #222222;
+    .value {
+        font-weight: bold;
+    }
+}
+.button1 {
+    width: 80px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+.button2 {
+    width: 192px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.button3 {
+    width: 125px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.button4 {
+    width: 80px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+// modal 1
+.btns2{
+    width: 350px;
+    margin: 0 auto;
+}
+.btn2 {
+    width: 142px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: #000000;
+    border: none;
+    background-color: #32c832;
+    margin-top: 7px;
+}
+.btn2a {
+    width: 166px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: #ffffff;
+    border: none;
+    background-color: #cd3c14;
+    margin-top: 7px;
+    margin-left: 30px;
+}
+//modal 2
+.tableau {
+    position: relative;
+}
+.dtl1{
+    font-size: 21px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    color: #222222;
+}
+.clear {
+    width: 16px;
+    height: 16px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: -10px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 130px 1fr 160px;
+    border-radius: 1px;
+    border: solid 1px #979797;
+    margin-top: 5px;
+}
+.date {
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    color: #222222;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.user {
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    color: #222222;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btn1 {
+    width: 140px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: #000000;
+    background-color: white;
+    border: 3px solid black;
+    margin-top: 7px;
+    margin-right: 20px;
+}
+
+//modal 3
+.btns3{
+    width: 150px;
+    margin: 0 auto;
+}
+//modal-4
+.listeo {
+    font-size: 21px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    color: #222222;
+    margin-left: 30px;
+}
+.objet {
+    width: 650px;
+    margin: 20px auto;
+    .title {
+        font-size: 21px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.12px;
+        color: #222222;
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+    .libelle {
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.09px;
+        text-align: justify;
+        color: #222222;
+        margin-top: 2px;
+    }
+}
+.btnso {
+    width: 115px;
+    margin: 40px auto;
+}
+.btno {
+    margin-top: 30px;
+    width: 111px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background-color: #000000;
+}
+
+.error-content-image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.error-image {
+    width: 160px;
+    height: 150px;
+    background-image: url("../../../../assets/images/error-message.png");
+    background-size: cover;
+}
+.error-text{
+    text-align: center;
+    color: #ff0000;
+    font-size: 28px;
+}
+.error-message-admin{
+    text-align: center;
+    font-size: 18px;
+}
+.clear-error {
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.error-content-button{
+    width: 50px;
+    margin: 0 auto;
+}
+.error-button{
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #f5f6f9;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px #ff0000;
+}
+@media (max-width: 991px) {
+    .chiffre-aside {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 1px;
+        background-color: white;
+        padding: 0px;
+        margin-top: 10px;
+        border-bottom: 1px solid #f5f6f9;
+    }
+    .grid-container-aside {
+        grid-template-columns: 55px 1fr 55px;
+    }
+    .grid-container1-aside {
+        grid-template-columns: 1fr 125px;
+    }
+    .all-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "tableau"
+          "aside";
+    }
+    .compte{
+        margin-top: 10px;
+        margin-right: 0px;
+        padding: 15px;
+    }
+    .detail{
+        font-size: 26px;
+    }
+    .progres {
+        background-color: white;
+        height: 90px;
+        margin-top: 0px;
+    }
+    .duree{
+        font-size: 14px;
+        
+        span{
+            font-size: 14px;
+        } 
+    }
+    .bar{
+        margin-top: 20px;
+    }
+    #progress_bar{
+        height: 8px;
+    }
+    
+    #green_bar{
+        height: 8px;
+    }
+    .position{
+        height: 20px;
+        width: 20px;
+        top: -10px;
+    }
+    .datedebut {
+       font-size: 10px;
+       margin-top: -10px;
+    }
+    .datefin {
+        margin-top: -20px;
+        font-size: 10px;
+    }
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "image"
+          "info";
+        margin-top: 5px;
+    }
+    .ima {
+        position: relative;
+        width: 230px;
+        margin: 0 auto;
+    }
+    .image-interimaire {
+        width: 210px;
+        height: 210px;
+        border-radius: 40px;
+        border: 3px solid #009393;
+    }
+    .prenom {
+        font-size: 18px;
+    }
+    .fonction {
+        font-size: 18px;
+    }
+    .im1 {
+        position: absolute;
+        top: 10%;
+        left: 83%;
+    }
+    .image-contact {
+        width: 50px;
+        height: 50px;
+    }
+    .im2 {
+        position: absolute;
+        top: 45%;
+        left: 83%;
+    }
+    .info {
+        margin-top: 20px;
+    }
+    .key {
+        font-size: 16px;
+    }
+    .value {
+        font-size: 16px;
+    }
+    .button1 {
+        width: 80px;
+        height: 30px;
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 5px 2px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+        border: 3px solid black;
+        margin-top: 20px;
+    }
+    .button2 {
+        width: 200px;
+        height: 30px;
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 5px 2px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+        border: 3px solid black;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+    .button3 {
+        width: 145px;
+        height: 30px;
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 5px 2px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+        border: 3px solid black;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    .button4 {
+        width: 100px;
+        height: 30px;
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 5px 2px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+        border: 3px solid black;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .button-aside {
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .button1-aside {
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .manager-detail-aside {
+        width: 280px;
+        margin-left: 0 auto;
+    }
+    .btns2{
+        width: 250px;
+        margin: 0 auto;
+    }
+    .btn2 {
+        width: 110px;
+        height: 30px;
+        font-size: 12px;
+    }
+    .btn2a {
+        width: 110px;
+        height: 30px;
+        font-size: 12px;
+        margin-left: 20px;
+    }
+    .dtl1 {
+        font-size: 14px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: 80px 1fr 80px;
+        margin-top: 5px;
+    }
+    .date {
+        font-size: 10px;
+        margin-left: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .user {
+        font-size: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .btn1 {
+        width: 80px;
+        height: 25px;
+        font-size: 8px;
+        border: 1px solid black;
+        margin-top: 5px;
+    }
+    .listeo {
+        font-size: 14px;
+        margin-left: 30px;
+    }
+    .objet {
+        width: 250px;
+        margin: 20px auto;
+        .title {
+            font-size: 13px;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+        .libelle {
+            font-size: 10px;
+            
+        }
+    }
+    .btnso {
+        width: 85px;
+        margin: 30px auto;
+    }
+    .btno {
+        margin-top: 25px;
+        width: 80px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .prenom-aside {
+        font-size: 12px;
+      }
+      .poste-aside {
+        font-size: 10px;
+      }
+      .tmp-aside {
+        font-size: 10px;
+      }
+}

@@ -1,0 +1,58 @@
+<div class="objectif-container">
+    <h1 class="titre-objectif">Historiques des contrats de {{prenom}} {{nom}}</h1>
+    <div *ngIf="isData" class="content-list-objectif">
+        <div class="item-objectif" *ngFor="let p of histoContrat | paginate: {  itemsPerPage: itemsPerPage,
+            currentPage: page,
+            totalItems: totalItems
+            }; let i = index">
+            <div class="content-item-object">
+                <p class="objectif-title">
+                    <span class="libelle-title">Poste</span>:<span class="la-note"> {{p.poste.libelle}} </span>
+                </p>
+                <div class="content-date">
+                    <div class="content-date-debut">
+                        <p class="objectif-title">
+                            <span class="libelle-title"></span>Date de Début:<span class="la-note"> {{p.dateDebut | date:'dd MMMM yyyy'}}</span>
+                        </p>
+                    </div>
+                    <div class="content-date-debut">
+                        <p class="objectif-title">
+                            <span class="libelle-title">Date de Fin</span>:<span class="la-note"> {{p.dateFin | date:'dd MMMM yyyy'}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="content-date">
+                    <div class="content-date-debut">
+                        <p class="objectif-title">
+                            <span class="libelle-title">Société</span>:<span class="la-note"> {{p.societe.libelle}}</span>
+                        </p>
+                    </div>
+                    <div class="content-date-debut">
+                        <p class="objectif-title">
+                            <span class="libelle-title">Direction</span>:<span class="la-note"> {{p.structure.direction.libelle}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="content-date">
+                    <div class="content-date-debut">
+                        <p class="objectif-title">
+                            <span class="libelle-title">Département</span>:<span class="la-note"> {{p.structure.departement}}</span>
+                        </p>
+                    </div>
+                    <div class="content-date-debut">
+                        <p class="objectif-title">
+                            <span class="libelle-title">Service</span>:<span class="la-note"> {{p.structure.service}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="objectif-buttons">
+                <button (click)="openDetail(p.id)" class="button-evaluer">Détail</button>
+            </div>
+        </div>
+        <div class="pagination">
+            <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+        </div>
+    </div>
+    <div *ngIf="!isData" class="content-non-data"></div>
+</div>

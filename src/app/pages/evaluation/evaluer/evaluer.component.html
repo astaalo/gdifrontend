@@ -1,0 +1,103 @@
+<div class="objectif-container">
+    <h1 class="titre-objectif">Evaluer {{prenom}} {{nom}}</h1>
+    <form action="" [formGroup]="evaluerForm">
+        <div class="content-other-input-form">
+            <div class="content-form-dateDebut">
+                <p class="text-other">
+                    <span class="comment-title">Date de Début</span>:
+                </p>
+                <input class="input-commentaire" type="date" formControlName="dateDebut">
+            </div>
+            <div class="content-form-dateFin">
+                <p class="text-other">
+                    <span class="comment-title">Date de Fin</span>:
+                </p>
+                <input class="input-commentaire" type="date" formControlName="dateFin">
+            </div>
+            <div class="content-form-libelle">
+                <p class="text-other">
+                    <span class="comment-title">Libelle</span>:
+                </p>
+                <input class="input-commentaire" type="text" formControlName="libelle">
+            </div>
+        </div>
+        <div class="content-list-objectif" formArrayName="notation">
+            <p class="liste-des-objectifs">Liste des objectifs</p>
+            <div class="content-all-objectif">
+                <div class="item-objectif" *ngFor="let p of objectif ; let i = index">
+                    <div class="content-item-object">
+                        <p class="objectif-title">{{p.titre}}</p>
+                        <p class="objectif-content">{{p.description}}</p>
+                        <div class="note-et-comments" [formGroupName]="i">
+                            <div class="content-form-note">
+                                <p class="text-note-comments">
+                                    <span class="note-title">NOTE</span>:
+                                </p>
+                                <input class="input-note" type="number" formControlName="note">
+                            </div>
+                            <div class="content-form-comment">
+                                <p class="text-note-comments">
+                                    <span class="comment-title">Commentaires</span>:
+                                </p>
+                                <input class="input-commentaire" type="text" formControlName="commentaire">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="pagination">
+                <pagination-controls (pageChange)="p = $event" previousLabel="Prcédent" nextLabel="Suivant"></pagination-controls>
+            </div> -->
+        </div>
+        <div class="content-commentaire-globale">
+            <p class="label-commentaire-global">Commentaire Globale</p>
+            <textarea formControlName="commentaire" type="text" class="input-global-comment" placeholder="Commentaire"></textarea>
+        </div>
+        <div class="content-button-evaluer">
+            <button (click)="evaluer()" class="button-enregistrer-evaluation">Enregistrer</button>
+        </div>
+    </form>
+</div>
+<!--modal-2-->
+<!-- <div class="modal">
+    <jw-modal id="modif-modal-8">
+        <mat-icon style="cursor: pointer;" (click)="closeModal('modif-modal-8');" class="clear">clear</mat-icon>
+        <div class="all">
+            <h1 class="titre-objectif">Modifier l'Objectif</h1>
+            <form [formGroup]="modifierForm">
+                <div class="forms-objectif">
+                    <div class="content-form"> 
+                        <div class="input-titre">
+                            <p class="label-input" for="titre">Titre</p>
+                            <input type="text" [(ngModel)]="itemobjectif.titre" id="titre" name="titre" formControlName="titre" placeholder="Titre" >
+                        </div>
+                        <div class="input-description">
+                            <p class="label-input" for="description">Description</p>
+                            <textarea type="textarea" [(ngModel)]="itemobjectif.description" name="description" formControlName="description" placeholder="Description"></textarea>
+                        </div>
+                        <div class="content-button-submit-objectif">
+                            <button (click)="modifierObjectif(itemobjectif.id)" class="button-submit-objectif">Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+</div> -->
+<!-- modal-2 -->
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

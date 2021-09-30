@@ -1,0 +1,135 @@
+body{
+    overflow-x: hidden;
+    position: relative;
+}
+.img-container{
+    height: 790px;
+    width: 100%;
+}
+.block-img{
+    position: relative;
+    background: rgb(10 10 10 / 73%);
+    width: 348px !important;
+    min-width: 348px !important;
+    max-width: 348px !important;
+}
+a{
+    text-decoration: none !important;
+}
+.elmt{
+    position: absolute;
+    right: 0;
+    right: -49px;
+    top: -51px;
+    height: 579px;
+}
+.logo{
+    z-index: 1;
+    position: absolute;
+    top: 42%;
+    left: 27%;
+}
+.img-logo {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+}
+.title-logo {
+    font-size: 17px;
+    font-weight: bold;
+    padding-top: 8px;
+    color: #ffffff;
+}
+.group-form{
+    position: absolute;
+    top: 6%;
+    left: 14%;
+}
+.block-form{
+    margin: 134px 93px auto;
+
+}
+.form{
+    width: 348px !important;
+    min-width: 348px !important;
+    max-width: 348px !important;
+    height: 476px;
+    padding: 108px 65px 133px 67px;
+    background-color: rgba(232, 233, 234, 0.75);
+}
+.input-text{
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px;
+    outline: none;
+    background-color: transparent;
+}
+.input-text.active{
+    border-color: #009393;
+}
+.mat-content{
+    width: 100%;
+    height: 55px;
+    border: 1px black solid;
+    position: relative;
+    border: solid 2px lightgray;
+    border-radius: 5px;
+    transition:all 0.5s;
+}
+.mat-content .input-mat{
+    position: absolute;
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,0);
+    z-index: 998;
+    padding-left: 10px;
+    font-size: 18px;
+}
+.mat-content .input-mat:focus{
+    outline-width: 0;
+}
+.mat-content.active{
+    border-color: #ff7900;
+}
+.mat-content .label-mat{ /* Internet Explorer 10-11 */
+    color: lightgray;
+    position: absolute;
+    z-index: 997;
+    top: 30%;
+    left: 4%;
+    transition:all 0.2s;
+}
+.mat-content.active .label-mat{
+    color: #ff7900;
+    background-color: #fff;
+    padding: 0px 2px;
+    z-index: 999;
+    top: -10px;
+    left: 10px;
+    font-size: 14px;
+}
+.field{
+    margin-bottom: 17px;
+}
+.label{
+    font-weight: normal !important;
+}
+.title-form{
+    font-size: 24px;
+    color: #009393;
+}
+.btn-green-custom{
+    background: #009393;
+    border-color: #009393;
+    color: #ffffff;
+}
+.btn-green-custom:hover{
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #009393;
+}

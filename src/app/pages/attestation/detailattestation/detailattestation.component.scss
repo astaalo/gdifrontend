@@ -1,0 +1,81 @@
+.all-container{
+    background-color: white;
+    padding: 10px 50px;
+}
+.content-pdf-attestation{
+    width: 750px;
+    margin: 0 auto;
+}
+.context-info-pdf-attestation{
+    width: 600px;
+    margin: 0 auto;
+}
+.content-head-attestation{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+}
+.sonatel-label{
+    font-size: 60px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #009393;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+}
+.reference-label{
+    float: right;
+}
+.structure-label{
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.content-title-attestation{
+    width: 300px;
+    margin: 20px auto;
+    margin-top: 70px;
+}
+.mot-importatnt-attestation{
+    font-weight: bold;
+}
+.title-attestation{
+    height: 30px;
+    padding-top: 2px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #d8d8d8;
+    border: 1px solid black;
+}
+.text-attestation{
+    font-size: 18px;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+}
+.content-text-attestation{
+    margin-top: 80px;
+}
+.content-date-creation-attestation{
+    width: 300px;
+    margin-left: 350px;
+    margin-top: 110px;
+    margin-bottom: 120px;
+}
+.date-creation-attestation{
+    font-size: 20px;
+    font-weight: bold;
+}
+.button-telecharger-attestation{
+    border: none;
+    background-color: #009393;
+    color: white;
+    font-size: 14px;
+    height: 30px;
+    width: 90px;
+}
+.content-button-telecharger-attestation{
+    width: 90px;
+    margin: 0 auto;
+}

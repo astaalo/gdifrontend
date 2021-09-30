@@ -10,9 +10,7 @@ export class JwtInterceptorService {
 
   constructor(private authService: AuthService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-     //tslint:disable-next-line:prefer-const
     let currentUser = this.authService.currentUserValue;
-   // const isLoggedIn = currentUser && currentUser.token;
     if (currentUser && currentUser.token) {
       req = req.clone({
         setHeaders: {

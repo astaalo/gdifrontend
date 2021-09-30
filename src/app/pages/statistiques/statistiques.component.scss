@@ -1,13 +1,13 @@
 .all-container {
-    display: grid;
-    grid-template-columns: 1fr 330px;
+    // display: grid;
+    // grid-template-columns: 1fr 290px;
     background-color: #f5f6f9;
 }
 .all {
-    margin-right: 10px;
+    margin-right: 0px;
 }
 .statt-header {
-    font-size: 26px;
+    font-size: 18px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -21,7 +21,9 @@
     display: flex;
 }
 .statt-sous-header {
-    font-size: 21px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -80,10 +82,10 @@
 
 .tit {
     display: grid;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 1fr 150px;
 }
     .total {
-        font-size: 24px;
+        font-size: 16px;
         font-weight: bold;
         font-stretch: normal;
         font-style: normal;
@@ -130,15 +132,15 @@
     margin-left: 10px;
 }
 .icone-calendar1 {
-    margin-top: 10px;
+    margin-top: 5px;
     margin-left: 15px;
 }
 .filtrer-annees {
     display: flex;
     border: 1px solid #f5f6f9;
     border-radius: 5px;
-    height: 50px;
-    width: 130px;
+    height: 40px;
+    width: 120px;
     margin-top: 15px;
     cursor: pointer;
 }
@@ -700,7 +702,7 @@ table {
     position: relative;
 }
 #chart1 {
-    max-width: 750px;
+    width: 600px;
     margin: 0 auto;
     apx-chart{
         width: 10px !important;
@@ -750,7 +752,48 @@ table {
     margin: 0 auto;
 }
 
-
+.error-content-image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.error-image {
+    width: 160px;
+    height: 150px;
+    background-image: url("../../../assets/images/error-message.png");
+    background-size: cover;
+}
+.error-text{
+    text-align: center;
+    color: #ff0000;
+    font-size: 28px;
+}
+.error-message-admin{
+    text-align: center;
+    font-size: 18px;
+}
+.clear-error {
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.error-content-button{
+    width: 50px;
+    margin: 0 auto;
+}
+.error-button{
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #f5f6f9;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px #ff0000;
+}
 @media (max-width: 991px) {
     .chiffre-aside {
         display: grid;

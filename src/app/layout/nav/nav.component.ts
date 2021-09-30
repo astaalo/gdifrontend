@@ -1,7 +1,4 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
-import { DataService } from 'src/app/service/data.service';
 import { PaginationService } from 'src/app/service/pagination.service';
 ;
 
@@ -18,9 +15,10 @@ export class NavComponent implements OnInit {
   public click1: any;
   public click2: any;
   public menus: any;
+  user;
   scrHeight:any;
   scrWidth:any;
-
+  
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
         this.scrHeight = window.innerHeight;
@@ -34,16 +32,17 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = localStorage.getItem('user');
   }
 
   getMargin(event) {
-    let margin = 10;
+    let margin = 5;
     if (event.id == 1) {
-      margin = 50;
+      margin = 30;
     } else if (event.id == 8) {
-      margin = 80;
+      margin = 40;
     } else  {
-      margin = 1;
+      margin = 5;
     } 
     return margin;
   }

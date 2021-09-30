@@ -1,0 +1,35 @@
+<div class="all-container">
+    <div class="all">
+        <p class="statt-header">Gestion Profil</p>
+        <div class="liste-sous-header">
+            <div [style.border]="border1" (click)="changeShow1()" class="effectif-content" >
+                <p [style.color]="color1" id="effectis" class="statt-sous-header">Liste</p>
+            </div>
+            <div [style.border]="border2"  (click)="changeShow2()" class="effectif-content">
+                <p [style.color]="color2" id="genre" class="statt-sous-header">Ajouter</p>
+            </div>
+        </div>
+        <div *ngIf="show==1" class="content-all-liste-site">
+
+            <table style="overflow-x:auto;"aria-describedby = "mydesc" >
+                <thead>
+                    <tr class="head">
+                        <th  id="manager"><b>Libellé</b></th>
+                        <th  id="direction"><b>code</b></th>
+                        <th  id="agence"><b>Description</b></th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let data of dataProfil">
+                    <tr  style="cursor: pointer;" >
+                        <td >{{data.libelle}}</td>
+                        <td >{{data.code}}</td>
+                        <td >{{data.description}}</td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+        <app-ajoutprofil *ngIf="show==2"></app-ajoutprofil>
+    </div>
+</div> 
+    

@@ -1,0 +1,16 @@
+<div class="all-container">
+    <div class="all">
+        <p class="statt-header">Gestion Période</p>
+        <div class="liste-sous-header">
+            <div [style.border]="border1" (click)="changeShow1()" class="effectif-content" >
+                <p [style.color]="color1" id="effectis" class="statt-sous-header">Liste</p>
+            </div>
+            <div [style.border]="border2"  (click)="changeShow2()" class="effectif-content">
+                <p [style.color]="color2" id="genre" class="statt-sous-header">Ajouter</p>
+            </div>
+        </div>
+        <div *ngIf="show==1" class="content-all-liste-site">Liste Période</div>
+        <app-ajoutperiode *ngIf="show==2"></app-ajoutperiode>
+    </div>
+</div>
+

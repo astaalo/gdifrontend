@@ -1,0 +1,81 @@
+.all-container {
+    // display: grid;
+    // grid-template-columns: 1fr 290px;
+    background-color: #f5f6f9;
+  }
+  .content-search-inter{
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .content-text-explication{
+    padding-right: 15px;
+  }
+  .error-require-input-search{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 11px;
+    color: #ff0000;
+  }
+  .content-form{
+    margin-top: 40px;
+  }
+  .select-search{
+    width: 390px;
+    height: 24px;
+    background-color: #f5f6f9;
+    outline: none;
+    color: black;
+    border: 1px solid #d8d8d8;
+    padding: 0px;
+    option {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 10px;
+        letter-spacing: 0.07px;
+        color: #000;
+        margin-top: 10px;
+        text-align: center;
+    }
+  }
+  .input-search{
+    width: 375px;
+    height: 20px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+  }
+  .label-input1{
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+  .label-input2{
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    //margin-left: 10px;
+  }
+  .text-explication-libelle{
+    font-size: 12px;
+    text-align: justify;
+  }
+  .content-button-form{
+    width: 90px;
+    margin: 0 auto;
+  }
+  .button-ajouter{
+    margin-top: 15px;
+    width: 90px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background-color: #ff7900;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 30px;
+  }

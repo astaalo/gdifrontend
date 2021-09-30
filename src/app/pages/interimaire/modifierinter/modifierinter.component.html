@@ -1,0 +1,225 @@
+<div class="all-container">
+    <div class="all">
+      <div class="all1">
+        <p class="ajouter">Modifier Interimaire</p>
+          <div class="form" [formGroup]="interForm">
+            <mat-horizontal-stepper [linear]="isLinear" #stepper labelPosition="bottom">
+              <mat-step [stepControl]="interForm" >
+                <ng-template matStepLabel>
+                    <div class="head">
+                      <div class="header" [style.background]="colora">
+                        <p class="titre"> 1. Infos personnelles</p>
+                      </div>
+                  </div>
+                </ng-template>
+                <div>
+                    <form [formGroup]="interForm">
+                        <div>
+                        <p class="matri">Matricule: <span>{{matricule}}</span> </p>
+                        <div class="grid">
+                          <div class="photo">
+                            <img class="image-upload" *ngIf="!image" [src]="photo" alt="">
+                            <img class="image-upload" *ngIf="image" [src]="image"  alt="">
+                            <input formControlName="photo" class="buttonphoto1" type="file" (change)="getPhoto($event.target)">
+                          </div>
+                          <div class="others">
+                            <div class="contratinput2">
+                              <select class="select5" [(ngModel)]="typePiece" formControlName="typePiece">
+                                <option class="option" [value]="typePiece"  hidden>{{typePiece}}</option>
+                                <option *ngFor="let data of ListePiece" [value]="data.libelle">{{data.libelle}}</option>
+                              </select>
+                              <input type="text" class="input3" [(ngModel)]="numeroPiece" formControlName="numeroPiece" placeholder="Numero CNI">
+                            </div>
+                            <div class="infoinput2">
+                              <input type="text" [(ngModel)]="prenom" formControlName="prenom" placeholder="Prenom">
+                              <input class="input3" [(ngModel)]="nom" type="text" formControlName="nom" placeholder="Nom">
+                            </div>
+                            <div class="infoinput1">
+                              <input type="text" [(ngModel)]="email" formControlName="email" placeholder="Email">
+                            </div>
+                            <div class="infoinput1">
+                              <input [(ngModel)]="adresse" formControlName="adresse" placeholder="Adresse">
+                            </div>
+                            <div class="infoinput2">
+                              <input type="text" [(ngModel)]="dateNaissance" formControlName="dateNaissance" placeholder="Date de Naissance">
+                              <input class="input3" [(ngModel)]="lieuNaissance" type="text" formControlName="lieuNaissance" placeholder="Lieu de Naissance">
+                            </div>
+                            <div class="infoinput2">
+                              <input type="text" [(ngModel)]="sexe" formControlName="sexe" placeholder="Genre">
+                              <input class="input3" [(ngModel)]="sitmat" type="text" formControlName="sitmat" placeholder="Situation Matrimoniale">
+                            </div>
+                            <div class="infoinput2">
+                              <input type="text" [(ngModel)]="telephone" formControlName="telephone" placeholder="Telephone">
+                              <input class="input3" [(ngModel)]="universite" type="text" formControlName="universite" placeholder="Université et Ecole">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="buttons">
+                        <button class="button1" type="button">Annuler</button>
+                        <button class="button2" (click)="submitted1()" type="submit" mat-button matStepperNext>Suivant</button>
+                      </div>
+                    </form>
+                </div>
+              </mat-step>
+  
+              <mat-step [stepControl]="interForm" >
+                <ng-template matStepLabel>
+                    <div class="head">
+                        <div class="header" [style.background]="colorb">
+                            <p class="titre"> 2. Contrat</p>
+                          </div>
+                    </div> 
+                  </ng-template>
+                <div>
+                  <form [formGroup]="interForm">
+                      <div>
+                      <p class="matri">Matricule: <span>{{matricule}}</span> </p>
+                      <div class="grid">
+                        <div class="photo">
+                          <input formControlName="filecontrat" [(ngModel)]="filecontrat" class="buttonphoto2" type="file" (change)="getFileContrat($event)" >
+                          <p class="fileName">{{contratName}}</p>
+                        </div>
+                        <div class="others">
+                          <div class="contratinput2">
+                            <select class="select5" [(ngModel)]="categorieId" formControlName="categorieId">
+                              <option class="option" [value]="" hidden>{{categorie}}</option>
+                              <option *ngFor="let data of dataCategorie" [value]="data.id">{{data.libelle}}</option>
+                            </select>
+                            <input class="input3" [(ngModel)]="salaireBrut" type="text" formControlName="salaireBrut" placeholder="Montant Salaire Brut">
+                          </div>
+                          <div class="contratinput2">
+                            <input type="date" [(ngModel)]="dateDebut" formControlName="dateDebut" placeholder="Date Début">
+                            <input class="input3" [(ngModel)]="dateFin" type="date" formControlName="dateFin" placeholder="Date Fin">
+                          </div> 
+                          <div class="infoinput1">
+                            <input type="date" [(ngModel)]="dateSignature" formControlName="dateSignature" placeholder="Date Signature">
+                          </div> 
+                          <div class="contratinput2">
+                            <select class="select5" #societe [(ngModel)]="societeId" formControlName="societeId" (change)="directionsListe(societe.value)">
+                              <option class="option" value="" >Societe</option>
+                              <option *ngFor="let data of dataSociete" [value]="data.id">{{data.libelle}}</option>
+                            </select>
+                            <select class="select6" #direction [(ngModel)]="directionId" formControlName="direction" (change)="departementListe(direction.value)">
+                              <option class="option" value="" >Direction</option>
+                              <option *ngFor="let data of dataDirection" [value]="data.id">{{data.libelle}}</option>
+                            </select>
+                          </div>
+                          <div class="contratinput2">
+                            <select class="select5" #departement [(ngModel)]="departementId" formControlName="departement" (change)="serviceListe(departement.value)">
+                              <option class="option" [value]="departementId">{{departementId}}</option>
+                              <option *ngFor="let data of dataDepartement" [value]="data.id">{{data.libelle}}</option>
+                            </select>
+                            <select class="select6" [(ngModel)]="structureId" formControlName="structureId">
+                              <option class="option" [value]="structureId">{{structureName}}</option>
+                              <option *ngFor="let data of donneeService" [value]="data.id">{{data.libelle}}</option>
+                            </select>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                    <button class="button1"  type="button" mat-button matStepperPrevious>Précédent</button>
+                    <button class="button2" (click)="submitted2()" type="submit"  mat-button matStepperNext>Suivant</button>
+                </form>
+                </div>
+              </mat-step>
+  
+              <mat-step [stepControl]="interForm" label="Email" >
+                <ng-template matStepLabel>
+                    <div class="head">
+                        <div class="header" [style.background]="colorc">
+                            <p class="titre"> 3. Poste</p>
+                          </div>
+                      </div>
+                  </ng-template>
+                <div>
+                  <div *ngIf="!submited">
+                    <form [formGroup]="interForm">
+                        <div>
+                        <div class="center">
+                          <div class="fiche-et-pv" >
+                            <div class="photo" >
+                              <input formControlName="fileCni" [(ngModel)]="fileCni" class="buttonCNI" type="file" (change)="getFileCni($event)" >
+                              <p class="fileName">{{cniName}}</p>
+                            </div>
+                            <div class="photo" >
+                              <input formControlName="fileFicheposte" [(ngModel)]="fileFicheposte" class="buttonphoto3" type="file" (change)="getFichePoste($event)" >
+                              <p class="fileName">{{fichedeposteName}}</p>
+                            </div>
+                            <div class="photo" >
+                              <input formControlName="fileproceverbal" [(ngModel)]="fileproceverbal" class="buttonphoto4" type="file" (change)="getProceVerbal($event)" >
+                              <p class="fileName">{{proceverbalName}}</p>
+                            </div>
+                          </div>
+                          <div class="les-diplomes-content">
+                            <div class="diplome-title">
+                              <p class="diplome-title-text">Diplomes</p>
+                            </div>
+                            <div class="liste-diplome">
+                              <div formArrayName="fileDiplome">
+                                <div class="liste-diplome-content" formGroupName="0">
+                                  <input formControlName="diplome" [(ngModel)]="diplome" class="buttondiplome" type="file" (change)="getDiplome1($event)" >
+                                  <p class="diplomename">{{diplomeName1}}</p>
+                                  <!-- <mat-icon class="add-diplome" fontSet="material-icons-outlined" (click)="addNameField()">add</mat-icon> -->
+                                </div>
+                                <div class="liste-diplome-content" formGroupName="1">
+                                  <input formControlName="diplome" [(ngModel)]="diplome" class="buttondiplome" type="file" (change)="getDiplome2($event)" >
+                                  <p class="diplomename">{{diplomeName2}}</p>
+                                  <!-- <mat-icon class="add-diplome" fontSet="material-icons-outlined" (click)="addNameField()">add</mat-icon> -->
+                                </div>
+                                <div class="liste-diplome-content" formGroupName="2">
+                                  <input formControlName="diplome" [(ngModel)]="diplome" class="buttondiplome" type="file" (change)="getDiplome3($event)" >
+                                  <p class="diplomename">{{diplomeName3}}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="button1" mat-button matStepperPrevious>Précédent</button>
+                      <button class="button2" type="button" (click)="submit()" matSteppperNext>Enregistrer</button>
+                  </form>
+                  </div>
+                  <div class="message" *ngIf="submited" >
+                    <div class="grid1">
+                      <div class="image">
+                        <img class="image-valide" src="../assets/images/valide.png" alt="">
+                      </div>
+                      <div class="text">
+                        <p class="p1">
+                          L’agent <span>Mouhamadou Lamine MBODJI</span>  a été ajouté avec succès à la liste des interimaires pour une durée de <span>7 mois</span>. <br> Une notification sera envoyée à <span>son manageur</span> et à l’<span>agence d’interim</span>.
+                        </p>
+                      </div>
+                    </div>
+                    <button class="button3" type="button" (click)="removeItem()" (click)="stepper.reset()">Ajouter un autre</button>
+                    <button class="button4" (click)="removeItem()" routerLink="/accueil/souscontrat">Liste interimaires</button>
+                    <button class="button5" (click)="removeItem()" routerLink="/accueil/homedrh">Tableau de bord</button>
+                  </div>
+                </div>
+              </mat-step>
+  
+            </mat-horizontal-stepper>
+            <div [style.border-left]="color1" class="triangle1"></div>
+            <div [style.border-left]="color2" class="triangle2"></div>
+            <div [style.border-left]="color3" class="triangle3"></div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+  <!--modal1-->
+<div class="modal">
+  <sonatel-pma-errormodal id="error-modal-1">
+      <div class="error-modal-all" >
+          <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+          <div class="error-content-image">
+            <div class="error-image"></div>
+        </div>
+          <p class="error-text">{{errorMsg}}</p>
+          <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+          <div class="error-content-button">
+              <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+          </div>
+      </div>
+  </sonatel-pma-errormodal>
+</div>

@@ -1,0 +1,23 @@
+<div [formGroup]="directionForm" class="content-form-search">
+    <p class="ajouter">Ajout Direction</p>
+    <div class="content-form">
+      <div class="content-row-form">
+        <div class="content-input">
+          <p class="label-input2">Libelle</p>
+          <input class="input-search" type="text" formControlName="libelle" placeholder="Libelle" required>
+          <!--<p class="error-require-input-search" *ngIf="videnumeroPiece" >Veuillez renseigner le numéro de piéce</p>-->
+        </div>
+        <div class="content-input">
+          <p class="label-input1">Societe</p>
+          <select class="select-search"  formControlName="societeId" required>
+            <option class="option" value="" disabled selected hidden>Choisir une Societe</option>
+            <option *ngFor="let data of dataSociete" [value]="data.libelle">{{data.libelle}}</option>
+          </select>
+          <!--<p class="error-require-input-search" *ngIf="videtypePiece" >Veuillez séléctionner un type de pièce</p>-->
+        </div>
+      </div>
+      <div class="content-button-form">
+        <button (click)="ajouterDirection()" class="button-rechercher">Ajouter</button>
+      </div>
+    </div>
+  </div>

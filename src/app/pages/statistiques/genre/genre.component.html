@@ -1,0 +1,134 @@
+<div class="content-diagram-genre">
+    <div class="content-circle-diagram">
+        <div class="detail1">
+            <div class="elmt" >
+                <div class="tit">
+                    <p class="total">Total Interimaires</p>
+                </div>
+                <div class="per">
+                     <div class="cercle">
+                        <circle-progress
+                        [percent]="pourcentFemmecercle"
+                        [radius]="60"
+                        [outerStrokeWidth]="32"
+                        [innerStrokeWidth]="24"
+                        [space] = "-32"
+                        [outerStrokeColor]="'#ff7900'"
+                        [innerStrokeColor]="'#009393'"
+                        [outerStrokeLinecap]= "'square'"
+                        [showTitle]="false"
+                        [showUnits]="false"
+                        [showSubtitle] = "false"
+                        [animation]="true"
+                        [animationDuration]="200"
+                        [startFromZero]="true"
+                        [responsive]="false"
+                        ></circle-progress>
+                    </div> 
+                    <div id="square"></div>
+                    <div class="fl1">
+                        <mat-icon >arrow_right</mat-icon>
+                    </div>
+                    <div id="square1"></div>
+                    <div class="fl2">
+                        <mat-icon >arrow_left</mat-icon>
+                    </div>
+                    <div class="point1"></div>
+                    <div class="point2"></div>
+                    <div class="femmes">
+                        <div class="fem">
+                            <p class="fn">{{femme}}</p>
+                            <p class="fe">Femmes</p>
+                        </div>
+                    </div>
+                    <div class="hommes">
+                        <div class="hom">
+                            <p class="hn">{{homme}}</p>
+                            <p class="ho">Hommes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <!-- <div class="filtre-societe-direction" [formGroup]="percentForm">
+                    <div class="filtrer-societe" style="cursor: pointer;">
+                        <p class="label-input-percent">Socété</p>
+                        <select class="select-societe" formControlName="id_societe" #mySelect (change)='genrePourcentage(mySelect.value)'>
+                            <option *ngFor="let p of dataSociete" class="option" [value]="p.id">{{p.libelle}}</option>
+                        </select>
+                    </div>
+                    <div class="content-extraction">
+                        <button (click)="exportCsv1(percentForm.value.id_societe)" class="button-extraire">Extraire en CSV</button>
+                    </div>
+                </div> -->
+                
+                <p class="interimaires-total">Total: {{totalCercle}}</p>
+                <div class="lesbouton1">
+                    <div  class="button1"> 
+                        <div class="color"></div> 
+                        <p>Homme</p>
+                    </div>
+                    <div  class="button2"> 
+                        <div class="color"></div> 
+                        <p>Femme</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="scrWidth>991" class="stat-effectif-direction">
+        <div class="elmt2" title="messages2">
+            <div class="tit">
+                <p class="total">Répartition des interimaires</p>
+            </div>
+            <div class="selects-and-echelle">
+                <div class="filtre-societe-direction" [formGroup]="societeForm">
+                    <div [style.border]="borderfilter1" id="filter-annee" class="filtrer-societe">
+                        <p class="label-input-percent">Socété</p>
+                        <select class="select-societe" formControlName="societeS">
+                            <option *ngFor="let p of dataSociete" class="option" [value]="p.id">{{p.libelle}}</option>
+                        </select>
+                    </div>
+                    <div [style.border]="borderfilter1" id="filter-annee" class="filtrer-societe">
+                        <p class="label-input-percent">Année</p>
+                        <select class="select-societe" formControlName="anneeS">
+                            <option *ngFor="let p of lastTenYear" class="option" [value]="p.annee">{{p.annee}}</option>
+                        </select>
+                    </div>
+                    <div class="content-extraction">
+                        <!-- <button (click)="exportStatInterimaireBySociete()" class="button-extraire">Extraire en CSV</button> -->
+                        <button (click)="exportCsv(societeForm.value.anneeS, societeForm.value.societeS)" class="button-extraire">Extraire en CSV</button>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="lesboutongenre1">
+                        <div  class="buttongenre1"> 
+                            <div class="color"></div> 
+                            <p>Homme</p>
+                        </div>
+                        <div  class="buttongenre2"> 
+                            <div class="color"></div> 
+                            <p>Femme</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="diagra1">
+                 <div id="chart1">
+                    <apx-chart
+                      [series]="chartOptions3.series"
+                      [chart]="chartOptions3.chart"
+                      [dataLabels]="chartOptions3.dataLabels"
+                      [plotOptions]="chartOptions3.plotOptions"
+                      [responsive]="chartOptions3.responsive"
+                      [xaxis]="chartOptions3.xaxis"
+                      [legend]="chartOptions3.legend"
+                      [fill]="chartOptions3.fill"
+                      [colors]="chartOptions3.colors"
+                      [dataLabels]="chartOptions3.dataLabels"
+                    ></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

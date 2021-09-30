@@ -1,0 +1,196 @@
+.all-container {
+    // display: grid;
+    // grid-template-columns: 1fr 290px;
+    background-color: #f5f6f9;
+}
+.all {
+    background-color: white;
+    margin-right: 0px;
+    padding: 20px;
+}
+.list1 {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    background: #f5f6f9;
+}
+.list2 {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    border-top: 3px solid #f5f6f9;
+}
+.alert1 {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    margin-left: 20px;
+}
+.alert2 {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+.title {
+    font-size: 16px;
+    font-weight: 700;
+}
+.titlet {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+.titled {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+.titls {
+    font-size: 16px;
+    font-weight: 700;
+}
+.date {
+    display: flex;
+}
+.heure {
+    font-size: 12px;
+}
+.sujet {
+    font-size: 14px;
+    font-weight: 500;
+}
+.libele {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+.ser {
+    font-size: 11px;
+    font-weight: 400;
+}
+.dire {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #009393;
+}
+
+.error-content-image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.error-image {
+    width: 160px;
+    height: 150px;
+    background-image: url("../../../../assets/images/error-message.png");
+    background-size: cover;
+}
+.error-text{
+    text-align: center;
+    color: #ff0000;
+    font-size: 28px;
+}
+.error-message-admin{
+    text-align: center;
+    font-size: 18px;
+}
+.clear-error {
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.error-content-button{
+    width: 50px;
+    margin: 0 auto;
+}
+.error-button{
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #f5f6f9;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px #ff0000;
+}
+
+@media (max-width: 991px) {
+    .chiffre-aside {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 1px;
+        background-color: white;
+        padding: 0px;
+        margin-top: 10px;
+        border-bottom: 1px solid #f5f6f9;
+    }
+    .grid-container-aside {
+        grid-template-columns: 55px 1fr 55px;
+    }
+    .grid-container1-aside {
+        grid-template-columns: 1fr 125px;
+    }
+    .all-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "tableau"
+          "aside";
+    }
+    .all {
+        margin-top: 10px;
+        margin-right: 0;
+    }
+    .title {
+        font-size: 10px;
+    }
+    .titlet {
+        font-size: 10px;
+    }
+    .titled {
+        font-size: 10px;
+    }
+    .date {
+        display: block;
+        width: 60px;
+    }
+    .heure {
+        font-size: 8px;
+        width: 50px;
+    }
+    .sujet {
+        font-size: 8px;
+    }
+    .libele {
+        font-size: 8px;
+    }
+    .ser {
+        font-size: 8px;
+        font-weight: 400;
+    }
+    .dire {
+        font-size: 8px;
+    }
+    .button-aside {
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .button1-aside {
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .prenom-aside {
+        font-size: 12px;
+      }
+      .poste-aside {
+        font-size: 10px;
+      }
+      .tmp-aside {
+        font-size: 10px;
+      }
+}

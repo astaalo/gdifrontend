@@ -1,0 +1,133 @@
+<div class="all-container">
+    <div class="compte">
+        <div class="content-header">
+            <div class="content-details">
+                <p class="detail">Détails Contrat de {{prenom}} {{nom}}</p>
+            </div>
+        </div>
+        <div class="grid-container" *ngIf="item">
+            <div class="information">
+                <div class="info">
+                    <div class="lot1">
+                        <p class="key">Poste: <span class="value">{{poste}}</span> </p>
+                        <p class="key">Catégorie: <span class="value">{{categorie}}</span> </p>
+                        <p class="key">Domaine: <span class="value">{{domaine}}</span> </p>
+                        <p class="key">Date de Début: <span class="value">{{dateDebut | date:'dd MMMM yyyy'}}</span> </p>
+                        <p class="key">Date de Fin: <span class="value">{{dateFin | date:'dd MMMM yyyy'}}</span> </p>
+                    </div>
+                    <div class="lot">
+                        <div class="content-structure">
+                            <p class="lot2">Société: <span class="value">{{societe}}</span> </p>
+                            <p class="lot2">Direction: <span class="value">{{direction}}</span> </p>
+                        </div>
+                        <div class="content-structure">
+                            <p class="key">Département: <span class="value">{{departement}}</span> </p>
+                            <p class="key">Service: <span class="value">{{service}}</span> </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesbouton">
+                    <button class="button1" (click)="openModal('custom-modal-1')">Contrat</button>
+                    <button class="button2" (click)="openModal('custom-modal-2')">Procés Verbal</button>
+                    <button class="button3" (click)="openModal('custom-modal-3')">Fiche de poste</button>
+                </div>
+            </div>
+            <div class="info-evaluation">
+                <div class="content-evaluation" *ngFor="let p of evaluations | paginate: {  itemsPerPage: itemsPerPage,
+                    currentPage: page,
+                    totalItems: totalItems
+                    }; let i = index">
+                    <p class="key-evaluation-head">
+                        Évaluation du: 
+                        <span class="value-evaluation-head">{{p.dateDebut | date:'dd MMMM yyyy'}} </span>
+                         au 
+                        <span class="value-evaluation-head"> {{p.dateFin | date:'dd MMMM yyyy'}} </span>
+                    </p>
+                    <p class="key-evaluation">
+                        Note Globale: 
+                        <span class="value-evaluation-note">{{p.note}} </span>
+                    </p>
+                    <p class="key-evaluation-commentaire">
+                        Commentaire: 
+                        <span class="value-commentaire">
+                            {{p.commentaire}}
+                        </span>
+                    </p>
+                </div>
+                <div class="pagination">
+                    <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal1-->
+<div class="modal">
+    <jw-modal id="custom-modal-1">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-1');" class="clear">clear</mat-icon>
+            <p class="dtl1">contrat de {{prenom}} {{nom}}</p>
+            <pdf-viewer [src]="contratDoc"
+              [render-text]="true"
+              [autoresize]="true"
+              [original-size]="false"
+            ></pdf-viewer>
+            <div class="btns2">
+              <button (click)="getContrat()"  class="btn2">Télécharger</button>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal2-->
+<div class="modal">
+    <jw-modal id="custom-modal-2">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-2');" class="clear">clear</mat-icon>
+            <p class="dtl1">Proces Verbal {{prenom}} {{nom}}</p>
+            <pdf-viewer [src]="procesVerbal"
+              [render-text]="true"
+              [autoresize]="true"
+              [original-size]="false"
+            ></pdf-viewer>
+            <div class="btns3">
+                <button (click)="getFicheDePoste()"  class="btn2">Télécharger</button>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+<!--modal3-->
+<div class="modal">
+    <jw-modal id="custom-modal-3">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-3');" class="clear">clear</mat-icon>
+            <p class="dtl1">Fiche de Poste de {{prenom}} {{nom}}</p>
+            <pdf-viewer [src]="fichePosteDoc"
+              [render-text]="true"
+              [autoresize]="true"
+              [original-size]="false"
+            ></pdf-viewer>
+            <div class="btns3">
+                <button (click)="getFicheDePoste()"  class="btn2">Télécharger</button>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

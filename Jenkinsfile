@@ -4,7 +4,7 @@ pipeline {
         label 'dst-preprod'
     }
     environment {
-        EMAIL_RECIPIENTS = 'MoctarThiam.MBODJ@orange-sonatel.com, Madiagne.Sylla@orange-sonatel.com, Mohamed.SALL@orange-sonatel.com, malick.coly@orange-sonatel.com'
+        EMAIL_RECIPIENTS = 'MoctarThiam.MBODJ@orange-sonatel.com, Madiagne.Sylla@orange-sonatel.com, Mohamed.SALL@orange-sonatel.com, malick.coly1@orange-sonatel.com'
         IMAGE = 'registry.tools.orange-sonatel.com/dd/gdi-front'
         VERSION = readMavenPom().getVersion()
         NAME = readMavenPom().getArtifactId()
@@ -51,3 +51,14 @@ pipeline {
         }
     }
 }
+
+
+
+//     sudo docker build --no-cache -t registry.tools.orange-sonatel.com/dd/api-annuaire1212:1.0 .
+//     sudo docker push registry.tools.orange-sonatel.com/dd/api-annuaire1212:1.0
+// ​[12:33] BINETOU DIALLO [SNT DST/DD/DPD/PMA]
+//     les commandes à lancer en local
+// ​[12:33] BINETOU DIALLO [SNT DST/DD/DPD/PMA]
+//     docker stop gdi-api
+// ​[12:33] BINETOU DIALLO [SNT DST/DD/DPD/PMA]
+//     docker rm gdi-api

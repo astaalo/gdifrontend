@@ -1,0 +1,65 @@
+<div class="all-container">
+    <div class="compte">
+        <div class="content-header">
+            <div class="content-details">
+                <p class="detail">Détails Évaluation de {{prenom}} {{nom}}</p>
+            </div>
+        </div>
+        <div class="grid-container" *ngIf="item">
+            <div class="information">
+                <div class="info">
+                    <div class="lot1">
+                        <p class="key">Date de Début: <span class="value">{{dateDebut | date:'dd MMMM yyyy'}}</span> </p>
+                        <p class="key">Date de Fin: <span class="value">{{dateFin | date:'dd MMMM yyyy'}}</span> </p>
+                    </div>
+                    <div class="lot">
+                            <p class="key-evaluation">
+                                Note Globale: 
+                                <span class="value-evaluation-note">{{note}} </span>
+                            </p>
+                            <p class="key-evaluation-commentaire">
+                                Commentaire: 
+                                <span class="value-commentaire">
+                                    {{commentaire}}
+                                </span>
+                            </p>
+                    </div>
+                </div>
+                <div class="lesbouton">
+                    <button class="button1" (click)="ModifierEvaluation()">Modifier</button>
+                    <button class="button2" (click)="openEvaluer()">Faire une évaluation</button>
+                </div>
+            </div>
+            <div class="info-evaluation">
+                <p class="title-liste-objectif">Les Objectifs de cette Evaluation</p>
+                <div class="content-evaluation" *ngFor="let p of objectif | paginate: {  itemsPerPage: itemsPerPage,
+                    currentPage: page,
+                    totalItems: totalItems
+                    }; let i = index">
+                    <p class="key-evaluation-head">
+                        Titre: 
+                        <span class="value-evaluation-head">{{p.titre}} </span>
+                    </p>
+                    <p class="key-evaluation-head">
+                        Description: 
+                        <span class="value-objectif-description">{{p.description}}</span>
+                    </p>
+                    <p class="key-evaluation">
+                        Note: 
+                        <span class="value-objectif-note">{{p.notation.note}}</span>
+                        /{{p.bareme}}
+                    </p>
+                    <p class="key-evaluation-commentaire">
+                        Commentaire: 
+                        <span class="value-commentaire">
+                            {{p.notation.commentaire}}
+                        </span>
+                    </p>
+                </div>
+                <div class="pagination">
+                    <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

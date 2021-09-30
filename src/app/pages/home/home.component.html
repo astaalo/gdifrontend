@@ -1,8 +1,10 @@
 <div class="all-container" >
-    <div class="all" *ngIf="!showHome">
+    <div class="all" *ngIf="user=='INT'">
         <div class="content-web">
-            <p routerLink="/accueil/homedrh" class="bien">Bienvenue Amadou!</p>
-            <p class="alert">Vous n’avez pas encore fait votre demande de suvention restauration. <span routerLink="/accueil/alertes" style="cursor: pointer; outline: none;">Je fais ma demande</span></p>
+            <p routerLink="/accueil/homedrh" class="bien">Bienvenue {{prenom}}</p>
+            <p class="alert">Vous n’avez pas encore fait votre demande de suvention restauration.
+                 <span routerLink="/accueil/alertes" style="cursor: pointer; outline: none;">Je fais ma demande</span>
+            </p>
             <div class="progres">
                 <p class="duree">Contrat <span>5 mois ( 35 jours</span> restant )</p>
                 <div class="barcontrat">
@@ -63,19 +65,21 @@
             </div>
         </div>   
     </div>
-    <div class="main" *ngIf="showHome">
-            <p routerLink="/accueil/home" class="bien">Bienvenue Amadou!</p>
-            <p class="alert">Le contrat de <span class="inter" style="cursor: pointer;">Lamine MBODJI</span>  fini dans 10 jours.  <span class="alertes" style="cursor: pointer; outline: none;" routerLink="/accueil/alertes">Voir les autres alertes</span></p>
+    <div class="main" *ngIf="user!='INT'">
+            <p routerLink="/accueil/home" class="bien">Bienvenue {{prenom}}</p>
+            <p class="alert"> {{lastnotif}}<span class="inter" style="cursor: pointer;"></span>   
+                <span class="alertes" style="cursor: pointer; outline: none;" routerLink="/accueil/alertes">Voir les autres alertes</span>
+            </p>
             <div class="detail1">
                 <div class="elmt" >
                     <div class="tit">
                         <p class="total">Total Interimaires</p>
-                        <p class="totaln">835</p>
+                        <p class="totaln">{{totalCercle}}</p>
                     </div>
                     <div class="per">
                         <div class="cercle">
                             <circle-progress
-                            [percent]="progress"
+                            [percent]="pourcentFemmecercle"
                             [radius]="60"
                             [outerStrokeWidth]="40"
                             [innerStrokeWidth]="20"
@@ -104,13 +108,13 @@
                         <div class="point2"></div>
                         <div class="femmes">
                             <div class="fem">
-                                <p class="fn">315</p>
+                                <p class="fn">{{femme}}</p>
                                 <p class="fe">Femmes</p>
                             </div>
                         </div>
                         <div class="hommes">
                             <div class="hom">
-                                <p class="hn">520</p>
+                                <p class="hn">{{homme}}</p>
                                 <p class="ho">Hommes</p>
                             </div>
                         </div>
@@ -134,12 +138,12 @@
                     <div class="tit">
                         <p class="total">Variation de l’effectif</p>
                     </div>
-                    <div class="filt">
-                        <div class="filtrer1" style="cursor: pointer;">
-                            <mat-icon class="i1" fontSet="material-icons-outlined">date_range</mat-icon>
-                            <select class="select-mois" #leMois (change)='moisSelectionner(leMois.value)'>
-                                <option class="option" value="" disabled selected hidden>Mois</option>
-                                <option *ngFor="let p of mois" class="option" [value]="p.libelle">{{p.libelle}}</option>
+                    <div [formGroup]="anneeForm" class="filter-date">
+                        <div id="filter-annee" class="filtrer-annees">
+                            <mat-icon  id="icon-calendar-annee"  class="icone-calendar1" fontSet="material-icons-outlined">date_range</mat-icon>
+                            <select class="select-mois" formControlName="annee" [(ngModel)]="annee">
+                                <option class="option" value="null">Annee</option>
+                                <option *ngFor="let p of lastTenYear" class="option" [value]="p.annee">{{p.annee}}</option>
                             </select>
                         </div>
                     </div>
@@ -154,6 +158,7 @@
                               [xaxis]="chartOptions.xaxis"
                               [legend]="chartOptions.legend"
                               [fill]="chartOptions.fill"
+                              [colors]="chartOptions.colors"
                               [dataLabels]="chartOptions.dataLabels"
                             ></apx-chart>
                         </div>
@@ -204,13 +209,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let p of datas | filter:filterterm | slice:0:3; let i = index">
+                        <tr *ngFor="let p of dataInterFin | filter:filterterm | slice:0:3; let i = index"  (click)="openDetails(p.id)">
                             <td class="id1">{{p.id}}</td>
-                            <td>{{p.prenom}} {{p.nom}}</td>
-                            <td *ngIf="scrWidth>991"><img alt="" class="photo" src="../assets/images/{{p.photo}}"></td>
+                            <td> {{p.prenom}} {{p.nom}}</td>
+                            <td *ngIf="scrWidth>991"><img alt="" class="photo" src="{{p.photo}}"></td>
                             <td>{{p.direction}}</td>
                             <td>{{p.agence}}</td>
-                            <td> <div [style.background]="getColor(p)" class="statut"></div> <p class="stat"> {{p.statut}}</p></td>
+                            <td> <div [style.background]="getColor(p)" class="statut"></div> <p class="stat" [style.color]="getColor(p)"> {{p.isAdmissible}}</p></td>
                         </tr>
                     </tbody>
                     
@@ -219,85 +224,107 @@
                     <button  class="button6" routerLink="/accueil/fincontrat">Voir tout</button>
                 </div>
             </div>
+            
     </div>
     <div class="aside">
-            <div *ngIf="showHome" class="chiffre-aside" style="margin-left: auto;margin-right: 0;">
-                <div class="elmt-aside" >
-                    <div href="">
-                        <p class="titre-aside">Présents</p>
-                        <br>
-                        <p class="nombre-aside">820</p>
-                    </div>
-                </div>
-                <div class="elmt1-aside" title="messages">
-                    <div href="">
-                        <p class="titre-aside">Malades</p>
-                        <br>
-                        <p class="nombre-aside">11</p>
-                    </div>
-                </div>
-                <div class="elmt2-aside" >
-                    <div href="">
-                        <p class="titre-aside">Congés</p>
-                        <br>
-                        <p class="nombre-aside">04</p>
-                    </div>
+        <div *ngIf="user != 'INT'" class="chiffre-aside" style="margin-left: auto;margin-right: 0;">
+            <div class="elmt-aside">
+                <div href="">
+                    <p class="titre-aside">Présents</p>
+                    <br>
+                    <p class="nombre-aside">{{present}}</p>
                 </div>
             </div>
-            <div *ngIf="showHome" class="interi-aside">
-                <p class="dernier-aside">En fin de contrat</p>
-                <div *ngFor="let p of datas | slice:0:4; let i = index">
-                    <div class="list-aside">
-                        <div style="cursor: pointer;" class="grid-container-aside" [ngStyle]="{'border-bottom' : ((i > 2) ? 'none' : '1px solid #f5f6f9') }">
-                            <div  class="item4-aside" >
-                                <img alt="" class="photo-aside" src="../assets/images/{{p.photo}}">
-                            </div>
-                            <div  class="item4-aside" >
-                                <p class="prenom-aside"> {{p.prenom}} </p>
-                                <p class="poste-aside"> {{p.poste}} </p>
-                            </div>
-                            <div  class="item4-aside"> 
-                                <p class="tmp-aside" >{{p.dateFin | date: 'dd/MM/yyyy'}}</p> 
-                            </div>
+            <div class="elmt1-aside" title="messages">
+                <div href="">
+                    <p class="titre-aside">Malades</p>
+                    <br>
+                    <p class="nombre-aside">{{malade}}</p>
+                </div>
+            </div>
+            <div class="elmt2-aside" >
+                <div href="">
+                    <p class="titre-aside">Congés</p>
+                    <br>
+                    <p class="nombre-aside">{{conge}}</p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="user != 'INT'" class="interi-aside">
+            <p class="dernier-aside">En fin de contrat</p>
+            <div *ngFor="let p of dataInterFin | slice:0:3; let i = index">
+                <div class="list-aside">
+                    <div style="cursor: pointer;" class="grid-container-aside" [ngStyle]="{'border-bottom' : ((i > 2) ? 'none' : '1px solid #f5f6f9') }">
+                        <div  class="item4-aside" >
+                            <img alt="" class="photo-aside" src="{{p.photo}}">
+                        </div>
+                        <div  class="item4-aside" >
+                            <p class="prenom-aside"> {{p.prenom}} {{p.nom}} </p>
+                            <p class="poste-aside"> {{p.poste}} </p>
+                        </div>
+                        <div  class="item4-aside"> 
+                            <p class="tmp-aside" >{{p.fin_contrat | date: 'dd/MM/yyyy'}}</p> 
                         </div>
                     </div>
                 </div>
-                <button  class="button-aside" routerLink="/accueil/newinter">Voir le liste</button>
             </div>
-            <div *ngIf="!showHome">
-                <div class="annonce-aside" *ngFor="let d of data">
-                    <div  class="manager-detail-aside">
-                        <p class="dernier-aside">Manager</p>
-                        <div class="manager-aside">
-                        <img src="../assets/images/manager.png" alt="">
-                        </div>
-                        <p class="nom-aside">{{d.manager}}</p>
-                        <p class="postem-aside">{{d.postem}}</p>
-                        <button  class="button-aside" routerLink="/accueil/manager">Afficher</button>
-                    </div>
-                </div>
+            <div class="content-button-aside">
+                <button  class="button-aside" routerLink="/accueil/fincontrat">Voir le liste</button>
             </div>
+        </div>
+        <div *ngIf="user == 'INT'">
             <div class="annonce-aside">
-                <p class="dernier-aside">Avis de recrutement</p>
-                <div *ngFor="let p of datas | slice:0:4; let i = index">
-                    <div class="list-aside">
-                        <div style="cursor: pointer;" class="grid-container1-aside" [ngStyle]="{'border-bottom' : ((i > 2) ? 'none' : '1px solid #f5f6f9') }">
-                            <div  class="item4-aside" >
-                                <p class="prenom-aside"> {{p.poste}} </p>
-                                <div class="dep-aside">
-                                    <p class="serv-aside"> {{p.direction}}/ </p>
-                                    <p class="serv-aside"> {{p.pole}}/ </p>
-                                    <p class="serv-aside"> {{p.departement}}/ </p>
-                                    <p class="serv-aside"> {{p.service}} </p>
-                                </div>
+                <div  class="manager-detail-aside">
+                    <p class="dernier-aside">Manager</p>
+                    <div class="manager-aside">
+                    <img src="{{photoManager}}" alt="">
+                    </div>
+                    <p class="nom-aside">{{prenomManager}} {{nomManager}}</p>
+                    <p class="postem-aside">{{posteManager}}</p>
+                    <div class="content-button-aside">
+                        <button  class="button-aside" routerLink="/accueil/monmanager">Afficher</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="annonce-aside">
+            <p class="dernier-aside">Nouveaux recrus</p>
+            <div *ngFor="let p of nouveauxRrecrus | slice:0:3; let i = index">
+                <div class="list-aside">
+                    <div style="cursor: pointer;" class="grid-container1-aside" [ngStyle]="{'border-bottom' : ((i > 2) ? 'none' : '1px solid #f5f6f9') }">
+                        <div  class="item4-aside" >
+                            <p class="prenom-aside"> {{p.prenom}} {{p.nom}} </p>
+                            <div class="dep-aside">
+                                <p class="serv-aside"> {{p.poste}} </p>
+                                
                             </div>
-                            <div  class="item4-aside"> 
-                                <p class="tmp1-aside" >{{p.dateFin | date: 'dd/MM/yyyy'}}</p> 
-                            </div>
+                        </div>
+                        <div  class="item4-aside"> 
+                            <p class="tmp1-aside" >{{p.debut_contrat | date: 'dd/MM/yyyy'}}</p> 
                         </div>
                     </div>
                 </div>
-                <button  class="button1-aside" routerLink="/accueil/offre">Voir le liste</button>
             </div>
+            <div class="content-button-aside">
+                <button  class="button1-aside" routerLink="/accueil/souscontrat">Voir le liste</button>
+            </div>
+        </div>
     </div>
 </div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

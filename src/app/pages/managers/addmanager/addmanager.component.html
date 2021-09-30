@@ -1,0 +1,44 @@
+<div class="all-container">
+    <div class="all">
+        <div class="large">
+            <p class="detail">Détails</p>
+            <p class="texte-manager">{{p}}</p>
+            <div class="bouton"  >
+                <button class="button" type="button" > <mat-icon>upload</mat-icon> <p>Charger fichier XLS, CSV, SQL</p></button>
+                <div class="content-button-valider">
+                    <button class="button-valider">Valider</button>
+                </div>
+            </div>
+            <div class="form-add-manager-matricule">
+                <form [formGroup]="matriculeForm">
+                    <div class="content-input">
+                        <p class="label-form">Matricule</p>
+                        <input class="input-form" formControlName="matricule" type="text">
+                    </div>
+                    <div class="content-button">
+                        <button (click)="submitted1()" class="button-envoyer">Envoyer</button>
+                    </div>
+                </form>
+                <p class="info-manager"></p>
+            </div>
+            <div *ngIf="show" class="form-add-manager">
+                <form [formGroup]="userForm">
+                    <div class="manager">
+                        <div class="image">
+                            <img class="image-manager" src="../assets/images/manager.png" alt="">
+                        </div>
+                        <div class="information">
+                            <p class="nom">{{item.manager}}</p>
+                            <p class="poste">{{item.postem}}</p>
+                            <p class="matricule">{{item.matricule}}</p>
+                        </div>
+                    </div>
+                    <div class="content-button-valider">
+                        <button (click)="submitted2()"  class="buttob-envoyer">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

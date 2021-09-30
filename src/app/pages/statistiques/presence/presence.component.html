@@ -1,0 +1,128 @@
+<div class="content-diagram-genre">
+    <div *ngIf="scrWidth>991" class="stat">
+        <div class="elmt2" title="messages2">
+            <div class="tit">
+                <p class="total">Variation de Présence par période</p>
+                <div [formGroup]="anneeForm" class="filter-date">
+                    <div [style.border]="borderfilter1" id="filter-annee" class="filtrer-annees">
+                        <mat-icon [style.color]="colorfilter1" id="icon-calendar-annee"  class="icone-calendar1" fontSet="material-icons-outlined">date_range</mat-icon>
+                        <select class="select-mois" formControlName="anneeA">
+                            <option class="option" value="null">Annee</option>
+                            <option *ngFor="let p of lastTenYear" class="option" [value]="p.annee">{{p.annee}}</option>
+                        </select>
+                    </div>
+                    <div [style.border]="borderfilter1" id="filter-annee" class="filtrer-annees">
+                        <mat-icon [style.color]="colorfilter1" id="icon-calendar-annee"  class="icone-calendar1" fontSet="material-icons-outlined">home</mat-icon>
+                        <select class="select-mois" formControlName="societeA">
+                            <option *ngFor="let p of dataSociete" class="option" [value]="p.id">{{p.libelle}}</option>
+                        </select>
+                    </div>
+                    <div class="content-extraction">
+                        <button (click)="dateSelectionnerPresence(anneeForm.value.anneeA, anneeForm.value.societeA)" class="button-rafraichir">Rafraichir</button>
+                    </div>
+                    <div class="content-extraction">
+                        <!-- <button (click)="exportStatInterimaireByYear()" class="button-extraire">Extraire en CSV</button> -->
+                        <button (click)="exportCsv(anneeForm.value.anneeA, anneeForm.value.societeA)" class="button-extraire">Extraire en CSV</button>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="diagra1">
+                 <div id="chart1">
+                   <apx-chart
+                        [series]="chartOptions4.series"
+                        [chart]="chartOptions4.chart"
+                        [dataLabels]="chartOptions4.dataLabels"
+                        [plotOptions]="chartOptions4.plotOptions"
+                        [responsive]="chartOptions4.responsive"
+                        [xaxis]="chartOptions4.xaxis"
+                        [legend]="chartOptions4.legend"
+                        [fill]="chartOptions4.fill"
+                        [colors]="chartOptions4.colors"
+                        [dataLabels]="chartOptions4.dataLabels"
+                    ></apx-chart>
+                </div> 
+            </div>
+            <div class="lesbouton2">
+                <div  class="button3"> 
+                    <div class="color"></div> 
+                    <p>Malades</p>
+                </div>
+                <!--<div  class="button4"> 
+                    <div class="color"></div> 
+                    <p>Présents</p>
+                </div>-->
+                <div  class="button5"> 
+                    <div class="color"></div> 
+                    <p>Congés</p>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+    <div *ngIf="scrWidth>991" class="stat-effectif-direction">
+        <div class="elmt2" title="messages2">
+            <div class="tit">
+                <p class="total">Répartition des interimaires</p>
+            </div>
+            <div class="selects-and-echelle">
+                <div class="filtre-societe-direction" [formGroup]="societeForm">
+                    <div [style.border]="borderfilter1" id="filter-annee" class="filtrer-annees">
+                        <mat-icon [style.color]="colorfilter1" id="icon-calendar-annee"  class="icone-calendar1" fontSet="material-icons-outlined">home</mat-icon>
+                        <select class="select-mois" formControlName="societeS">
+                            <option *ngFor="let p of dataSociete" class="option" [value]="p.id">{{p.libelle}}</option>
+                        </select>
+                    </div>
+                    <div [style.border]="borderfilter1" id="filter-annee" class="filtrer-annees">
+                        <mat-icon [style.color]="colorfilter1" id="icon-calendar-annee"  class="icone-calendar1" fontSet="material-icons-outlined">date_range</mat-icon>
+                        <select class="select-mois" formControlName="anneeS">
+                            <option class="option" value="null">Annee</option>
+                            <option *ngFor="let p of lastTenYear" class="option" [value]="p.annee">{{p.annee}}</option>
+                        </select>
+                    </div>
+                    <div class="content-extraction">
+                        <button (click)="societeSelectionnerPresence(societeForm.value.societeS)" class="button-rafraichir">Rafraichir</button>
+                    </div>
+                    <div class="content-extraction">
+                        <!-- <button (click)="exportStatInterimaireBySociete()" class="button-extraire">Extraire en CSV</button> -->
+                        <button (click)="exportCsv1(societeForm.value.societeS)" class="button-extraire">Extraire en CSV</button>
+                    </div>
+                </div>
+            </div>
+            <div class="diagra1">
+                 <div id="chart1"> 
+                    <apx-chart
+                      [series]="chartOptions5.series"
+                      [chart]="chartOptions5.chart"
+                      [dataLabels]="chartOptions5.dataLabels"
+                      [plotOptions]="chartOptions5.plotOptions"
+                      [responsive]="chartOptions5.responsive"
+                      [xaxis]="chartOptions5.xaxis"
+                      [legend]="chartOptions5.legend"
+                      [fill]="chartOptions5.fill"
+                      [colors]="chartOptions5.colors"
+                      [dataLabels]="chartOptions5.dataLabels"
+                    ></apx-chart>
+                </div>
+            </div>
+            <div class="lesbouton2">
+                <div  class="button3"> 
+                    <div class="color"></div> 
+                    <p>Mission</p>
+                </div>
+                <div  class="button4"> 
+                    <div class="color"></div> 
+                    <p>Convenance Personnelle</p>
+                </div>
+                <div  class="button5"> 
+                    <div class="color"></div> 
+                    <p>Congés Maladie</p>
+                </div>
+                <div  class="button-conge-an"> 
+                    <div class="color"></div> 
+                    <p>Congés Annuelle</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

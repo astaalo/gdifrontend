@@ -1,0 +1,92 @@
+<div class="all-container">
+    <div class="all">
+        <div class="tableau">
+            <p class="detail1" id="mydesc">Liste Noire des Interimaires</p>
+            <div class="exporter">
+                <form [formGroup]="filterForm">
+                    <div class="exporter">
+                        <div class="content-input-extraction">
+                            <div class="filtrer-mois">
+                                <p class="label-input" for="titre">Téléphone: </p>
+                                <input type="text" class="input-extraction" formControlName="telephone">
+                            </div>
+                            <div class="filtrer-mois">
+                                <p class="label-input" for="titre">Type de Pièce: </p>
+                                <select  formControlName="typePiece" class="select-mois" >
+                                    <option *ngFor="let data of ListePiece"  [value]="data.libelle">{{data.libelle}}</option>
+                                </select>
+                            </div>
+                            <div class="filtrer-mois">
+                                <p class="label-input" for="titre">Numéro de Pièce: </p>
+                                <input type="text" class="input-extraction" formControlName="numeroPiece">
+                            </div>
+                            <div class="content-extraction">
+                                <mat-icon class="icon-search" (click)="gty(page)" fontSet="material-icons-outlined" >search</mat-icon>
+                            </div>
+                        </div>
+                        <!-- <div class="content-error-msg" *ngIf="successMsg == false">
+                            <p class="error-alert">{{ data?.message}}: mois et année</p>
+                        </div> -->
+                    </div>
+                </form>
+            </div>
+            <table style="overflow-x:auto;" aria-describedby = "mydesc">
+                <thead>
+                    <tr class="head">
+                        <th id="presence">Prénom</th>
+                        <th id="presence">Nom</th>
+                        <th id="presence">Téléphone</th>
+                        <th id="paiement" >Type de Pièce</th>
+                        <th id="date">Numéro de Pièce</th>
+                        <th id="attestation">Motif</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of dd | filter:filterterm | paginate: {  itemsPerPage: itemsPerPage,
+                        currentPage: page,
+                        totalItems: totalItems
+                        }; let i = index">
+                        <td>{{p.prenom}}</td>
+                        <td>{{p.nom}}</td>
+                        <td> {{p.telephone}}</td>
+                        <td >{{p.typePiece}}</td>
+                        <td>{{p.numeroPiece}}</td>
+                        <td><button  class="buttons1" (click)="openModal('custom-modal-'+p.id)">Afficher</button></td>
+                        <!--modal1-->
+                        <div class="modal">
+                            <jw-modal id="custom-modal-{{p.id}}">
+                                <div class="tab">
+                                    <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-'+p.id);" class="clear">clear</mat-icon>
+                                    <p class="motif-titre">Motif de la demande</p>
+                                    <p class="dtl1">{{p.description}}</p>
+                                </div>
+                            </jw-modal>
+                        </div>
+                        <!--modal1-->
+                    </tr>
+                </tbody>
+                
+            </table>
+            <div class="pagination">
+                <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

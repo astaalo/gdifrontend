@@ -1,0 +1,26 @@
+<div [formGroup]="periodeForm" class="content-form-search">
+    <p class="ajouter">Ajout Période</p>
+    <div class="content-form">
+      <div class="content-row-form">
+        <div [formGroup]="periodeForm" class="exporter">
+          <div class="filtrer-mois">
+              <p class="label-input" for="titre">Mois: </p>
+              <select  formControlName="mois" class="select-mois" >
+                  <option class="option" value="" disabled selected hidden>Mois: </option>
+                  <option *ngFor="let data of ListeMois"  [value]="data.libelle">{{data.libelle}}</option>
+              </select>
+          </div>
+          <div class="filtrer-mois">
+              <p class="label-input" for="titre">Année: </p>
+              <select  formControlName="annee" class="select-mois" >
+                  <option class="option" value="" disabled selected hidden>Année: </option>
+                  <option *ngFor="let data of lastTenYear"  [value]="data.annee">{{data.annee}}</option>
+              </select>
+          </div>
+      </div>
+      </div>
+      <div class="content-button-form">
+        <button (click)="ajoutPeriode()" class="button-rechercher">Ajouter</button>
+      </div>
+    </div>
+</div>

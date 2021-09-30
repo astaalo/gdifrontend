@@ -1,0 +1,15 @@
+<div [formGroup]="societeForm" class="content-form-search">
+    <p class="ajouter">Ajout Societe</p>
+    <div class="content-form">
+      <div class="content-row-form">
+        <div class="content-input">
+          <p class="label-input2">Societe</p>
+          <input class="input-search" type="text" formControlName="libelle" placeholder="Libellé" required>
+         <!-- <p class="error-require-input-search" *ngIf="videtelephone" >Veuillez renseigner la Société</p>-->
+        </div>
+      </div>
+      <div class="content-button-form">
+        <button (click)="ajoutSociete()" class="button-rechercher">Ajouter</button>
+      </div>
+    </div>
+</div>

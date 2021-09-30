@@ -234,7 +234,7 @@
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
         <site>
-            <id>opera-backend</id>
+            <id>gdi-backend</id>
             <url>file:${site.deploy.url}</url>
         </site>
     </distributionManagement>

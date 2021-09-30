@@ -23,15 +23,16 @@ fa-icon {
 }
 .grid-container {
     display: grid;
-    grid-template-columns: 5px 40px 150px 20px;
+    grid-template-columns: 5px 30px 125px 15px;
     grid-gap: 1px;
     background-color: white;
     padding: 0px;
+    height: 30px;
   }
   
   .grid-container > div {
-    background-color: white;
-    font-size: 15px;
+  //  background-color: white;
+    font-size: 13px;
     -webkit-text-stroke: 0.8px #979797;
     font-family: HelveticaNeue;
     font-weight: normal;
@@ -40,12 +41,20 @@ fa-icon {
     line-height: normal;
     letter-spacing: normal;
     color: #222222;
-    mat-icon {
-        font-size: 25px;
+    height: 30px;
+    .icon1 {
+        font-size: 20px;
         color: #222222;
         padding-right: 0px;
-        margin-left: 5px;
-        margin-top: 5px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    .icon2 {
+      font-size: 20px;
+      color: #222222;
+      padding-right: 0px;
+      margin-left: 0px;
+      margin-top: 3px;
     }
   }
   .item3 {
@@ -61,7 +70,7 @@ fa-icon {
 }
 .grid-container1 {
   display: grid;
-  grid-template-columns: 5px  280px;
+  grid-template-columns: 5px  180px;
   grid-gap: 1px;
   background-color: white;
   padding: 0px;
@@ -69,8 +78,8 @@ fa-icon {
 
 .grid-container1 > div {
   background-color: white;
-  padding: 2px 0;
-  font-size: 15px;
+//  padding: 2px 0;
+  font-size: 12px;
   -webkit-text-stroke: 0.8px #979797;
   font-family: HelveticaNeue;
   font-weight: normal;
@@ -79,17 +88,29 @@ fa-icon {
   line-height: normal;
   letter-spacing: normal;
   color: #222222;
+  height: 30px;
 }
 .item4 {
   margin-left: 80px;
   margin-top: -15px;
 }
 .item1a {
-  margin-top: -5px;
+  margin-top: -10px;
 }
 .item4a {
-  margin-left: 80px;
+  margin-left: 40px;
   margin-top: -15px;
+}
+.title-nav {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.title-nav2 {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.sous-liste{
+  margin-top: 10px;
 }
 @media (max-width: 991px) {
   .nav {

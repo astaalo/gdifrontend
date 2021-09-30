@@ -1,0 +1,83 @@
+<div class="all-container">
+    <form action="" >
+        <div class="tableau">
+            <p class="detail1" id="mydesc">Ajouter des Attestations</p>
+            <div [formGroup]="periodForm" class="exporter">
+                <div class="filtrer-mois">
+                    <p class="label-input" for="titre">Mois: </p>
+                    <select  formControlName="mois" class="select-mois" >
+                        <option class="option" value="" disabled selected hidden>Mois: </option>
+                        <option *ngFor="let data of ListeMois"  [value]="data.libelle">{{data.libelle}}</option>
+                    </select>
+                </div>
+                <div class="filtrer-mois">
+                    <p class="label-input" for="titre">Année: </p>
+                    <select  formControlName="annee" class="select-mois" >
+                        <option class="option" value="" disabled selected hidden>Année: </option>
+                        <option *ngFor="let data of lastTenYear"  [value]="data.annee">{{data.annee}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table [formGroup]="attestationForm" style="overflow-x:auto;" aria-describedby = "mydesc">
+                    <thead>
+                        <tr class="head">
+                            <th class="col-matricule" id="manager">Matricule</th>
+                            <th class="col-prenom" id="prenom">Prenom </th>
+                            <th class="col-nom" id="nom">Nom</th>
+                            <th class="col-agence" *ngIf="scrWidth>991" id="agence">Agence</th>
+                            <th class="col-abscence" id="contrat">Absence</th>
+                            <th class="col-commentaire" id="contrat">Commentaire</th>
+                            <th class="col-action" id="contrat">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody formArrayName="interDetail">
+                        <!-- <tr *ngFor="let p of dataInter | filter:filterterm | paginate: { itemsPerPage: 2, currentPage: p }; let i = index" [formGroupName]="i"> -->
+                        <tr *ngFor="let p of dataInter ; let i = index" [formGroupName]="i">
+                            <td class="col-matricule" >{{p.fin_contrat  | date:'ddMMyyyy'}}</td>
+                            <td class="col-prenom" >{{p.prenom}}</td>
+                            <td class="col-nom">{{p.nom}}</td>
+                            <td class="col-agence" *ngIf="scrWidth>991" >{{p.agence}}</td>
+                            <td class="col-abscence" >
+                                <input type="number" formControlName="nbr_jr_absence" class="nombre-jour-absent">
+                                jours
+                            </td>
+                            <td class="col-commentaire" > 
+                                <input type="text" formControlName="commentaire" class="commentaire-attestation">
+                            </td>
+                            <td class="col-action" (click)="openModal('custom-modal-'+p.id)" id="contrat">
+                                <mat-icon *ngIf="action == true" class="updown" fontSet="material-icons-outlined">delete</mat-icon>
+                                <mat-icon *ngIf="action == false" class="updown" fontSet="material-icons-outlined">add</mat-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+            <div class="pied-tableau-attestation">
+                <div class="pagination">
+                    <!-- <pagination-controls  (pageChange)="p = $event" previousLabel="Prcédent" nextLabel="Suivant"></pagination-controls> -->
+                </div>
+                <div>
+                    <button (click)="addAttestation()" class="button-enregistrer-attestation">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

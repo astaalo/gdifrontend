@@ -1,0 +1,118 @@
+<div class="all-container">
+    <div class="all">
+        <div class="tableau">
+            <p class="detail1" id="mydesc">Liste des Demandes</p>
+            <div class="exporter">
+                <form [formGroup]="filterForm">
+                    <div class="exporter-form">
+                        <div class="content-input-extraction">
+                            <!-- <div class="filtrer-mois">
+                                <p class="label-input" for="titre">Type: </p>
+                                <input type="text" class="input-extraction" list="professions" formControlName="type" [(ngModel)]="profession" (change)="saveProfession($event)">
+                                <datalist id="professions">
+                                  <option *ngFor="let c of listeDemande" [value]="c.libelle" >{{c.libelle}}</option>
+                                </datalist>
+                            </div> -->
+                            <div class="filtrer-mois">
+                                <p class="label-input" for="titre">Type: </p>
+                                <select  formControlName="type" class="select-mois" >
+                                    <option value="null">Aucun Choix</option>
+                                    <option *ngFor="let data of listeDemande"  [value]="data.id">{{data.libelle}}</option>
+                                </select>
+                            </div>
+                            <div class="content-extraction">
+                                <mat-icon class="icon-search" (click)="gty(page)" fontSet="material-icons-outlined" >search</mat-icon>
+                            </div>
+                        </div>
+                        <!-- <div class="content-error-msg" *ngIf="successMsg == false">
+                            <p class="error-alert">{{ data?.message}}: mois et année</p>
+                        </div> -->
+                    </div>
+                </form>
+            </div>
+            
+            <table style="overflow-x:auto;" aria-describedby = "mydesc">
+                <thead>
+                    <tr class="head">
+                        <th class="typ" id="prenom">
+                            <div class="type">
+                                <p>Prenom</p> 
+                            </div>
+                        </th>
+                        <th class="typ" id="nom">
+                            <div class="type">
+                                <p>Nom</p> 
+                            </div>
+                        </th>
+                        <th id="presence">Type</th>
+                        <th id="attestation">Motif</th>
+                        <th id="paiement">Date Debut</th>
+                        <th id="date">Date Fin</th>
+                        <th id="input"><input 
+                             [(ngModel)]="selectedAll"
+                             (change)="selectAll();"
+                             type="checkbox"/>
+                        </th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of dd | filter:filterterm | paginate: {  itemsPerPage: itemsPerPage,
+                        currentPage: page,
+                        totalItems: totalItems
+                        }; let i = index">
+                        <td>{{p.prenom}}</td>
+                        <td>{{p.nom}}</td>
+                        <td> {{p.typeDemande}}</td>
+                        <td><button  class="buttons1" (click)="openModal('custom-modal-'+p.id)">Afficher</button></td>
+                        <td>{{p.dateDebut | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{p.dateFin | date: 'dd/MM/yyyy'}}</td>
+                        <td *ngIf="p.etat == 0"><input type="checkbox"
+                                [checked]="p.etat"
+                                [(ngModel)]="p.etat"
+                                [value]="p.id" 
+                                (change)="checkIfAllSelected();"/>
+                        </td>
+                        <td *ngIf="p.etat == 1">Validé</td>
+                        <!--modal1-->
+                        <div class="modal">
+                            <jw-modal id="custom-modal-{{p.id}}">
+                                <div class="tab">
+                                    <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-'+p.id);" class="clear">clear</mat-icon>
+                                    <p class="motif-titre">Motif de la demande</p>
+                                    <p class="dtl1">{{p.description}}</p>
+                                </div>
+                            </jw-modal>
+                        </div>
+                        <!--modal1-->
+                    </tr>
+                </tbody>
+                
+            </table>
+            <div class="pagination">
+                <div>
+                    <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+                </div>
+                <div class="button-valider-content">
+                    <button class="button-validation-demende" (click)="getCheckedItemList()">Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

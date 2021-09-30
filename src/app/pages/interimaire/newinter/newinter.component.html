@@ -1,0 +1,71 @@
+<div class="all-container">
+    <div class="tableau">
+        <p class="detail1" id="mydesc">Liste des interimaires sous contrat</p>
+        <div class="exporter">
+            <p class="export">Exporter</p>
+            <div class="csv" style="cursor: pointer;">
+                <p class="csv1">CSV</p>
+                <mat-icon fontSet="material-icons-outlined">unfold_more</mat-icon>
+            </div>
+            <div class="filtrer" style="cursor: pointer;">
+                <input class="filtre" type="text" [(ngModel)]="filterterm" placeholder="Filtre">
+                <mat-icon fontSet="material-icons-outlined">tune</mat-icon>
+            </div>
+        </div>
+        <table style="overflow-x:auto;" aria-describedby = "mydesc">
+            <thead>
+                <tr class="head">
+                    <th class="id1" id="matricule">#</th>
+                    <th class="typ" id="prenom">
+                        <div class="type">
+                            <p>Prenom</p> 
+                            <mat-icon class="updown" fontSet="material-icons-outlined">unfold_more</mat-icon>
+                        </div>
+                    </th>
+                    <th class="typ" id="nom">
+                        <div class="type">
+                            <p>Nom</p> 
+                            <mat-icon class="updown" fontSet="material-icons-outlined">unfold_more</mat-icon>
+                        </div>
+                    </th>
+                    <th *ngIf="scrWidth>991" id="manager">Manager</th>
+                    <th id="direction">Direction</th>
+                    <th id="agence">Agence</th>
+                    <th id="contrat">Fin de Contrat</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr (click)="openDetail(p)" style="cursor: pointer;" *ngFor="let p of nouveauxRrecrus | filter:filterterm | paginate: { itemsPerPage: 8, currentPage: p }; let i = index">
+                    <td class="id1">{{p.id}}</td>
+                    <td>{{p.prenom}}</td>
+                    <td>{{p.nom}}</td>
+                    <td *ngIf="scrWidth>991"> <img alt="" class="photo" src="../assets/images/{{p.photo}}"></td>
+                    <td>{{p.direction}}</td>
+                    <td>{{p.agence}}</td>
+                    <td>{{p.dateFin  | date:'dd/MM/yyyy'}} </td>
+                </tr>
+            </tbody>
+            
+        </table> 
+        <div class="pagination">
+            <pagination-controls (pageChange)="p = $event" previousLabel="Prcédent" nextLabel="Suivant"></pagination-controls>
+        </div>
+    </div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

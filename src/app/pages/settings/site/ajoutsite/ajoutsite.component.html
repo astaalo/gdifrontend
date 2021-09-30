@@ -1,0 +1,34 @@
+<div [formGroup]="siteForm" class="content-form-search">
+    <p class="ajouter">Ajout Site</p>
+    <div class="content-form">
+      <div class="content-row-form">
+        <div class="content-input">
+          <p class="label-input2">Libelle</p>
+          <input class="input-search" type="text" formControlName="libelle" placeholder="Libelle" required>
+          <p class="error-require-input-search" *ngIf="emptyLib" >Veuillez renseigner le libelle</p>
+        </div>
+        <div class="content-input">
+          <p class="label-input1">Regions</p>
+          <select class="select-search"  formControlName="regionId" required>
+            <option class="option" value="" disabled selected hidden>Choisir la Region</option>
+            <option *ngFor="let data of dataR" [value]="data.libelle">{{data.libelle}}</option>
+          </select>
+          <!-- <p class="error-require-input-search" *ngIf="videtypePiece" >Veuillez séléctionner une direction</p> -->
+        </div>
+      </div>
+      <div class="content-row-form">
+        <div class="content-input">
+          <p class="label-input1">Code</p>
+          <input class="input-search" type="text" formControlName="code" placeholder="Code du Site" required>
+        </div>
+        <div class="content-input">
+          <p class="label-input2">Adresse</p>
+          <input class="input-search" type="text" formControlName="adresse" placeholder="Adresse du Site" required>
+        </div>
+      </div>
+      <div class="content-button-form">
+        <button (click)="ajouterSite()" class="button-ajouter">Ajouter</button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,145 @@
+<div class="all-container">
+    <div class="compte">
+        <p class="detail">Détails</p>
+        <div class="progres">
+            <p class="duree">Contrat <span>5 mois ( 35 jours</span> restant )</p>
+            <div class="bar">
+                <div id="progress_bar">
+                    <div id="green_bar" [style.width]="getwidth()">&nbsp;</div>
+                </div>
+                <div class="position" [style.left]="getposition()">
+                </div>
+            </div>
+            <div class="datedebutetfin">
+                <p class="datedebut">{{contrat?.dateDebut}}</p>
+                <p class="datefin">{{contrat?.dateFin}}</p>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="image">
+                <div class="ima">
+                    <img class="image-interimaire" alt="" src="{{prenom}}">
+                    <p class="prenom">{{prenom}} {{nom}}</p>
+                    <p class="fonction">{{profession}}</p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="lot1">
+                    <p class="key">Matricule: <span class="value">{{dataInter?.matricule}}</span> </p>
+                    <p class="key">Numéro CNI: <span class="value">{{dataInter?.numeroPiece}}</span> </p>
+                    <p class="key">Date de naissance: <span class="value">{{dataInter?.datedenaissance}}</span> </p>
+                    <p class="key">Lieu de naissance: <span class="value">{{dataInter?.lieudenaissance}}</span> </p>
+                    <p class="key">Genre: <span class="value">{{dataInter?.sexe}}</span> </p>
+                </div>
+                <div class="lot">
+                    <p class="lot2">Catégorie: <span class="value">{{dataInter?.categorie.libelle}}</span> </p>
+                    <p class="key">Agence Interim: <span class="value">{{dataInter?.agence.nom}}</span> </p>
+                    <p class="key">Société: <span class="value">{{dataInter?.structure.libelle}}</span> </p>
+                    <p class="key">Direction: <span class="value">{{dataInter?.structure.direction.libelle}}</span> </p>
+                    <p class="key">Pole: <span class="value">{{dataInter?.structure.pole}}</span> </p>
+                    <p class="key">Département: <span class="value">{{dataInter?.structure.departement}}</span> </p>
+                    <p class="key">Service: <span class="value">{{dataInter?.structure.service}}</span> </p>
+                </div>
+            </div>
+        </div>
+        <div class="lesbouton">
+            <button  class="button1" (click)="openModal('custom-modal-1')">Contrat</button>
+            <button  class="button2" (click)="openModal('custom-modal-2')">Attestations de présence</button>
+            <button  class="button3" (click)="openModal('custom-modal-3')">Fiche de poste</button>
+            <button class="button3" (click)="evaluation()">Evaluations</button>
+            <button  class="button4"(click)="objectif()">Objectifs</button>
+        </div>
+    </div>
+</div>
+<!--modal1-->
+<div class="modal">
+    <jw-modal id="custom-modal-1">
+        <div class="tableau" >
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-1');" class="clear">clear</mat-icon>
+            <p class="dtl1">contrat {{prenom}} {{nom}}</p>
+            <pdf-viewer [src]="DemoDoc1"
+              [render-text]="true"
+              [autoresize]="true"
+              [original-size]="false"
+            ></pdf-viewer>
+            <div class="btns2">
+                <button (click)="getfilemodal()"  class="btn2">Télécharger</button>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal2-->
+<div class="modal">
+    <jw-modal id="custom-modal-2">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-2');" class="clear">clear</mat-icon>
+            <p class="dtl1">Liste des Attestions de présence</p>
+            <div class="grid" *ngFor="let p of datas">
+               <div>
+                   <p class="date">{{dateFin | date: "M yyyy"}}</p>
+               </div>
+               <div>
+                   <p class="user">{{prenom}} {{p.nom}}</p>
+               </div>
+               <div>
+                <button (click)="get(p)"  class="btn1">Télécharger PDF</button>
+               </div>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal3-->
+<div class="modal">
+    <jw-modal id="custom-modal-3">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-3');" class="clear">clear</mat-icon>
+            <p class="dtl1">Fiche de Poste Développeur web</p>
+            <pdf-viewer [src]="DemoDoc1"
+              [render-text]="true"
+              [autoresize]="true"
+              [original-size]="false"
+            ></pdf-viewer>
+            <div class="btns3">
+                <button (click)="getfilemodal()"  class="btn2">Télécharger</button>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal4-->
+<div class="modal">
+    <jw-modal id="custom-modal-4">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-4');" class="clear">clear</mat-icon>
+            <p class="listeo">Liste des objectifs du contrat</p>
+            <div class="objet" *ngFor="let p of objetctis">
+               <div>
+                   <p class="title">{{p.title}}:</p>
+                   <p class="libelle">{{p.libelle}}</p>
+               </div>
+            </div>
+            <div class="btnso">
+                <button  class="btno">Modifier</button>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

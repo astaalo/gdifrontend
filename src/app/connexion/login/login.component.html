@@ -1,0 +1,55 @@
+<div class="all" *ngIf="scrWidth>991">
+    <div class="all2">
+        <div class="login">
+            <div class="logo">
+                <div class="img">
+                    <div class="content-image-orange"></div>
+                    <p>Gestion des Interimaires</p>
+                </div>
+            </div>
+            <div class="forms">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <h3 class="passe">Connexion</h3>
+                    <div class="fiel">
+                        <label class="label"for="username">Nom d’utilisateur</label>
+                        <input formControlName="username"  class="input-text" type="text" name="username" id="username" >
+                    </div>
+                    <div class="field">
+                        <label class="label" for="password">Mot de Passe</label>
+                        <input formControlName="password" class="input-text" type="password" name="password" id="password">
+                    </div>
+                    <div class="content-error-msg" *ngIf="statusLogin == false">
+                        <p class="error-alert">{{ dataLogin?.message}}</p>
+                    </div>
+                    <button (click)="onSubmit()" class="button">Se connecter</button>
+                    <p class="forget" routerLink="/passwordforgetmail">Mot de passe oublié?</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-mobile" *ngIf="scrWidth<991">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+    <div class="col-lg-3 col-6 forms-mobile">
+        <form [formGroup]="loginForm">
+            <h3 class="passe-mobile">Connexion</h3>
+            <div class="fiel-mobile">
+                <label class="label-mobile" for="username">Nom d’utilisateur</label>
+                <input formControlName="username"  class="input-text-mobile" type="text" name="username" id="username" >
+            </div>
+            <div class="field-mobile">
+                <label class="label-mobile" for="password">Mot de Passe</label>
+                <input formControlName="password" class="input-text-mobile" type="password" name="password" id="password">
+            </div>
+            <div class="content-error-msg" *ngIf="statusLogin == false">
+                <p class="error-alert">{{ dataLogin?.message}}</p>
+            </div>
+            <button type="submit" (click)="onSubmit()" class="button-mobile">Se connecter</button>
+            <p class="forget-mobile" routerLink="/passwordforgetmail">Mot de passe oublié?</p>
+        </form>
+        <div *ngIf="errorMsg" class="alert">
+            {{errorMsg}}
+          </div>
+    </div>
+</div>
+

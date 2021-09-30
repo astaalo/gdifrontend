@@ -1,0 +1,114 @@
+  <div class="all-container">
+    <div>
+        <div class="demande">
+            <div class="demande-header">
+                <div class="demande-header-text">
+                    <p class="detail">Mes demandes</p>
+                </div>
+                <div class="demande-button-content">
+                    <button (click)="openModal('custom-modal-8');" class="demande-button">Faire une demande</button>
+                </div>
+            </div>
+            <div>
+                <button  class="button1">Congés Maladie</button>
+                <button  class="button2">Convenance perso</button>
+                <button  class="button3">Mission</button>
+                <button  class="button4">Congés Annuels</button>
+            </div>
+        </div>
+        <div class="tableau">
+                <p class="detail" id="mydesc">Liste des demandes</p>
+                <table style="overflow-x:auto;" aria-describedby = "mydesc">
+                    <thead>
+                        <tr class="head">
+                            <th class="id1" id="matricule">#</th>
+                            <th class="typ" id="type">
+                                <div class="type">
+                                    <p>type</p> 
+                                    <mat-icon class="updown" fontSet="material-icons-outlined">unfold_more</mat-icon>
+                                </div>
+                            </th>
+                            <th id="etat">Etat</th>
+                            <th id="datedebut">Date début</th>
+                            <th id="datefin">Date fin</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of dataDemande | filter:filterterm | paginate: { 
+                            itemsPerPage: itemsPerPage,
+                            currentPage: page,
+                            totalItems: totalItems
+                            }; let i = index">
+                            <td class="id1">{{p.id}}</td>
+                            <td>{{p.typeDemande}}</td>
+                            <td>{{p.etat}}</td>
+                            <td>{{p.dateDebut | date: "dd/MM/yyyy"}}</td>
+                            <td>{{p.dateFin | date: "dd/MM/yyyy"}}</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+                <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Prcédent" nextLabel="Suivant"></pagination-controls>
+            </div>
+    </div>
+</div>
+
+
+<!--modal-->
+<div class="modal">
+    <jw-modal id="custom-modal-8">
+        <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-8');" class="clear">clear</mat-icon>
+        <div class="all">
+          <h1>Faire une demande</h1>
+          <div>
+            <form [formGroup]="demandeForm">
+                <div class="forms">
+                    <div>
+                    <div class="sele">
+                        <div class="sele1">
+                            <select class="custom-select" formControlName="type">
+                                <option value="" disabled selected hidden>Type de Demande</option>
+                                <option *ngFor="let d of demandes" [value]="d.id">{{d.libelle}}</option>
+                            </select>
+                        </div>
+                        </div>
+                      <div class="input2">
+                        <input type="date" formControlName="dateDebut" placeholder="dateDEbut">
+                        <input class="input3" type="date" formControlName="dateFin" placeholder="DateFin">
+                      </div>
+                      <div class="input2">
+                        <input class="description" type="text" formControlName="description" placeholder="description">
+                      </div>
+                      <div class="input2">
+                        <textarea class="motif-demande" type="text" formControlName="motif" placeholder="motif"></textarea>
+                      </div>
+                      <div class="content-error-msg" *ngIf="successMsg == false">
+                        <p class="error-alert">{{ data?.message}}</p>
+                     </div>
+                      <div class="boutonsea">
+                          <button (click)="onSubmit()"
+                          class="buttonsea">Demander</button>
+                      </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </jw-modal>
+  </div>
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

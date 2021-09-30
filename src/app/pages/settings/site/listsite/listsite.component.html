@@ -1,0 +1,62 @@
+<div class="all-container">
+    <div class="all">
+        <p class="statt-header">Gestion Site</p>
+        <div class="liste-sous-header">
+            <div [style.border]="border1" (click)="changeShow1()" class="effectif-content" >
+                <p [style.color]="color1" id="effectis" class="statt-sous-header">Liste</p>
+            </div>
+            <div [style.border]="border2"  (click)="changeShow2()" class="effectif-content">
+                <p [style.color]="color2" id="genre" class="statt-sous-header">Ajouter</p>
+            </div>
+        </div>
+        
+        <div *ngIf="show==1" class="content-all-liste-site">
+            <form [formGroup]="filterForm"  class="forms">
+                <div class="exporter">
+                    <div class="content-input-extraction">
+                        <div class="filtrer-mois">
+                            <p class="label-input" for="titre">Région: </p>
+                            <select type="number" formControlName="region" class="select-mois"  >
+                                <option value="null">Aucun Choix</option>
+                                <option  *ngFor="let data of dataRegion"  [value]="data.id" >{{data.libelle}} </option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <div class="content-extraction" style="margin-left: 25px;">
+                        <mat-icon class="icon-search" fontSet="material-icons-outlined"  (click)="gty(page)" >search</mat-icon>
+                    </div>
+                </div>
+                
+            </form>
+            <table style="overflow-x:auto;"aria-describedby = "mydesc" >
+                <thead>
+                    <tr class="head">
+                        <th class="typ" id="prenom">
+                            <div class="type">
+                                <p><b>Nom</b></p> 
+                                <mat-icon class="updown" fontSet="material-icons-outlined">unfold_more</mat-icon>
+                            </div>
+                        </th>
+                        <th  id="manager"><b>Région</b></th>
+                        <th  id="direction"><b>code</b></th>
+                        <th  id="agence"><b>Adresse</b></th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let data of dataSite">
+                    <tr  style="cursor: pointer;" >
+                        <td >{{data.libelle}}</td>
+                        <td >{{data.region.libelle}}</td>
+                        <td >{{data.code}}</td>
+                        <td >{{data.adresse}}</td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+         
+        <app-ajoutsite *ngIf="show==2"></app-ajoutsite>
+    </div>
+</div>
+

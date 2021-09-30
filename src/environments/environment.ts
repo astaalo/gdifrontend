@@ -5,6 +5,9 @@
 export const environment = {
   production: false,
   base_url: 'http://10.137.16.67:8053'
+  // base_url: 'http://127.0.0.1:8000'
+  // base_url: 'https://gdi-api.preprod-dd.orange.sn'
+  // base_url: 'https://gdi-api-dstgestiondesinterimaires-rec.apps.paas.orange-sonatel.com'
 };
 
 /*

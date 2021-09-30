@@ -1,0 +1,85 @@
+<div class="objectif-container">
+    <h1 class="titre-objectif">Liste des Evaluations de {{interimaire?.data.prenom}} {{interimaire?.data.nom}}</h1>
+    <button *ngIf="role == 'MNG'" class="button-ajouter" (click)="openEvaluer()"  >Faire une Evaluation</button>
+    <div class="grid-container">
+        <div class="info-evaluation" *ngFor="let p of evaluations | paginate: {  itemsPerPage: itemsPerPage,
+            currentPage: page,
+            totalItems: totalItems
+            }; let i = index">
+            <div (click)="openDetail(item, p.id)" class="content-evaluation">
+                <p class="key-evaluation-head">
+                    Évaluation du: 
+                    <span class="value-evaluation-head">{{p.dateDebut | date:'dd MMMM yyyy'}} </span>
+                     au 
+                    <span class="value-evaluation-head"> {{p.dateFin | date:'dd MMMM yyyy'}} </span>
+                </p>
+                <p class="key-evaluation">
+                    Note Globale: 
+                    <span class="value-evaluation-note">{{p.note}} </span>
+                </p>
+                <p class="key-evaluation-commentaire">
+                    Commentaire: 
+                    <span class="value-commentaire">{{p.commentaire}}
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="pagination">
+            <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+        </div>
+    </div>
+    <div class="modal">
+        <jw-modal id="objectif-modal-1">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('objectif-modal-1');" class="clear">clear</mat-icon>
+            <div class="all">
+                <h1 class="titre-objectif">Ajouter un Objectif</h1>
+                <div>
+                    <form [formGroup]="objectifForm">
+                        <div class="forms-objectif">
+                            <div class="content-form">
+                                <div class="input-titre">
+                                    <p class="label-input" for="titre">Titre</p>
+                                    <input id="titre" type="text" formControlName="titre" placeholder="Titre">
+                                </div>
+                                <div class="input-description">
+                                    <p class="label-input" for="description">Description</p>
+                                    <textarea id="description" type="textarea" formControlName="description" placeholder="Description"></textarea>
+                                </div>
+                                <div class="input-objectif-bareme-date">
+                                    <div class="input-bareme">
+                                        <p class="label-input" for="bareme">Bareme</p>
+                                        <input id="bareme" type="number" formControlName="bareme" placeholder="Bareme">
+                                    </div>
+                                    <div class="input-date">
+                                        <p class="label-input" for="date">Date Objectif</p>
+                                        <input id="date" class="input3" type="date" formControlName="date_objectif" placeholder="Date de l'objectif">
+                                    </div>
+                                </div>
+                                <div class="content-button-submit-objectif">
+                                    <button (click)="addObject()" class="button-submit-objectif">Enregistrer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </jw-modal>
+    </div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

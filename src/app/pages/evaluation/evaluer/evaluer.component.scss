@@ -1,0 +1,330 @@
+.objectif-container {
+    background-color: white;
+    padding: 10px;
+    margin-top: 0px;
+    position: relative;
+}
+.titre-objectif {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.button-ajouter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 30px;
+    width: 120px;
+    background-color: #009393;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.content-all-objectif{
+  height: 230px;
+  overflow: scroll;
+}
+.item-objectif {
+    border: 1px solid #000;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.content-item-object {
+    padding-right: 10px;
+}
+.objectif-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+.objectif-content {
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 5px;
+    margin-bottom: 0;
+    text-align: justify;
+}
+.note-et-comments {
+    position: relative;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+}
+.content-form-comment{
+    margin-left: 10px;
+}
+.input-note{
+    outline: none;
+    border: 1px solid #d8d8d8;
+    background-color: #f5f6f9;
+    width: 60px;
+    font-size: 11px;
+    height: 20px;
+}
+.input-commentaire{
+    //width: 500px;
+    outline: none;
+    border: 1px solid #d8d8d8;
+    background-color: #f5f6f9;
+    width: 90%;
+    font-size: 11px;
+    height: 20px;
+}
+.voir-plus {
+    position: absolute;
+    top: 6px;
+    right: 0px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.text-note-comments {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.la-note{
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.le-commentaire{
+    margin-bottom: 0;
+    text-align: justify;
+    font-style: italic;
+    font-size: 12px;
+   /* width: 90%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;*/
+}
+.comment-title {
+    font-size: 13px;
+}
+.note-title {
+    font-size: 13px;
+}
+.content-other-input-form{
+    display: flex;
+    margin-bottom: 5px;
+}
+.content-form-dateFin{
+    margin-left: 10px;
+}
+.content-form-libelle{
+    margin-left: 10px;
+}
+.text-other{
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+.pied-tableau-evaluation{
+    display: grid;
+    grid-template-columns: 1fr 80px;
+}
+.content-commentaire-globale{
+    display: flex;
+    margin-top: 5px;
+}
+.label-commentaire-global{
+    font-size: 12px;
+}
+.input-global-comment{
+    width: 100%;
+    outline: none;
+    font-size: 11px;
+}
+.liste-des-objectifs{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.content-button-evaluer{
+    width: 80px;
+    margin: 0 auto;
+}
+.button-enregistrer-evaluation{
+    background-color: #ff7900;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 80px;
+}
+.button-evaluer {
+    height: 30px;
+    width: 90px;
+    background-color: #ff7900;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+.button-modifier {
+    height: 30px;
+    width: 90px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.button-commentaire {
+    height: 30px;
+    width: 90px;
+    background-color: #009393;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+//modal
+.modal{
+    position: relative;
+}
+.clear {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.forms-objectif {
+    width: 500px;
+    margin: 0 auto;
+}
+.label-input {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+input {
+    outline: none;
+    padding: 0 10px;
+}
+.input-titre input{
+    width: 500px;
+    height: 30px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 0px;
+}
+.input-description textarea{
+    width: 510px;
+    height: 70px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 0px;
+    padding: 5px 5px;
+    outline: none;
+}
+.input-objectif-bareme-date {
+    display: flex;
+}
+.input-bareme input{
+    width: 235px;
+    height: 30px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 0px;
+}
+.input-date {
+    margin-left: 10px;
+}
+.input-date input{
+    width: 235px;
+    height: 30px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 0px;
+}
+.content-button-submit-objectif {
+    width: 90px;
+    margin: 10px auto;
+}
+.button-submit-objectif {
+    height: 30px;
+    width: 90px;
+    color: white;
+    background-color: #ff7900;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+.error-content-image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.error-image {
+    width: 160px;
+    height: 150px;
+    background-image: url("../../../../assets/images/error-message.png");
+    background-size: cover;
+}
+.error-text{
+    text-align: center;
+    color: #ff0000;
+    font-size: 28px;
+}
+.error-message-admin{
+    text-align: center;
+    font-size: 18px;
+}
+.clear-error {
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.error-content-button{
+    width: 50px;
+    margin: 0 auto;
+}
+.error-button{
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #f5f6f9;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px #ff0000;
+}
+@media (max-width: 991px) {
+    .content-other-input-form{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-bottom: 5px;
+    }
+    .content-form-libelle{
+        margin-left: 0px;
+    }
+}

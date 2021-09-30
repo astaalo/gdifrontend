@@ -1,0 +1,1274 @@
+.all-container {
+    // display: grid;
+    // grid-template-columns: 1fr 290px;
+    background-color: #f5f6f9;
+  }
+  .content-search-inter{
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .content-text-explication{
+    padding-right: 15px;
+  }
+  .error-require-input-search{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 11px;
+    color: #ff0000;
+  }
+  .content-form{
+    margin-top: 40px;
+  }
+  .select-search{
+    width: 390px;
+    height: 24px;
+    background-color: #f5f6f9;
+    outline: none;
+    color: black;
+    border: 1px solid #d8d8d8;
+    padding: 0px;
+    option {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 10px;
+        letter-spacing: 0.07px;
+        color: #000;
+        margin-top: 10px;
+        text-align: center;
+    }
+  }
+  .input-search{
+    width: 375px;
+    height: 20px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+  }
+  .label-input1{
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+  .label-input2{
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    //margin-left: 10px;
+  }
+  .text-explication-libelle{
+    font-size: 12px;
+    text-align: justify;
+  }
+  .content-button-form{
+    width: 90px;
+    margin: 0 auto;
+  }
+  .button-rechercher{
+    margin-top: 15px;
+    width: 90px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background-color: #ff7900;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .text-result-search{
+    padding-right: 15px;
+  }
+  .text-blacklist{
+    font-size: 12px;
+    text-align: justify;
+  }
+  .inter-blackliste{
+    color: #ff0000;
+  }
+  .inter-ok{
+    color: #009393;
+  }
+  .inter-end{
+    color: #ff7900;
+  }
+  .all {
+      background-color: white;
+      margin-right: 0px;
+      padding: 5px;  
+  }
+  .all1 {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .ajouter {
+      font-size: 18px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.7px;
+      color: #222222;
+      margin-top: 0;
+      margin-left: 10px;
+  }
+  
+  .titre {
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.14;
+      letter-spacing: -0.1px;
+      text-align: center;
+      color: #ffffff;
+      margin-top: 8px;
+  }
+  .form {
+    position: relative;
+  }
+  .triangle1 {
+    position: absolute;
+    top: 0;
+    left: 160px;
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 21px solid transparent;
+  //  border-left: 20px solid green;
+  }
+  .triangle2 {
+    position: absolute;
+    top: 0;
+    left: 320px;
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 21px solid transparent;
+  //  border-left: 20px solid green;
+  }
+  .triangle3 {
+    position: absolute;
+    top: 0;
+    left: 480px;
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 21px solid transparent;
+  //  border-left: 20px solid green;
+  }
+  .head {
+      width: 160px;
+      position: relative;
+  }
+  .header {
+    padding-top: 5px;
+    max-width: 160px;
+    height: 36px;
+    background: #000000;
+    position: relative;
+  }
+  button {
+    cursor: pointer;
+  }
+  .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+    border-radius: 0;
+  }
+  .button3 {
+    width: 177px;
+    height: 50px;
+    background: #f16e00;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: white;
+    margin-left: 50px;
+    outline: none;
+    border: none;
+  }
+  .button4 {
+    width: 186px;
+    height: 50px;
+    background: black;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: white;
+    margin-left: 40px;
+    border-radius: none;
+    margin-top: 30px;
+    outline: none;
+    border: none;
+  }
+  .button5 {
+    width: 177px;
+    height: 50px;
+    background: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: black;
+    margin-left: 20px;
+    border-radius: none;
+    margin-top: 30px;
+    outline: none;
+    border: 3px solid black;
+  }
+  
+  
+  .matri {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #222222;
+    margin-top: 30px;
+    margin-left: 5px;
+    span {
+        font-weight: bold;
+    }
+  }
+  .grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+  }
+  .image-upload {
+    width: 140px;
+    height: 140px;
+    margin-left: 0px;
+    border-radius: 20px;
+    border: solid 3px #009393;
+  }
+  .content-image-upload {
+    width: 140px;
+    height: 140px;
+    margin-left: 0px;
+    border-radius: 20px;
+    border: solid 3px #009393;
+    // background-image: url("../../../../assets/images/default.png");
+    background-size: cover;
+  }
+  ::-webkit-file-upload-button {
+    
+    width: 148px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 5px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid black;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  /* for poor sods using IE */
+  ::-ms-browse {
+    content: 'Ajouter Photo';
+    width: 158px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 5px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid black;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  .buttonphoto1::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+  }
+  .buttonphoto1::before {
+    content: 'Ajouter Photo';
+    width: 120px;
+    height: 25px;
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-top: 0px;
+    padding-top: 5px;
+  }
+  .others {
+    margin-left: 20px;
+  }
+  input {
+    padding-left: 10px;
+    outline: none;
+  }
+  .infoinput1 input {
+    width: 319px;
+    height: 20px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 10px;
+  }
+  .infoinput2 input {
+    width: 147px;
+    height: 20px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 10px;
+  }
+  .infoinput3 {
+    margin-left: 10px;
+  }
+  .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+    border-radius: 0;
+  }
+  button {
+    cursor: pointer;
+  }
+  .button1 {
+    width: 106px;
+    height: 50px;
+    border: solid 2px #000000;
+    background: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: #000000;
+    margin-left: 110px;
+  }
+  .button2 {
+    width: 106px;
+    height: 50px;
+    background: #f16e00;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: white;
+    margin-left: 190px;
+    border-radius: none !important;
+    margin-top: 30px;
+    border: none !important;
+  }
+  
+  ::-webkit-file-upload-button {
+    
+    width: 158px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 5px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid black;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  /* for poor sods using IE */
+  ::-ms-browse {
+    content: 'Ajouter Photo';
+    width: 158px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 5px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid black;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  .buttonphoto1 {
+    width: 130px;
+  }
+  .buttonphoto2 {
+    width: 130px;
+  }
+  .buttonphoto3 {
+    width: 130px;
+    padding-left: 0;
+  }
+  .buttonphoto4 {
+    width: 130px;
+    padding-left: 0;
+  }
+  .les-diplomes-content {
+  //  display: grid;
+  //  grid-template-columns: 100px 1fr;
+    border: 1px solid #8e8e8e;
+  }
+  .diplome-title {
+    border-bottom: 1px solid #8e8e8e;
+  }
+  .diplome-title-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .liste-diplome-content {
+    display: flex;
+  }
+  .buttondiplome {
+    width: 130px;
+  }
+  .buttondiplome::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+  }
+  .buttondiplome::before {
+    content: 'uploader';
+    width: 125px;
+    height: 25px;
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    padding-top: 5px;
+  }
+  .buttonCNI {
+    width: 130px;
+    padding-left: 0;
+  }
+  .buttonCNI::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+  }
+  .buttonCNI::before {
+    content: 'Fichier Pièce';
+    width: 125px;
+    height: 25px;
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    padding-top: 5px;
+    margin-top: -30px;
+  }
+  .buttonphoto2::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+  }
+  .add-diplome {
+    margin-top: 40px;
+  
+    cursor: pointer;
+  }
+  .button-choisir-fichier-image {
+    width: 50px;
+    height: 50px;
+  }
+  .button-choisir-fichier {
+    width: 100%;
+    height: 90px;
+  }
+  .diplomename {
+    font-size: 14px;
+    color: #ff7900;
+    margin: 10px;
+    width: 280px !important;
+    margin-top: 30px;
+  }
+  .fileName {
+    font-size: 14px;
+    color: #ff7900;
+    margin-top: 40px;
+    //margin-left: 10px;
+    margin-bottom: 0;
+    //width: 140px !important;
+  }
+  .buttonphoto2::before {
+    content: 'Upload Contrat';
+    width: 120px;
+    height: 25px;
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid black;
+    margin-top: 0px;
+    padding-top: 5px;
+  }
+  .others {
+    margin-left: 20px;
+  }
+  input {
+    padding-left: 10px;
+    outline: none;
+  }
+  .contratinput2 input {
+    width: 145px;
+    height: 20px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 10px;
+  }
+  .contratinput3 {
+    margin-left: 10px;
+  }
+  .select5 {
+    width: 159px;
+    height: 24px;
+    margin-bottom: 10px;
+    background-color: #f5f6f9;
+    outline: none;
+    color: black;
+    border: 1px solid #d8d8d8;
+    padding: 0px;
+    option {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 10px;
+        letter-spacing: 0.07px;
+        color: #000;
+        margin-top: 10px;
+        text-align: center;
+    }
+  }
+  .select6 {
+    margin-left: 10px;
+    width: 159px;
+    height: 24px;
+    margin-bottom: 10px;
+    background-color: #f5f6f9;
+    outline: none;
+    color: black;
+    border: 1px solid #d8d8d8;
+    padding: 0px;
+    option {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 10px;
+        letter-spacing: 0.07px;
+        color: #000;
+        margin-top: 10px;
+        text-align: center;
+    }
+  }
+  .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+    border-radius: 0;
+  }
+  .button1 {
+    width: 126px;
+    height: 50px;
+    border: solid 2px #000000;
+    background: white !important;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: #000000;
+    margin-left: 110px;
+  }
+  .button1:hover {
+    background-color: white !important;
+  }
+  .button2 {
+    width: 106px;
+    height: 50px;
+    background: #f16e00;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: white;
+    margin-left: 190px;
+    border-radius: none;
+    margin-top: 30px;
+    border: none;
+  }
+  
+  
+  
+  .center {
+    margin-top: 5px;
+  }
+  .posteinput2 {
+    width: 450px;
+    margin: 5px auto;
+  }
+  .photo {
+    width: 150px;
+    margin: 0px auto;
+  }
+  ::-webkit-file-upload-button {
+    
+    width: 165px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 5px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid black;
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+  
+  .buttonphoto3::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+  }
+  .buttonphoto3::before {
+    content: 'Fiche de poste';
+    width: 125px;
+    height: 25px;
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    padding-top: 5px;
+  }
+  .buttonphoto4::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+  }
+  .buttonphoto4::before {
+    content: 'Proces Verbal';
+    width: 125px;
+    height: 25px;
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    padding-top: 5px;
+  }
+  .others {
+    margin-left: 10px;
+  }
+  input {
+    padding-left: 10px;
+    outline: none;
+  }
+  .posteinput2 input {
+    width: 205px;
+    height: 30px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 20px;
+  }
+  .input3 {
+    margin-left: 10px;
+  }
+  
+  .select7 {
+    margin-left: 10px;
+    width: 215px;
+    height: 24px;
+    margin-bottom: 10px;
+    background-color: #f5f6f9;
+    outline: none;
+    color: black;
+    border: 1px solid #d8d8d8;
+    padding: 0px;
+    option {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 10px;
+        letter-spacing: 0.07px;
+        color: #000;
+        margin-top: 10px;
+        text-align: center;
+    }
+  }
+  .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+    border-radius: 0;
+  }
+  .button1 {
+    width: 116px;
+    height: 30px;
+    border: solid 2px #000000;
+    background: white;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: #000000;
+    margin-left: 70px;
+    outline: none;
+  }
+  button {
+    cursor: pointer;
+  }
+  .button2 {
+    width: 106px;
+    height: 30px;
+    background: #f16e00;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: white;
+    margin-left: 120px;
+    border-radius: none;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+  .message {
+    margin-top: 90px;
+  }
+  .grid1 {
+    width: 490px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+  }
+  .image-valide {
+    width: 148px;
+    height: 148px;
+    border-radius: 40px;
+  }
+  .text {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 300px;
+  }
+  .p1 {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: justify;
+    color: #000000;
+    span {
+        font-weight: bold;
+    }
+  }
+  .button3 {
+    width: 127px;
+    height: 30px;
+    background: #f16e00;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: white;
+    margin-left: 0px;
+    outline: none;
+    border: none;
+  }
+  .button4 {
+    width: 156px;
+    height: 30px;
+    background: black;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: white;
+    margin-left: 20px;
+    border-radius: none;
+    margin-top: 30px;
+    outline: none;
+    border: none;
+  }
+  .button5 {
+    width: 137px;
+    height: 30px;
+    background: white;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: black;
+    margin-left: 20px;
+    border-radius: none;
+    margin-top: 30px;
+    outline: none;
+    border: 3px solid black;
+  }
+  
+  .otherfile {
+    display: flex;
+  }
+  .content-error-msg{
+    width: 300px;
+    margin-left: 0px;
+  }
+  .error-alert{
+    color: #ff0000;
+    font-size: 12px;
+  }
+  .error-content-image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  .error-image {
+    width: 160px;
+    height: 150px;
+    // background-image: url("../../../../assets/images/error-message.png");
+    background-size: cover;
+  }
+  .blackliste-content-image{
+    width: 200px;
+    height: 120px;
+    margin: 0 auto;
+  }
+  .blackliste-image {
+    width: 200px;
+    height: 120px;
+    // background-image: url("../../../../assets/images/tampon-en-caoutchouc-de-liste-noire-110063540.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .error-text{
+    text-align: center;
+    color: #ff0000;
+    font-size: 28px;
+  }
+  .error-message-admin{
+    text-align: center;
+    font-size: 18px;
+  }
+  .blackliste-message-admin{
+    text-align: center;
+    font-size: 18px;
+    margin-top: 0;
+  }
+  .clear-error {
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+  }
+  .error-content-button{
+    width: 50px;
+    margin: 0 auto;
+  }
+  .error-button{
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #f5f6f9;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px #ff0000;
+  }
+  @media (max-width: 991px) {
+    .chiffre-aside {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 1px;
+        background-color: white;
+        padding: 0px;
+        margin-top: 10px;
+        border-bottom: 1px solid #f5f6f9;
+    }
+    .grid-container-aside {
+        grid-template-columns: 55px 1fr 55px;
+    }
+    .grid-container1-aside {
+        grid-template-columns: 1fr 125px;
+    }
+    .all-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "tableau"
+          "aside";
+    }
+    .all {
+      margin-right: 0px;
+      padding: 10px 5px;  
+      margin-top: 10px;
+    }
+    .all1 {
+      width: 300px;
+      margin: 0 auto;
+    }
+    .ajouter {
+        font-size: 24px;
+        margin-top: 0;
+        margin-left: 10px;
+    }
+  
+    .titre {
+      font-size: 8px;
+      margin-top: 8px;
+    }
+    .form {
+      position: relative;
+    }
+    .triangle1 {
+      position: absolute;
+      top: 0;
+      left: 95px;
+      border-top: 15px solid transparent;
+      border-bottom: 16px solid transparent;
+    }
+    .triangle2 {
+      position: absolute;
+      top: 0;
+      left: 190px;
+      border-top: 15px solid transparent;
+      border-bottom: 16px solid transparent;
+    }
+    .triangle3 {
+      position: absolute;
+      top: 0;
+      left: 285px;
+      border-top: 15px solid transparent;
+      border-bottom: 16px solid transparent;
+    }
+    .head {
+      width: 95px;
+      position: relative;
+    }
+    .header {
+      padding-top: 5px;
+      max-width: 98px;
+      height: 26px;
+      background: #000000;
+      position: relative;
+    }
+    .grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "photo"
+        "others";
+    }
+    .grid1 {
+      width: 280px;
+      margin: 15px auto;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "photo"
+        "others";
+    }
+    .photo {
+      width: 110px;
+    }
+    .image-upload {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+    .buttonphoto1 {
+      padding-left: 0;
+      height: 70px;
+      margin-top: -20px;
+    }
+    .buttonphoto1::before {
+      content: 'Ajouter Photo';
+      width: 100px;
+      height: 20px;
+      font-size: 10px;
+      padding-top: 10px;
+      margin: 0 auto;
+    }
+    .buttonphoto2 {
+      padding-left: 0;
+      height: 70px;
+      margin-top: -20px;
+    }
+    .buttonphoto2::before {
+      content: 'Upload Contrat';
+      width: 100px;
+      height: 20px;
+      font-size: 10px;
+      padding-top: 10px;
+      margin: 0 auto;
+    }
+    .buttonphoto3 {
+      height: 70px;
+      margin-top: -20px;
+    }
+    .buttonphoto4 {
+      height: 70px;
+      margin-top: -20px;
+    }
+    .buttonphoto3::before {
+      content: 'Fiche de Poste';
+      width: 80px;
+      height: 20px;
+      font-size: 8px;
+      padding-top: 10px;
+      border-left: 3px solid black;
+      margin-left: 0 !important;
+    }
+    .buttonphoto4::before {
+      content: 'Fiche de Poste';
+      width: 80px;
+      height: 20px;
+      font-size: 8px;
+      padding-top: 10px;
+      border-left: 3px solid black;
+      margin-left: 0 !important;
+    }
+    .select5 {
+      width: 133px;
+      height: 35px;
+      font-size: 8px;
+      color: #8e8e8e;
+    }
+    .select6 {
+      width: 133px;
+      height: 35px;
+      font-size: 8px;
+      color: #8e8e8e;
+    }
+    .select7 {
+      width: 133px;
+      height: 35px;
+      font-size: 8px;
+      color: #8e8e8e;
+    }
+  
+    .mat-horizontal-content-container {
+        overflow: hidden;
+        padding: 0 5px 10px 5px;
+    }
+    .infoinput1 input {
+      width: 265px;
+      height: 31px;
+      margin-bottom: 10px;
+      font-size: 8px;
+    }
+    .infoinput2 input {
+      width: 120px;
+      height: 31px;
+      margin-bottom: 10px;
+      font-size: 8px;
+    }
+    .posteinput2 input {
+      width: 120px;
+      height: 31px;
+      margin-bottom: 10px;
+      font-size: 8px;
+    } 
+    .contratinput2 input {
+      width: 120px;
+      height: 31px;
+      margin-bottom: 10px;
+      font-size: 8px;
+    }
+    .message {
+      margin-top: 20px;
+    }
+    .image {
+      width: 100px;
+      margin: 0 auto;
+    }
+     .image-valide {
+      width: 100px;
+      height: 100px;
+      border-radius: 40px;
+    }
+    .text {
+      margin-top: 10px;
+      margin-left: 0px;
+      width: 280px;
+    }
+    .p1 {
+      font-size: 10px;
+    }
+    
+    .button1 {
+      width: 90px;
+      height: 30px;
+      font-size: 10px;
+      margin-left: 50px
+    }
+    .button2 {
+      width: 90px;
+      height: 30px;
+      font-size: 10px;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+    .button3 {
+      width: 80px;
+      height: 30px;
+      font-size: 10px;
+      margin-left: 5px
+    }
+    .button4 {
+      width: 80px;
+      height: 30px;
+      font-size: 10px;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+    .button5 {
+      width: 80px;
+      height: 30px;
+      font-size: 10px;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+    .others {
+      margin-left: 0;
+    }
+    .matri {
+      font-size: 14px;
+      margin-top: 10px;
+      margin-left: 5px;
+    }
+    .button-aside {
+      width: 100px;
+      height: 30px;
+      font-size: 14px;
+    }
+    .button1-aside {
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .prenom-aside {
+      font-size: 12px;
+    }
+    .poste-aside {
+      font-size: 10px;
+    }
+    .tmp-aside {
+      font-size: 10px;
+    }
+    .fiche-et-pv {
+      display: grid;
+     // grid-template-columns: 1fr;
+    }
+    .content-search-inter{
+      display: block;
+      grid-template-columns: 1fr;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .content-text-explication{
+      padding-right: 5px;
+    }
+    .content-form{
+      margin-top: 20px;
+    }
+    .select-search{
+      width: 290px;
+      option {
+          font-size: 12px;
+          
+      }
+    }
+    
+    .input-search{
+      width: 275px;
+      height: 20px;
+      background-color: #f5f6f9;
+      border-radius: 1px;
+      border: solid 1px #d8d8d8;
+    }
+  }

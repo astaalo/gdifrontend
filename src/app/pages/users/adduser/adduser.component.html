@@ -1,0 +1,84 @@
+<div class="all-container">
+    <div class="all">
+        <div class="large">
+            <p class="detail">Ajouter un nouveau utilisateur</p>
+            <div>
+                <div class="form-add-user-agent">
+                    <form [formGroup]="userAgentForm">
+                        <div class="content-form-add-user">
+                            <div class="image">
+                                <div *ngIf="!image" class="content-image-upload"></div>
+                                <img class="image-manager" *ngIf="image" [src]="image" alt="">
+                                <input formControlName="avatar" class="buttonphoto1" type="file" (change)="getPhoto($event)">
+                            </div>
+                            <div class="content-input-user">
+                                <div *ngIf="profil.value != '3'" class="infoinput1">
+                                    <input  type="text" *ngIf="user != 'AGN'" [(ngModel)]="matricule" formControlName="matricule" placeholder="Matricule">
+                                </div>
+                                <div class="infoinput2">
+                                    <input type="text" formControlName="prenom"   [(ngModel)]="prenom" placeholder="Prénom">
+                                    <input class="input3" type="text" formControlName="nom"  [(ngModel)]="nom" placeholder="Nom">
+                                </div>
+                                <div class="infoinput1">
+                                    <input type="text" formControlName="email"  [(ngModel)]="email" placeholder="Email">
+                                    <div class="form-control-feedback"
+                                        *ngIf="userAgentForm.controls['email'].errors && (userAgentForm.controls['email'].dirty || userAgentForm.controls['email'].touched)">
+                                        <p class="error-alert" *ngIf="userAgentForm.controls['email'].errors.required">l'email est obligatoire</p>
+                                        <p class="error-alert" *ngIf="userAgentForm.controls['email'].errors.pattern">l'email doit ètre de ce format example@domaine.nom</p>
+                                    </div>
+                                </div>
+                                <div class="infoinput2">
+                                    <input type="number" formControlName="telephone"  [(ngModel)]="telephone"  placeholder="Téléphone">
+                                    <select class="select6" #profil formControlName="profil">
+                                        <option class="option" value="" disabled selected hidden>Profil</option>
+                                        <option *ngFor="let data of dataprofils" value="{{data.id}}">{{data.libelle}}</option>
+                                    </select>
+                                </div>
+                                <div *ngIf="user == 'DRH'" class="infoinput2">
+                                    <input type="text" formControlName="fonction"  [(ngModel)]="fonction"  placeholder="Fonction">
+                                    <select *ngIf="profil.value == '3'" class="select6"  formControlName="agenceId">
+                                        <option class="option" value="" disabled selected hidden>Agence</option>
+                                        <option *ngFor="let data of dataAgence" value="{{data.id}}">{{data.nom}}</option>
+                                    </select>
+                                    <select *ngIf="profil.value == '4'" class="select6" formControlName="structureId">
+                                        <option class="option" value="" disabled selected hidden>Structure</option>
+                                        <option *ngFor="let data of dataStructure" value="{{data.id}}">{{data.libelle}}</option>
+                                    </select>
+                                </div>
+                                <div *ngIf="user != 'DRH'" class="infoinput1">
+                                    <input type="text" list="fonctions" formControlName="fonction" (change)="saveFonction($event)"  [(ngModel)]="fonction"  placeholder="Fonction">
+                                    <datalist id="fonctions">
+                                        <option *ngFor="let c of listeFonction" [value]="c.libelle" >{{c.libelle}}</option>
+                                    </datalist>
+                                </div>
+                                <div class="content-error-msg" *ngIf="successMsg == false">
+                                    <p class="error-alert">{{ data?.message}}</p>
+                                </div>
+                                <div class="content-button">
+                                    <button (click)="ajouterUser()" class="buttob-envoyer">Valider</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

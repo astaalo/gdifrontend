@@ -11,21 +11,21 @@
                         <mat-icon class="icon1" fontSet="material-icons-outlined" [style.color]="selected==i?'#ff7900':'#979797'" (click)="selected=i" [style.-webkit-text-stroke]="selected==i?' #ff7900':'#979797'" (click)="selected=i">{{p.icon}}</mat-icon>
                     </div> 
                     <div class="item3"> 
-                        <p [style.color]="selected==i?'#ff7900':'#979797'" (click)="selected=i" [style.-webkit-text-stroke]="selected==i?' #ff7900':'#979797'" (click)="selected=i"> {{p.title}} </p>
+                        <p class="title-nav" [style.color]="selected==i?'#ff7900':'#979797'" (click)="selected=i" [style.-webkit-text-stroke]="selected==i?' #ff7900':'#979797'" (click)="selected=i"> {{p.title}} </p>
                     </div>
                     <div  class="item2"> 
-                        <mat-icon fontSet="material-icons-outlined" [style.color]="selected==i?'#ff7900':'#979797'" (click)="selected=i" [style.-webkit-text-stroke]="selected==i?' #ff7900':'#979797'" (click)="selected=i">{{p.icon2}}</mat-icon>
+                        <mat-icon class="icon2" fontSet="material-icons-outlined" [style.color]="selected==i?'#ff7900':'#979797'" (click)="selected=i" [style.-webkit-text-stroke]="selected==i?' #ff7900':'#979797'" (click)="selected=i">{{p.icon2}}</mat-icon>
                     </div>
                 </div>
                 <div *ngIf="selected==i">
-                    <div *ngIf="p.liste">
+                    <div *ngIf="p.liste" class="sous-liste">
                         <div *ngFor="let pl of p.liste; let j = index" >
                             <a class="nav-link" [routerLink]="pl.path" [routerLinkActive]="['active']" style="text-decoration: none;">
                                 <div class="grid-container1" (click)="selected1=j">
                                     <div class="item1a" [style.background]="selected1==j?'#ff7900':'white'" >
                                     </div>
                                     <div class="item4a">
-                                        <p [style.color]="'#ff7900'" [style.font-weight]="selected1==j?'bold':'normal'" [style.-webkit-text-stroke]="selected1==j?' #ff7900':'#979797'" > {{pl.title}} </p>
+                                        <p class="title-nav2" [style.color]="'#ff7900'" [style.font-weight]="selected1==j?'bold':'normal'" [style.-webkit-text-stroke]="selected1==j?' #ff7900':'#979797'" > {{pl.title}} </p>
                                     </div>
                                 </div>
                             </a>
@@ -36,37 +36,3 @@
         </li>
     </div>
 </div>
-
-<!--
-<nav *ngIf="scrWidth<992">
-    <div class="nav">
-    <div *ngFor="let p of eventSources ; let i = index" 
-         [style.background]="selected==i?'white':'white'" (click)="selected=i">
-         <li>
-            <a class="nav-link" [routerLink]="p.path"  [routerLinkActive]="['active']" style="text-decoration: none;">
-                <div class="grid-container2" >
-                    <div class="item5"> 
-                        <p [style.color]="selected==i?'#ff7900':'#979797'" (click)="selected=i" [style.-webkit-text-stroke]="selected==i?' #ff7900':'#979797'" (click)="selected=i"> {{p.title}} </p>
-                    </div>
-                    <div  class="item7"> 
-                        <mat-icon fontSet="material-icons-outlined" [style.color]="selected==i?'#ff7900':'#979797'" (click)="selected=i" [style.-webkit-text-stroke]="selected==i?' #ff7900':'#979797'" (click)="selected=i">{{p.icon2}}</mat-icon>
-                    </div>
-                </div>
-                <div *ngIf="selected==i">
-                    <div *ngIf="p.liste">
-                        <div *ngFor="let pl of p.liste; let j = index;" [class.active]="eventSources[i].activeChoice === j" (click)="onClick(i, j)" >
-                            <a class="nav-link" [routerLink]="pl.path" [routerLinkActive]="['active']" style="text-decoration: none;">
-                                <div class="grid-container3">
-                                    <div class="item6">
-                                        <p *ngIf="selected==i" [style.color]="selected==i?'#ff7900':'#979797'" (click)="selected=i" [style.-webkit-text-stroke]="selected==i?' #ff7900':'#979797'" (click)="selected=i"> {{pl.title}} </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-    </div>
-   </div>
-</nav>-->

@@ -1,0 +1,154 @@
+<div class="all-container">
+    <div class="all">
+        <div class="">
+            <p class="p1">Liste des Agences d’interim</p>
+            <div class="liste">
+                <div class="item" *ngFor="let p of dataAgence | paginate: { 
+                    itemsPerPage: itemsPerPage,
+                    currentPage: page,
+                    totalItems: totalItems
+                    }; let i = index">
+                    <div class="image">
+                        <img src="{{p.logo}}" alt="">
+                    </div>
+                    <div class="info">
+                        <p class="nom">{{p.agence}}</p>
+                        <div class="user">
+                            <mat-icon >person</mat-icon>
+                            <p class="username">{{p.prenom}} {{p.nom}}</p>
+                        </div>
+                        <div class="contact">
+                            <div class="phone">
+                                <mat-icon >local_phone</mat-icon>
+                                <p class="telephone">{{p.telephone}}</p>
+                            </div>
+                            <div class="mail">
+                                <mat-icon >mail</mat-icon>
+                                <p class="email">{{p.email}}</p>
+                            </div>
+                        </div>
+                        <div class="contact">
+                            <div class="web">
+                                <mat-icon >language</mat-icon>
+                                <p class="siteweb">{{p.siteweb}}</p>
+                            </div>
+                            <div class="adresse">
+                                <mat-icon >room</mat-icon>
+                                <p class="adres">{{p.adresse}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boutons">
+                        <button class="button1" *ngIf="showupdate" (click)="openModal('custom-modal-'+p.id)">Modifier</button>
+                        <button class="button2" (click)="openDetail(p.id)">Afficher</button>
+                    </div>
+    
+                     <!--modal-1-->
+                     <div class="modal">
+                        <jw-modal id="custom-modal-{{p.id}}">
+                            <h1>Modification</h1>
+                            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-'+p.id);" class="clear">clear</mat-icon>
+                            <div class="form">
+                                <form [formGroup]="agenceForm">
+                                    <div >
+                                    <div class="grid">
+                                        <div class="photo">
+                                        <img alt="" *ngIf="!url1==true" src="{{p.logo}}">
+                                        <img alt="" *ngIf="url1" [src]="url1" height="60">
+                                        <input formControlName="photo" class="button" type="file" (change)="readUrl($event)" >
+                                        </div>
+                                        <div class="others">
+                                            <div class="input1">
+                                            <input type="text" [value]="p.nom" formControlName="nom" placeholder="Nom entreprise">
+                                            </div>
+                                            <div class="input2">
+                                                <input type="text" [value]="p.nomdg" formControlName="nomdg" placeholder="Nom Directeur Général">
+                                                <input class="input3" [value]="p.numdg"  type="text" formControlName="numdg" placeholder="Numéro DG">
+                                            </div>
+                                            <div class="input1">
+                                                <input type="text" [value]="p.email"  formControlName="email" placeholder="Email">
+                                            </div>
+                                            <div class="input2">
+                                                <input type="text" [value]="p.mobile" formControlName="mobile" placeholder="Numéro téléphone Mobile">
+                                                <input class="input3" [value]="p.fixe"  type="text" formControlName="fixe" placeholder="Numéro Fixe">
+                                            </div>
+                                            <div class="input1">
+                                                <input type="text" [value]="p.siteweb" formControlName="siteweb" placeholder="Site web">
+                                            </div>
+                                            <div class="input4">
+                                                <textarea type="textarea" [value]="p.adresse" formControlName="adresse" placeholder="Adresse"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trait"></div>
+                                    <div class="boutons">
+                                        <p class="p2">Documents Entreprise</p>
+                                        <div class="buttons1">
+                                            <input formControlName="contrat" class="button5" type="file" (change)="readUrl1($event)" >
+                                            <input formControlName="cnidg" class="button6" type="file" (change)="readUrl1($event)" >
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                    <button class="buttonenregistrer" (click)="submitted1()" type="button">Valider</button>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </jw-modal>
+                    </div>
+                <!--modal-1-->
+    
+                <!--modal-2-->
+                <div class="modal">
+                    <jw-modal id="custom-modale-{{p.id}}">
+                        <div class="grid2">
+                            <div class="img">
+                                <img src="{{p.logo}}" alt="">
+                            </div>
+                            <div class="agence">
+                                <p class="nom2">{{p.agence}}</p>
+                                <div class="nombre">
+                                    <div class="total">
+                                        <p class="title">Total</p>
+                                        <p class="libelle">{{p.dateDebut | date: "Mdd"}}</p>
+                                    </div>
+                                    <div class="actif">
+                                        <p class="title">Actifs</p>
+                                        <p class="libelle">{{p.dateFin | date: "Mdd"}}</p>
+                                    </div>
+                                    <div class="archiv">
+                                        <p class="title">Archivés</p>
+                                        <p class="libelle">{{p.dateDebut | date: "Mdd"}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trait"></div>
+                        <h1>Ajouter nouvel utilisateur</h1>
+                        <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modale-'+p.id);" class="clear">clear</mat-icon>
+                    </jw-modal>
+                </div>
+            <!--modal-2-->
+                 </div>
+                <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

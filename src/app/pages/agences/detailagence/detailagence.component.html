@@ -1,0 +1,229 @@
+<div class="all-container">
+    <div class="all2" >
+        <div class="grid2">
+            <div class="img">
+                <img src="{{logo}}" alt="">
+            </div>
+            <div class="agence">
+                <p class="nom2">{{nom}}</p>
+                <div class="nombre">
+                    <div class="total">
+                        <p class="title">Total</p>
+                        <p class="libelle">{{total}}</p>
+                    </div>
+                    <div class="actif">
+                        <p class="title">Actifs</p>
+                        <p class="libelle">{{actifs}}</p>
+                    </div>
+                    <div class="archiv">
+                        <p class="title">Archivés</p>
+                        <p class="libelle">{{inactifs}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="pes">
+                <div class="prenom">
+                    <mat-icon class="icon-item">person</mat-icon>
+                    <p class="info-item">{{responsable}}</p>
+                </div>
+                <div class="email2">
+                    <mat-icon class="icon-item">mail</mat-icon>
+                    <p class="info-item">{{email}}</p>
+                </div>
+                <div class="siteweb">
+                    <mat-icon class="icon-item">language</mat-icon>
+                    <p class="info-item">{{site}}</p>
+                </div>
+            </div>
+            <div class="pa">
+                <div class="phone2">
+                    <mat-icon class="icon-item">local_phone</mat-icon>
+                    <p class="info-item">{{telephone}}</p>
+                </div>
+                <div class="adresse2">
+                    <mat-icon class="icon-item">room</mat-icon>
+                    <p class="info-item">{{adresse}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="trait"></div>
+        <p class="utilisateur">Liste des utilisateurs</p>
+        <div class="users" >
+            <div class="user1" *ngFor="let p of userAgence | slice:0:2;">
+                <div (click)="openDetail(p.id)" class="photo1">
+                    <img src="{{p.avatar}}" alt="">
+                </div>
+                <div class="profil">
+                    <p (click)="openDetail(p.id)" class="profil1">{{p?.nom}}</p>
+                    <p (click)="openDetail(p.id)" class="profil2">{{p?.prenom}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="btns">
+            <button class="buttonaffi" (click)="openModal('custom-modal-1')" type="button">Afficher contrat</button>
+            <button class="buttonmodif" *ngIf="showupdate" (click)="openModal('custom-modal-2')" type="button">Modifier</button>
+            <button class="buttonsupp" *ngIf="showupdate" (click)="delete()" type="button">Supprimer</button>
+            <button class="buttonadduser" *ngIf="showupdate" (click)="openModal('custom-modal-3')" type="button">Ajouter Utilisateur</button>
+        </div>
+    </div>
+</div>
+<!--modal-1-->
+<div class="modal">
+    <jw-modal id="custom-modal-1">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-1');" class="clear">clear</mat-icon>
+            <p class="dtl1">contrat {{dataAgence?.nom}}</p>
+            <!-- <ngx-doc-viewer 
+               [url]="contratDoc" 
+               [viewer]="viewer" 
+               style="width:100%;height:70vh;">
+            </ngx-doc-viewer> -->
+            <pdf-viewer [src]="contratDoc"
+              [render-text]="true"
+              [autoresize]="true"
+              [original-size]="false"
+            ></pdf-viewer>
+            <div class="btns2">
+                <button (click)="getfilemodal()"  class="btn2">Télécharger</button>
+                <button   class="btn2a">Arrêter contrat</button>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+
+ <!--modal-2-->
+ <div class="modal">
+    <jw-modal id="custom-modal-2">
+        <h1>Modification</h1>
+        <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-2');" class="clear">clear</mat-icon>
+        <div class="form">
+            <form [formGroup]="agenceForm" (ngSubmit)="submitted1()">
+                <div >
+                    <div class="grid">
+                        <div class="photo">
+                            <img alt="" *ngIf="!url1==true" src="{{image}}">
+                            <img alt="" *ngIf="url1" [src]="url1" height="60">
+                            <input formControlName="logo" class="buttonphoto1" type="file" (change)="getPhoto($event.target)" >
+                        </div>
+                        <div class="others">
+                            <div class="input1">
+                            <input type="text" [(ngModel)]="nom"  formControlName="nom" placeholder="Nom entreprise">
+                            </div>
+                            <div class="input2">
+                                <input type="text" [(ngModel)]="responsable"  formControlName="responsable" placeholder="Nom Directeur Général">
+                                <input class="input3" [(ngModel)]="numDg"  type="text" formControlName="numDg" placeholder="Numéro DG">
+                            </div>
+                            <div class="input1">
+                                <input type="text" [(ngModel)]="email"  formControlName="email" placeholder="Email">
+                            </div>
+                            <div class="input2">
+                                <input type="text" [(ngModel)]="telephone"  formControlName="telephone" placeholder="Numéro téléphone Fixe">
+                                <input class="input3" [(ngModel)]="mobile"  type="text" formControlName="mobile" placeholder="Numéro téléphone Mobile">
+                            </div>
+                            <div class="input1">
+                                <input type="text" [(ngModel)]="site" formControlName="site" placeholder="Site web">
+                            </div>
+                            <div class="input4">
+                                <textarea type="textarea" [(ngModel)]="adresse" formControlName="adresse" placeholder="Adresse"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trait"></div>
+                    <div class="boutons">
+                        <p class="p2">Documents Entreprise</p>
+                        <div class="buttons1">
+                           <input formControlName="cnidg"  class="button5" type="file" (change)="getCnidg($event.target)" >
+                            <input formControlName="contrat"  class="button6" type="file" (change)="getFileContrat($event.target)" > 
+                        </div>
+                       <!-- <div class="filenames">
+                            <div class="nom-file2">
+                                <p class="filename2" *ngIf="url2">{{filename2}}</p>
+                            </div>
+                            <div class="nom-file3">
+                                <p class="filename3" *ngIf="url3">{{filename3}}</p>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="buttons">
+                    <button class="buttonenregistrer" type="submit">Valider</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal-3-->
+<div class="modal">
+    <jw-modal id="custom-modal-3">
+        <h1>Ajouter Utilisateur</h1>
+        <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-3');" class="clear">clear</mat-icon>
+        <div>
+            <div class="form-add-user-agent">
+                <form [formGroup]="userAgentForm">
+                    <div class="content-form-add-user">
+                        <div class="image">
+                            <div *ngIf="!image" class="content-image-upload"></div>
+                            <img class="image-manager" *ngIf="image" [src]="image" alt="">
+                            <input formControlName="avatarUser" class="buttonphoto1" type="file" (change)="getphoto($event)">
+                        </div>
+                        <div>
+                            <div class="infoinput2">
+                                <input type="text" formControlName="prenomUser"  placeholder="Prénom">
+                                <input class="input3" type="text" formControlName="nomUser" placeholder="Nom">
+                            </div>
+                            <div class="infoinput1">
+                                <input type="text" formControlName="emailUser" placeholder="Email">
+                                <div class="form-control-feedback"
+                                    *ngIf="userAgentForm.controls['emailUser'].errors && (userAgentForm.controls['emailUser'].dirty || userAgentForm.controls['emailUser'].touched)">
+                                    <p class="error-alert" *ngIf="userAgentForm.controls['emailUser'].errors.required">l'email est obligatoire</p>
+                                    <p class="error-alert" *ngIf="userAgentForm.controls['emailUser'].errors.pattern">l'email doit ètre de ce format example@domaine.nom</p>
+                                </div>
+                            </div>
+                            <div class="infoinput2">
+                                <input type="number" formControlName="telephoneUser"  placeholder="Téléphone">
+                                <select class="select6" #profil formControlName="profil">
+                                    <option class="option" value="" disabled selected hidden>Profil</option>
+                                    <option *ngFor="let data of dataprofils" value="{{data.id}}">{{data.libelle}}</option>
+                                </select>
+                            </div>
+                            <div *ngIf="user == 'DRH'" class="infoinput2">
+                                <input type="text" formControlName="fonction"  placeholder="Fonction">
+                            </div>
+                            <div *ngIf="user != 'DRH'" class="infoinput1">
+                                <input type="text" list="fonctions" formControlName="fonction" (change)="saveFonction($event)"  placeholder="Fonction">
+                                <datalist id="fonctions">
+                                    <option *ngFor="let c of listeFonction" [value]="c.libelle" >{{c.libelle}}</option>
+                                </datalist>
+                            </div>
+                            <div class="content-error-msg" *ngIf="successMsg == false">
+                                <p class="error-alert">{{ data?.message}}</p>
+                            </div>
+                            <div class="content-button">
+                                <button (click)="ajouterUser()" class="buttob-envoyer">Valider</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

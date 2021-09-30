@@ -1,0 +1,428 @@
+.all-container {
+    // display: grid;
+    // grid-template-columns: 1fr 290px;
+    background-color: #f5f6f9;
+}
+.demande {
+    background-color: white;
+    margin-right: 0px;
+    padding: 10px;
+}
+.detail{
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.manager {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-gap: 1px;
+}
+.image {
+    position: relative;
+    width: 150px;
+    height: 120px;
+}
+.image-manager {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 20px;
+    border: solid 3px #009393;
+}
+.im1 {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+.im2 {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+}
+.image-contact {
+    height: 30px;
+    width: 30px;
+}
+.im3 {
+    width: 20px;
+    height: 20px;
+    border: 3px solid white;
+    background-color: yellow;
+    border-radius: 50%;
+    position: absolute;
+    top: 52%;
+    left: 78%;
+    padding: 5px;
+    span {
+        text-align: center;
+        margin-left: 5px;
+       // margin-top: 10px;
+    }
+}
+.information{
+    margin-top: 20px;
+    margin-left: 0px;
+}
+.nom {
+    font-size: 16px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.16px;
+    color: #222222;
+    margin: 0;
+}
+.poste {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: -0.13px;
+    color: #222222;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.matricule{
+    font-size: 16px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.16px;
+    color: #222222;
+    margin-top: 10px;
+}
+hr{
+    margin-top: 20px;
+}
+.tableau {
+    margin-top: 0px;
+    background-color: white;
+   // padding: 30px;
+    position: relative;
+}
+.exporter{
+    display: flex;
+    margin-right: 30px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+.export{
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #222222;
+    margin-top: 17px;
+}
+.csv {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 5px;
+    border: 1px solid #f5f6f9;
+    padding: 0px;
+    height: 40px;
+    border-radius: 5px;
+    p {
+        margin-top: 12px;
+        margin-right: 10px;
+        margin-bottom: 0;
+        margin-left: 10px;
+    }
+    mat-icon{
+        margin-top: 10px;
+        margin-right: 5px;
+        margin-bottom: 0;
+    }
+}
+.filtrer {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 5px;
+    border: 1px solid #f5f6f9;
+    padding: 0px;
+    height: 40px;
+    border-radius: 5px;
+    p {
+        margin-top: 12px;
+        margin-right: 30px;
+        margin-bottom: 0;
+        margin-left: 10px;
+    }
+    mat-icon{
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+}
+table {
+    border-collapse: collapse;;
+    width: 100%;
+    margin-top: 10px;
+}
+  
+  th {
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #222222;
+  }
+  td {
+    text-align: center;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+  }
+  tr {
+    height: 35px;
+    border: 1px solid #f5f6f9;
+    border-radius: 100%;
+    margin-top: 20px;
+  }
+  .head{
+      background-color: #f5f6f9;
+  }
+  .detail1 {
+    font-size: 18px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.13px;
+    color: #222222;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+.button1 {
+    width: 90px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid black;
+}
+.type {
+    display: flex;
+    width: 50px;
+    margin: 0 auto;
+    p {
+        text-align: center;
+    }
+  }
+  .updown {
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  .clear {
+    width: 16px;
+    height: 16px;
+    margin-top: 10px;
+    margin-right: 30px;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    top: 2%;
+  }
+  .btns2{
+    width: 125px;
+    margin: 0 auto;
+  }
+  .btn2 {
+    width: 122px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: #000000;
+    border: none;
+    background-color: #32c832;
+    margin-top: 7px;
+    outline: none;
+}
+.error-content-image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.error-image {
+    width: 160px;
+    height: 150px;
+    background-image: url("../../../../assets/images/error-message.png");
+    background-size: cover;
+}
+.error-text{
+    text-align: center;
+    color: #ff0000;
+    font-size: 28px;
+}
+.error-message-admin{
+    text-align: center;
+    font-size: 18px;
+}
+.clear-error {
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.error-content-button{
+    width: 50px;
+    margin: 0 auto;
+}
+.error-button{
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #f5f6f9;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px #ff0000;
+}
+@media (max-width: 991px) {
+    .chiffre-aside {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 1px;
+        background-color: white;
+        padding: 0px;
+        margin-top: 10px;
+        border-bottom: 1px solid #f5f6f9;
+    }
+    .grid-container-aside {
+        grid-template-columns: 55px 1fr 55px;
+    }
+    .grid-container1-aside {
+        grid-template-columns: 1fr 125px;
+    }
+    .all-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "tableau"
+          "aside";
+        margin-right: -10px;
+    }
+    .demande {
+        margin-top: 10px;
+        margin-right: 0;
+        padding: 10px;
+    }
+    .detail {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .manager {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "image"
+          "information";
+        margin-left: 10px;
+    }
+    .image {
+        width: 180px;
+        margin: 0 auto;
+    }
+    .image-manager {
+        width: 170px;
+        height: 170px;
+        object-fit: contain;
+        border-radius: 20px;
+        border: solid 3px #009393;
+    }
+    .im1 {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 15%;
+        left: 90%;
+    }
+    .im2 {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 60%;
+        left: 90%;
+    }
+    .image-contact {
+        width: 30px;
+        height: 30px;
+    }
+    .information{
+        margin-top: 10px;
+    }
+    .nom {
+        font-size: 20px;
+    }
+    .poste {
+        font-size: 16px;
+    }
+    .matricule{
+        font-size: 20px;
+    }
+    hr{
+        margin-top: 10px;
+    }
+    .detail1 {
+        font-size: 18px;
+    }
+    table {
+        margin-top: 10px;
+    }
+    th {
+        font-size: 10px !important;
+    }
+    td {
+        font-size: 10px !important;
+    }
+    .button-aside {
+        font-size: 14px;
+        height: 30px;
+    }
+    .button1-aside {
+        font-size: 14px;
+        height: 30px;
+    }
+    .dernier-aside {
+        font-size: 18px;
+    }
+    .nombre-aside {
+        font-size: 16px;
+    }
+}

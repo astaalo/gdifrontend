@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/GDI",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,13 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/images",
+              "src/assets/dist",
+              "src/assets/dist/css",
+              "src/assets/dist/js",
+              "src/assets/doc",
+              "src/assets/icones"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -91,7 +97,13 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/images",
+              "src/assets/dist",
+              "src/assets/dist/css",
+              "src/assets/dist/js",
+              "src/assets/doc",
+              "src/assets/icones"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -128,5 +140,8 @@
       }
     }
   },
-  "defaultProject": "GDI"
+  "defaultProject": "GDI",
+  "cli": {
+    "analytics": false
+  }
 }

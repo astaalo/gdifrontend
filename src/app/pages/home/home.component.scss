@@ -1,10 +1,12 @@
 .all-container {
-    display: grid;
-    grid-template-columns: 1fr 300px;
+    // display: grid;
+    // grid-template-columns: 1fr 290px;
     background-color: #f5f6f9;
+    display: grid;
+    grid-template-columns: 1fr 290px;
 }
 .all{
-    margin-right: 10px;
+    margin-right: 0px;
     padding: 10px;
 }
 .bien{
@@ -37,7 +39,7 @@
     margin-top: 20px;
 }
 .duree{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -80,6 +82,7 @@
 }
 .datefin {
     text-align: right;
+    font-size: 14px;
 }
 .detail-donnees{
     height: 252px;
@@ -97,7 +100,7 @@
     border-right: 10px solid #f5f6f9;
 }
 .elmt1 {
-    border-right: 10px solid #f5f6f9;
+    border-right: none;
 }
 .tit1{
     margin: 0 auto;
@@ -118,7 +121,7 @@
     p{
         margin-top: 10px;
        margin-left: 10px;
-       font-size: 24px;
+       font-size: 16px;
        font-weight: bold;
        font-stretch: normal;
        font-style: normal;
@@ -131,13 +134,14 @@
     display: flex;
     margin: 10px auto;
     img {
-        height: 37px;
-        width: 51px;
+        height: 30px;
+        width: 41px;
+        margin-top: 5px;
     }
     p{
         margin-top: 10px;
        margin-left: 10px;
-       font-size: 24px;
+       font-size: 16px;
        font-weight: bold;
        font-stretch: normal;
        font-style: normal;
@@ -156,7 +160,7 @@
     p{
         margin-top: 10px;
        margin-left: 10px;
-       font-size: 24px;
+       font-size: 16px;
        font-weight: bold;
        font-stretch: normal;
        font-style: normal;
@@ -165,6 +169,43 @@
        color: #000000;
     }
 }
+
+
+
+.filter-date {
+    display: flex;
+    margin-left: 220px;
+    position: absolute;
+}
+
+.icone-calendar1 {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+
+#filter-mois {
+    margin-left: 10px;
+}
+.select-mois {
+    border: none;
+    outline: none; 
+    background-color: #fff;
+    width: 75px;
+}
+
+.filtrer-annees {
+    display: flex;
+    border: 1px solid #f5f6f9;
+    border-radius: 5px;
+    height: 40px;
+    width: 120px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+
+
 .nombre {
     margin: 0 auto;
     width: 60px;
@@ -206,7 +247,7 @@
     }
 }
 .mois{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -217,7 +258,7 @@
     margin-top: 10px;
 }
 .mois1 {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -228,7 +269,7 @@
     margin-top: 0px;
 }
 .mois2 {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -240,10 +281,10 @@
 }
 .bouton{
     margin: 0 auto;
-    width: 120px;
+    width: 100px;
     .button {
-        width: 120px;
-        height: 40px;
+        width: 100px;
+        height: 30px;
         background-color: white;
         border: none;
         color: black;
@@ -252,7 +293,7 @@
         text-decoration: none;
         font-weight: bold;
         display: inline-block;
-        font-size: 18px;
+        font-size: 14px;
         cursor: pointer;
         outline: none;
         border: 3px solid black;
@@ -274,10 +315,10 @@
 
 
 .main{
-    padding: 10px;
+ //   padding: 10px;
 }
 .bien{
-    font-size: 26px;
+    font-size: 18px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -285,9 +326,10 @@
     letter-spacing: normal;
     color: #222222;
     margin-top: 0;
+    margin-bottom: 15px;
 }
 .alert{
-    font-size: 16px;
+    font-size: 13px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -305,7 +347,7 @@
 @media (min-width: 990px) {
     .detail1{
         width: 100%;
-        height: 370px;
+        height: 340px;
         background-color: white;
         margin-top: 20px;
         display: grid;
@@ -328,17 +370,17 @@
     margin: 0 auto;
 }
     .total {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         font-stretch: normal;
         font-style: normal;
         line-height: normal;
         letter-spacing: -0.1px;
         color: #222222;
-        margin-left: 20px;
+        margin-left: 10px;
     }
     .totaln {
-        font-size: 25px;
+        font-size: 20px;
         font-weight: bold;
         font-stretch: normal;
         font-style: normal;
@@ -404,7 +446,7 @@
         margin: 0;
     }
     .fn {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 900;
         font-stretch: normal;
         font-style: normal;
@@ -413,7 +455,7 @@
         color: #222222;
     }
     .fe {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 500;
         font-stretch: normal;
         font-style: normal;
@@ -500,7 +542,7 @@
         margin: 0;
     }
     .hn {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 900;
         font-stretch: normal;
         font-style: normal;
@@ -509,7 +551,7 @@
         color: #222222;
     }
     .ho {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 500;
         font-stretch: normal;
         font-style: normal;
@@ -523,7 +565,7 @@
     width: 330px;
     margin: 0 auto;
     display: flex;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 .button1 {
     display: flex;
@@ -596,24 +638,24 @@
 
 
 .button7 {
-    width: 205px;
-    height: 40px;
+    width: 185px;
+    height: 30px;
     background-color: white;
     border: none;
     color: black;
-    padding: 5px 2px;
+    padding: 2px 2px;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    font-size: 18px;
+    font-size: 15px;
     cursor: pointer;
     outline: none;
-    border: 3px solid black;
-    margin-top: 20px;
+    border: 2px solid black;
+    margin-top: 10px;
 }
 .buttons1 {
-    width: 200px;
+    width: 190px;
     margin: 0 auto;
 }
 .no {
@@ -661,7 +703,7 @@
 }
 .lesbouton2 {
     width: 330px;
-    margin: 20px auto;
+    margin: 5px auto;
     display: flex;
 }
 .button3 {
@@ -768,9 +810,9 @@
     margin-top: 10px;
 }
 .tableau {
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: white;
-    padding: 30px;
+    padding: 10px;
     position: relative;
 }
 .exporter{
@@ -778,7 +820,7 @@
     margin-right: 30px;
     position: absolute;
     right: 0;
-    top: 20px;
+    top: 10px;
 }
 .export{
     font-size: 14px;
@@ -817,34 +859,52 @@
 table {
     border-collapse: collapse;;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .photo {
-    width: 33px;
-    height: 33px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
 }
-  th {
+th {
     text-align: center;
-    padding: 8px;
-    font-size: 14px;
-    font-weight: 500;
+    //padding: 8px;
+    font-size: 13px;
+    font-weight:  bold;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
     color: #222222;
+    p{
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
   }
   td {
     text-align: center;
-    padding: 8px;
-    font-size: 13px;
+  //  padding: 8px;
+    font-size: 12px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
     color: #000000;
+    p{
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+  .updown {
+    margin-top: 2px;
+    margin-left: 0px;
+  }
+  tr {
+    height: 25px !important;
+    border: 1px solid #f5f6f9;
+    border-radius: 100%;
+  //  margin-top: 20px;
   }
   .type {
     display: flex;
@@ -854,16 +914,7 @@ table {
         text-align: center;
     }
   }
-  .updown {
-    margin-top: 10px;
-    margin-left: 10px;
-  }
-  tr {
-    height: 50px;
-    border: 1px solid #f5f6f9;
-    border-radius: 100%;
-    margin-top: 20px;
-  }
+  
   .statut{
    // background: #ff7900;
     width: 10px;
@@ -884,24 +935,24 @@ table {
       width: 50px;
   }
 .button6 {
-    width: 120px;
-    height: 40px;
+    width: 100px;
+    height: 30px;
     background-color: white;
     border: none;
     color: black;
-    padding: 5px 2px;
+    padding: 2px 2px;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
     outline: none;
-    border: 3px solid black;
+    border: 2px solid black;
     margin-top: 20px;
 }
 .button {
-    width: 120px;
+    width: 100px;
     margin: 0 auto;
 }
 
@@ -1078,6 +1129,49 @@ table {
         outline: none;
         border: 3px solid black;
     }
+}
+
+.error-content-image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.error-image {
+    width: 160px;
+    height: 150px;
+    background-image: url("../../../assets/images/error-message.png");
+    background-size: cover;
+}
+.error-text{
+    text-align: center;
+    color: #ff0000;
+    font-size: 28px;
+}
+.error-message-admin{
+    text-align: center;
+    font-size: 18px;
+}
+.clear-error {
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.error-content-button{
+    width: 50px;
+    margin: 0 auto;
+}
+.error-button{
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #f5f6f9;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px #ff0000;
 }
 @media (max-width: 991px) {
     .chiffre-aside {
@@ -1366,7 +1460,7 @@ table {
         margin-right: 0;
     }
     .main {
-        padding: 5px;
+        padding: 0px;
     }
     .tableau {
         padding: 20px 5px;
@@ -1381,10 +1475,10 @@ table {
     }
     .exporter{
         display: flex;
-        margin-right: 30px;
+        margin-right: 10px;
         position: absolute;
         right: 0;
-        top: 45px;
+        top: 25px;
     }
     .export{
         font-size: 10px;

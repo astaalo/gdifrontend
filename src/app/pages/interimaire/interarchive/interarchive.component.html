@@ -1,0 +1,93 @@
+<div class="all-container">
+    <div class="tableau">
+        <p class="detail1" id="mydesc">Liste des interimaires archivés</p>
+        <div class="exporter">
+            <form [formGroup]="filterForm" class="formtab">
+                <div class="exporter">
+                    <div class="content-input-extraction">
+                        <!-- <div class="filtrer-mois">
+                            <p class="label-input"  for="titre">Admissible seulement: </p>
+                            <input type="text" formControlName="prenom" class="input-extraction" >
+                            <datalist id="professions">
+                              <option></option>
+                            </datalist>
+                        </div> -->
+                        <div class="filter_mois styled">
+                            <label class="container content-extraction">Admissible seulement
+                                <input type="checkbox"  (change)="checkValue($event.target)" >
+                                <span class="icon-search"></span>
+                              </label>
+                        </div>
+                        <div class="content-extraction">
+                            <mat-icon class="icon-search" fontSet="material-icons-outlined"  (click)="gty(page)" >search</mat-icon>
+                        </div>
+                        <!-- <div class="content-extraction">
+                            <button  class="button-extraire">Extraire en CSV</button>
+                        </div> -->
+                    </div>
+                    <div class="content-error-msg" >
+                        <p class="error-alert"></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <table style="overflow-x:auto;"aria-describedby = "mydesc" >
+            <thead>
+                <tr class="head">
+                    <th class="typ" id="prenom">
+                        <div class="type">
+                            <p>Prenom</p> 
+                            <mat-icon class="updown" fontSet="material-icons-outlined">unfold_more</mat-icon>
+                        </div>
+                    </th>
+                    <th class="typ" id="nom">
+                        <div class="type2">
+                            <p>Nom</p> 
+                            <mat-icon class="updown" fontSet="material-icons-outlined">unfold_more</mat-icon>
+                        </div>
+                    </th>
+                    <th *ngIf="user != 'MNG' && scrWidth>991"  id="manager">Manager</th>
+                    <th *ngIf="user != 'MNG'" id="direction">Direction</th>
+                    <th *ngIf="user != 'AGN'" id="agence">Agence</th>
+                    <th id="admissible">Admissible</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr  style="cursor: pointer;" *ngFor="let p of dataInterArchiv| filter:filterterm | paginate: { 
+                    itemsPerPage: itemsPerPage,
+                    currentPage: page,
+                    totalItems: totalItems
+                    }; let i = index">
+                    <td (click)="openDetail(p.id)">{{p.prenom}}</td>
+                    <td (click)="openDetail(p.id)">{{p.nom}}</td>
+                    <td *ngIf="user != 'MNG' && scrWidth>991" (click)="openDetail(p.id)"> <img alt="" class="photo" src="{{p.photo}}"></td>
+                    <td *ngIf="user != 'MNG'" (click)="openDetail(p.id)" >{{p.direction}}</td>
+                    <td *ngIf="user != 'AGN'" (click)="openDetail(p.id)" >{{p.agence}}</td>
+                    <td (click)="openDetail(p.id)"><div [style.background]="getcolor1(p)" class="status"></div></td>
+                </tr>
+            </tbody>
+            
+        </table>  
+        <div class="pagination">
+            <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Prcédent" nextLabel="Suivant"></pagination-controls>
+        </div>
+    </div>
+</div>
+
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

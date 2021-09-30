@@ -1,0 +1,408 @@
+<div class="all-container">
+    <div class="compte">
+        <div class="content-header">
+            <div class="content-details">
+                <p class="detail">Détails</p>
+            </div>
+            <div class="content-buttons-modifier">
+                <button *ngIf="etat == 'actif' && role == 'DRH'"  (click)="modifierInter()" class="button-modifier">Modifier</button>
+                <div *ngIf="etat == 'En attente'">
+                    <button *ngIf="role == 'AGN'" (click)="openModal('custom-modal-8')" class="button-modifier">Modifier</button>
+                    <button *ngIf="role == 'DRH'" (click)="openModal('custom-modal-8')" class="button-modifier">Valider</button>
+                </div>
+            </div>
+        </div>
+        <div class="progres">
+            <p class="duree">Contrat <span>5 mois ( 35 jours</span> restant )</p>
+            <div class="bar">
+                <div id="progress_bar">
+                    <div id="green_bar" [style.width]="getwidth()">&nbsp;</div>
+                </div>
+                <div class="position" [style.left]="getposition()">
+                </div>
+            </div>
+            <div class="date">
+                <p class="datedebut">12 Dec 2020</p>
+                <p class="datefin">25 Aou 2021</p>
+            </div>
+        </div>
+        <div class="grid-container" *ngIf="item">
+            <div class="image">
+                <div class="ima">
+                    <img class="image-interimaire"  src="{{photo}}" alt="photo">
+                    <div class="im1">
+                        <img class="image-contact" src="../assets/images/phone.png" alt="">
+                    </div>
+                    <div class="im2">
+                        <img class="image-contact" src="../assets/images/phone.png" alt="">
+                    </div>
+                    <p class="prenom">{{dataInter?.prenom}} {{dataInter?.nom}}</p>
+                    <p class="fonction">{{dataInter?.profession}}</p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="lot1">
+                    <p class="key">Matricule: <span class="value">{{dataInter?.matricule}}</span> </p>
+                    <p class="key">Numéro CNI: <span class="value">{{dataInter?.numeroPiece}}</span> </p>
+                    <p class="key">Date de naissance: <span class="value">{{dataInter?.datedenaissance}}</span> </p>
+                    <p class="key">Lieu de naissance: <span class="value">{{dataInter?.lieudenaissance}}</span> </p>
+                    <p class="key">Genre: <span class="value">{{dataInter?.sexe}}</span> </p>
+                </div>
+                <div class="lot">
+                    <p class="lot2">Catégorie: <span class="value">{{dataInter?.categorie.libelle}}</span> </p>
+                    <p class="key">Agence Interim: <span class="value">{{dataInter?.agence.nom}}</span> </p>
+                    <div class="content-structure">
+                        <p class="key">Société: <span class="value">{{dataInter?.structure.libelle}}</span> </p>
+                        <p class="key">Direction: <span class="value">{{dataInter?.structure.direction?.libelle}}</span> </p>
+                    </div>
+                    <div class="content-structure">
+                        <p class="key">Département: <span class="value">{{dataInter?.structure.departement}}</span> </p>
+                        <p class="key">Service: <span class="value">{{dataInter?.structure.service}}</span> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lesbouton">
+            <button class="button1" (click)="openModal('custom-modal-1')">Contrat</button>
+            <button class="button2" (click)="openModal('custom-modal-2')">Attestations de présence</button>
+            <button class="button3" (click)="openModal('custom-modal-3')">Fiche de poste</button>
+            <button class="buttonEvaluation" (click)="evaluation()">Evaluations</button>
+            <button class="button4" (click)="objectif()">Objectifs</button>
+        </div>
+        <div class="lesbouton" >
+            <button class="button-historique" (click)="historiqueContrat()">Historique Contrat</button>
+            <button *ngIf="role == 'AGN'" class="button5" (click)="openModal('custom-modal-4')">Ajouter contrat</button>
+            <button *ngIf="role == 'AGN'" class="button6" (click)="openModal('custom-modal-5')">Reconduire contrat</button>
+            <button *ngIf="role == 'DRH' && sameIdSociete" class="button7" (click)="openModal('custom-modal-6')">Arrêter contrat</button>
+            <button *ngIf="role == 'DRH' && sameIdSociete" class="button8" (click)="openModal('custom-modal-7')">Bannir Interimaire</button>
+        </div>
+    </div>
+</div>
+<!--modal1-->
+<div class="modal">
+    <jw-modal id="custom-modal-1">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-1');" class="clear">clear</mat-icon>
+            <p class="dtl1">contrat de {{prenom}} {{nom}}</p>
+            <pdf-viewer [src]="contratDoc"
+              [render-text]="true"
+              [autoresize]="true"
+              [original-size]="false"
+            ></pdf-viewer>
+            <div class="btns2">
+              <button (click)="getContrat()"  class="btn2">Télécharger</button>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal2-->
+<div class="modal">
+    <jw-modal id="custom-modal-2">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-2');" class="clear">clear</mat-icon>
+            <p class="dtl1">Liste des Attestions de présence</p>
+            <div class="grid" *ngFor="let p of donnees">
+               <div>
+                   <p class="date">{{p.dateFin | date: "M yyyy"}}</p>
+               </div>
+               <div>
+                   <p class="user">{{p.prenom}} {{p.nom}}</p>
+               </div>
+               <div>
+                <button (click)="get(p)"  class="btn1">Télécharger PDF</button>
+               </div>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal3-->
+<div class="modal">
+    <jw-modal id="custom-modal-3">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-3');" class="clear">clear</mat-icon>
+            <p class="dtl1">Fiche de Poste de {{prenom}} {{nom}}</p>
+            <pdf-viewer [src]="fichePosteDoc"
+              [render-text]="true"
+              [autoresize]="true"
+              [original-size]="false"
+            ></pdf-viewer>
+            <div class="btns3">
+                <button (click)="getFicheDePoste()"  class="btn2">Télécharger</button>
+            </div>
+        </div>
+    </jw-modal>
+</div>
+
+
+ <!--modal-4-->
+ <div class="modal">
+    <jw-modal id="custom-modal-4">
+        <h1 class="modal-renouveler">Ajouter un Contrat</h1>
+        <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-4');" class="clear-renouveler">clear</mat-icon>
+        <div class="form-contrat">
+            <form [formGroup]="contratForm">
+                <div class="content-form-contrat">
+                    <div class="input2">
+                        <select class="select5" formControlName="categorieId">
+                            <option class="option" value="" disabled selected hidden>Catégorie</option>
+                            <option *ngFor="let data of dataCategorie" [value]="data.id">{{data.libelle}}</option>
+                        </select>
+                        <input class="input3" type="text" formControlName="salaireBrut" placeholder="Montant Salaire Brut">
+                    </div>
+                    <div class="input2">
+                        <input type="date" formControlName="dateDebut" placeholder="Date Début">
+                        <input class="input3" type="date" formControlName="dateFin" placeholder="Date Fin">
+                    </div>
+                    <div class="input2">
+                        <select class="select5" #societe formControlName="societeId" (change)="directionsListe(societe.value)">
+                            <option class="option" value="" disabled selected hidden>Societe</option>
+                            <option *ngFor="let data of dataSociete" [value]="data.id">{{data.libelle}}</option>
+                        </select>
+                        <select class="input3" #direction  formControlName="directionId" (change)="departementListe(direction.value)">
+                            <option class="option" value="" disabled selected hidden>Direction</option>
+                            <option *ngFor="let data of dataDirection" value="{{data.id}}">{{data.libelle}}</option>
+                        </select>
+                    </div>
+                    <div class="input2">
+                        <select class="select5" #departement formControlName="departementId" (change)="serviceListe(departement.value)">
+                            <option class="option" value="" disabled selected hidden>Département</option>
+                            <option *ngFor="let data of dataDepartement" value="{{data.id}}">{{data.libelle}}</option>
+                        </select>
+                        <select class="input3"  formControlName="structureId" >
+                            <option class="option" value="" disabled selected hidden>Service</option>
+                            <option *ngFor="let data of donneeService" value="{{data.id}}">{{data.libelle}}</option>
+                        </select>
+                    </div>
+                    <div class="input2">
+                        <input type="text" formControlName="profession" placeholder="Profession">
+                        <input type="date" class="input3" formControlName="dateSignature" placeholder="Date Signature">
+                    </div>
+                    <div class="input2">
+                        <input type="text" formControlName="poste" placeholder="Titre du Poste">
+                    </div>
+                    <div class="buttons-fichier">
+                        <div>
+                            <input formControlName="contrat"  class="buttoncontrat" type="file" (change)="contrat($event.target)">
+                            <p class="filename" *ngIf="urlcontrat">{{filenamecontrat}}</p>
+                        </div>
+                        <div>
+                            <input formControlName="fichePoste"  class="buttonficheposte" type="file" (change)="fichedeposte($event.target)">
+                            <p class="filename" *ngIf="urlfichedeposte">{{filenamefichedeposte}}</p>
+                        </div>
+                    </div>
+                    <div class="buttons-fichier">
+                        <div>
+                            <input formControlName="procesVerbal"  class="buttonprocesVerbal" type="file" (change)="procesVerbal($event.target)">
+                            <p class="filename" *ngIf="urlProcesVerbal">{{filenameProceVerbal}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-error-msg" *ngIf="successMsgRenouveler == false">
+                    <p class="error-alert">{{ dataRenouveler?.message}}</p>
+                </div>
+                <div class="buttons-content-valider">
+                   <button class="button-enregistrer-contrat" (click)="renouvelerContrat()" type="button">Valider</button>
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+</div>
+
+
+ <!--modal-5-->
+ <div class="modal">
+    <jw-modal id="custom-modal-5">
+        <h1 class="modal-renouveler">Reconduire Contrat</h1>
+        <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-5');" class="clear-renouveler">clear</mat-icon>
+        <div class="form-contrat">
+            <form [formGroup]="contratForm">
+                <div class="content-form-contrat">
+                    <div class="input2">
+                        <input type="date" formControlName="dateDebut" placeholder="Date Début">
+                        <input class="input3" type="date" formControlName="dateFin" placeholder="Date Fin">
+                    </div>
+                    <div class="input2">
+                        <input type="text" formControlName="poste" placeholder="Titre du Poste">
+                        <input type="date" class="input3" formControlName="dateSignature" placeholder="Date Signature">
+                    </div>
+                    <div class="buttons-fichier">
+                        <div>
+                            <input formControlName="contrat"  class="buttoncontrat" type="file" (change)="contrat($event.target)">
+                            <p class="filename" *ngIf="urlcontrat">{{filenamecontrat}}</p>
+                        </div>
+                    </div>
+                    <div class="filenames">
+                        <div class="nom-file2">
+                            <p class="filename2" *ngIf="url2">{{filename2}}</p>
+                        </div>
+                        <div class="nom-file3">
+                            <p class="filename3" *ngIf="url3">{{filename3}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-error-msg" *ngIf="successMsgReconduire == false">
+                    <p class="error-alert">{{ dataReconduire?.message}}</p>
+                </div>
+                <div class="buttons-content-valider">
+                   <button class="button-enregistrer-contrat" (click)="reconduireContrat()" type="button">Valider</button>
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal6-->
+<div class="modal">
+    <jw-modal id="custom-modal-6">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-6');" class="clear">clear</mat-icon>
+            <p class="dtl1">Arreter le Contrat en-cours de {{prenom}} {{nom}}</p>
+            <form [formGroup]="arretForm">
+                <p class="text-droit">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Doloribus harum sapiente a voluptatum inventore consectetur 
+                    in ipsa explicabo est nulla at tempora doloremque eaque 
+                    veritatis consequuntur necessitatibus, eligendi recusandae quia!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Laudantium molestiae alias dolores suscipit at voluptatibus
+                    reiciendis doloremque voluptate nemo quae unde deserunt temporibus 
+                    exercitationem aperiam, corporis recusandae incidunt ratione maxime?
+                </p>
+                <p class="text-droit">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Doloribus harum sapiente a voluptatum inventore consectetur 
+                    in ipsa explicabo est nulla at tempora doloremque eaque 
+                    veritatis consequuntur necessitatibus, eligendi recusandae quia!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Laudantium molestiae alias dolores suscipit at voluptatibus
+                    reiciendis doloremque voluptate nemo quae unde deserunt temporibus 
+                    exercitationem aperiam, corporis recusandae incidunt ratione maxime?
+                </p>
+                <div class="content-motif">
+                    <p class="libelle-motif">Motif de l'arrêt du contrat</p>
+                    <textarea class="textarea-motif" formControlName="motif" name="motif"  placeholder="Motif de l'arrêt du contrat"></textarea>
+                </div>
+                <div class="content-error-msg" *ngIf="successMsgBannir == false">
+                    <p class="error-alert">{{ dataBannir?.message}}</p>
+                </div>
+                <div class="btns3">
+                    <button (click)="arretContrat()"  class="button7">Arréter</button>
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal7-->
+<div class="modal">
+    <jw-modal id="custom-modal-7">
+        <div class="tableau">
+            <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-7');" class="clear">clear</mat-icon>
+            <form [formGroup]="bannirForm">
+                <p class="dtl1">Bannir {{prenom}} {{nom}}</p>
+                <p class="text-droit">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Doloribus harum sapiente a voluptatum inventore consectetur 
+                    in ipsa explicabo est nulla at tempora doloremque eaque 
+                    veritatis consequuntur necessitatibus, eligendi recusandae quia!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Laudantium molestiae alias dolores suscipit at voluptatibus
+                    reiciendis doloremque voluptate nemo quae unde deserunt temporibus 
+                    exercitationem aperiam, corporis recusandae incidunt ratione maxime?
+                </p>
+                <p class="text-droit">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Doloribus harum sapiente a voluptatum inventore consectetur 
+                    in ipsa explicabo est nulla at tempora doloremque eaque 
+                    veritatis consequuntur necessitatibus, eligendi recusandae quia!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Laudantium molestiae alias dolores suscipit at voluptatibus
+                    reiciendis doloremque voluptate nemo quae unde deserunt temporibus 
+                    exercitationem aperiam, corporis recusandae incidunt ratione maxime?
+                </p>
+                <div class="input-v">
+                    <p class="libelle-motif">Libelle</p>
+                    <input class="input-valider" type="text" formControlName="libelle" placeholder="Motif de Bannir l'intérimaire">
+                </div>
+                <div class="content-motif">
+                    <p class="libelle-motif">Motif pour Bannir {{prenom}} {{nom}}</p>
+                    <textarea class="textarea-motif" formControlName="commentaire" name="motif"  placeholder="Commentaire"></textarea>
+                </div>
+                <div class="content-error-msg" *ngIf="successMsgBannir == false">
+                    <p class="error-alert">{{ dataBannir?.message}}</p>
+                </div>
+                <div class="btns3">
+                    <button (click)="bloquerInterimaire()"  class="button8">Bannir</button>
+                </div>
+            </form>
+        </div>
+    </jw-modal>
+</div>
+
+<!--modal 8-->
+<div class="modal">
+    <jw-modal id="custom-modal-8">
+        <form [formGroup]="validerForm">
+            <div class="tableau">
+                <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-8');" class="clear">clear</mat-icon>
+                <p class="dtl1">Valider la Création de {{prenom}} {{nom}} en tant  qu'intérimaire</p>
+                <p class="text-droit">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Doloribus harum sapiente a voluptatum inventore consectetur 
+                    in ipsa explicabo est nulla at tempora doloremque eaque 
+                    veritatis consequuntur necessitatibus, eligendi recusandae quia!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    reiciendis doloremque voluptate nemo quae unde deserunt temporibus 
+                    exercitationem aperiam, corporis recusandae incidunt ratione maxime?
+                </p>
+                <p class="text-droit">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Doloribus harum sapiente a voluptatum inventore consectetur 
+                    in ipsa explicabo est nulla at tempora doloremque eaque 
+                    reiciendis doloremque voluptate nemo quae unde deserunt temporibus 
+                    exercitationem aperiam, corporis recusandae incidunt ratione maxime?
+                </p>
+                <div class="input-v">
+                    <p class="libelle-motif">Matricule</p>
+                    <input class="input-valider" type="text" formControlName="matricule" placeholder="Matricule">
+                </div>
+                <div class="input-v">
+                    <p class="libelle-motif">Téléphone OM</p>
+                    <input class="input-valider" type="text" formControlName="telephone" placeholder="Telephone OM">
+                </div>
+                <div class="input-v">
+                    <p class="libelle-motif">Matricule Manager</p>
+                    <input list="matriculesm" class="input-valider" (change)="saveMatriculeM($event)" type="text" formControlName="responsable" placeholder="Matricule de son manageur">
+                    <datalist id="matriculesm">
+                        <option *ngFor="let c of dataManageur" [value]="c.matricule" >{{c.matricule}}</option>
+                      </datalist>
+                </div>
+                <div class="content-error-msg" *ngIf="successMsgValider == false">
+                    <p class="error-alert">{{ dataValidation?.message}}</p>
+                </div>
+                <div class="btns3">
+                    <button (click)="validerInterimaire() "  class="button5">Valider</button>
+                </div>
+            </div>
+        </form>
+    </jw-modal>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

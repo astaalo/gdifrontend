@@ -1,0 +1,19 @@
+<div>
+    <form [formGroup]="modifierForm">
+        <div class="forms-objectif">
+            <div class="content-form"> 
+                <div class="input-titre">
+                    <p class="label-input" >Titre</p>
+                    <input type="text" [(ngModel)]="itemobjectif.titre" id="titre" name="titre" formControlName="titre" placeholder="Titre" >
+                </div>
+                <div class="input-description">
+                    <p class="label-input" >Description</p>
+                    <textarea type="textarea" [(ngModel)]="itemobjectif.description" name="description" formControlName="description" placeholder="Description"></textarea>
+                </div>
+                <div class="content-button-submit-objectif">
+                    <button (click)="modifierObjectif(itemobjectif.id)" class="button-submit-objectif">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

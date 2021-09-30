@@ -1,0 +1,117 @@
+<div class="all-container">
+    <div class="all">
+        <div>
+            <p class="parametre-text">Mes paramétres</p>
+        </div>
+        <div *ngIf="user != 'interimaire'" class="bouton-ajout-user">
+            <button routerLink="/accueil/adduser" class="button-add-user">Ajouter Utilisateur</button>
+        </div>
+        <div class="parametre-header">
+            <div [style.border]="border1" *ngIf="user == 'AGN'" (click)="changeShowb()" class="header-1">
+                <p [style.color]="color1" class="parametre-header-title">Sécurité</p>
+            </div>
+            <div [style.border]="border2"  (click)="changeShowa()" class="header-2">
+                <p [style.color]="color2" class="parametre-header-title">Aide et assistance</p>
+            </div>
+        </div>
+        <div *ngIf="!show1 && user == 'AGN'" class="content-securite">
+            <!-- <form [formGroup]="passwordForm">
+                <div class="actuel-password">
+                    <p class="label-input">Mot de passe actuel</p>
+                    <input formControlName="oldPassword" class="parametre-input" type="text" >
+                </div>
+                <button (click)="validerPassword()" class="valider-password">Envoyer</button>
+            </form> -->
+            <form [formGroup]="newpasswordForm">
+                <div>
+                    <p class="message-change-password">Voulez-vous changer de mot de passe ? </p>
+                    <div class="actuel-password">
+                        <p class="label-input">Mot de passe actuel</p>
+                        <input formControlName="oldPassword" class="parametre-input" type="password" >
+                    </div>
+                    <div class="new-password">
+                        <p class="label-input">Nouveau mot de passe</p>
+                        <input formControlName="password" class="parametre-input" type="password">
+                    </div>
+                    <div class="confirm-password">
+                        <p class="label-input">Confirmer mot de passe</p>
+                        <input formControlName="plainPassword" class="parametre-input" type="password">
+                    </div>
+                    <div class="content-error-msg" *ngIf="successMsg == false">
+                        <p class="error-alert">{{ datas?.message}}</p>
+                    </div>
+                    <button (click)="confirmPassword()" class="enregistrer-password">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="show1" class="content-aide-assistance">
+            <div class="aide-assistance-header">
+                <div [style.border]="bordera" (click)="changedisplay1()" class="explication-header">
+                    <p [style.color]="colora" class="aide-assistance-header-title">Fonctionnement</p>
+                </div>
+                <div [style.border]="borderb" (click)="changedisplay2()" class="explication-header">
+                    <p [style.color]="colorb" class="aide-assistance-header-title">Contacts</p>
+                </div>
+                <div [style.border]="borderc" (click)="changedisplay3()" class="explication-header">
+                    <p [style.color]="colorc" class="aide-assistance-header-title">Message</p>
+                </div>
+            </div>
+            <div *ngIf="display==1" class="content-fonctionnement">
+                <div class="aide-assitance-libelle">
+                    <p class="libelle-assistance">Vous aurez ici toutes les explications permettant de comprendre les fonctionnalités de l'application GDI. </p>
+                </div>
+                <div class="aide-assistance-video" >
+                    <div *ngFor="let v of videos; let i = index">
+                        <video  class="video-play" id="video" controls preload="metadata">
+                            <source src="{{v.url}}" type="video/mp4">
+                         </video>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="display==2" class="content-contact">
+                <div class="aide-assitance-libelle">
+                    <p class="libelle-assistance">Nous mettons à votre disposition les numéros de téléphones et e-mails des personnes qui répondront à tout type de demandes à propos de l'application. </p>
+                </div>
+                <div class="aide-assistance-contact">
+                    <div class="personne-a-contacter" *ngFor="let p of datas | slice:0:5; let i = index">
+                        <div class="image-personne">
+                            <img class="la-photo" src="../assets/images/{{p.photo}}"alt="">
+                        </div>
+                        <div class="information-personne">
+                            <p class="nom-complet">{{p.prenom}} {{p.npm}}</p>
+                            <p class="fonction-person">{{p.poste}}</p>
+                            <p class="phone-email">{{p.telephone}}</p>
+                            <p class="phone-email">{{p.email}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="display==3" class="content-message">
+                <div class="aide-assitance-libelle">
+                    <p class="libelle-assistance">Si vous le souhaitez, contactez-nous directement en nous envoyant un message et nous vous répondrons le plus rapidement possible.  </p>
+                </div>
+                <div class="aide-assistance-message">
+                    <textarea class="input-message" type="textarea" placeholder="Tapez ici votre message"></textarea>
+                </div>
+                <button  class="valider-password">Envoyer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

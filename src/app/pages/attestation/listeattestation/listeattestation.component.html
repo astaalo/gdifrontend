@@ -1,0 +1,124 @@
+<div class="all-container">
+    <div class="demande">
+        <div class="tableau">
+            <p class="detail1" id="mydesc">Liste des Attestations de Présence</p>
+            <form [formGroup]="filterForm">
+                <div class="exporter">
+                    <div class="content-input-extraction">
+                        <div class="filtrer-mois">
+                            <p class="label-input" for="titre">Référence: </p>
+                            <input type="text" class="input-extraction" formControlName="reference">
+                        </div>
+                        <div class="filtrer-mois">
+                            <p class="label-input" for="titre">Mois: </p>
+                            <select type="number" formControlName="mois"  class="select-mois" >
+                                <option value="null">Aucun Choix</option>
+                                <option *ngFor="let data of ListeMois"  [value]="data.libelle">{{data.libelle}}</option>
+                            </select>
+                        </div>
+                        <div class="filtrer-mois">
+                            <p class="label-input" for="titre">Année: </p>
+                            <select  formControlName="annee" class="select-mois" >
+                                <option value="null">Aucun Choix</option>
+                                <option *ngFor="let data of lastTenYear"  [value]="data.annee">{{data.annee}}</option>
+                            </select>
+                        </div>
+                        <div class="content-extraction">
+                            <mat-icon class="icon-search" (click)="gty(page)" fontSet="material-icons-outlined" >search</mat-icon>
+                        </div>
+                        <div class="content-extraction">
+                            <!-- <button (click)="extraireAttestation()" class="button-extraire">Extraire en CSV</button> -->
+                            <button (click)="exportCsv()" class="button-extraire">Extraire en CSV</button>
+                        </div>
+                    </div>
+                    <div class="content-error-msg" *ngIf="successMsg == false">
+                        <p class="error-alert">{{ data?.message}}: mois et année</p>
+                    </div>
+                </div>
+            </form>
+            <table style="overflow-x:auto;" aria-describedby = "mydesc">
+                <thead>
+                    <tr class="head">
+                        <th id="manager">Matricule</th>
+                        <th class="typ" id="prenom">Prénom</th>
+                        <th class="typ" id="nom">Nom</th>
+                        <th class="typ" id="reference">Référence</th>
+                        <th *ngIf="user != 'AGN' && user != 'INT'" id="action">Agence</th>
+                        <th id="contrat">Période</th>
+                        <th *ngIf="scrWidth>991" id="contrat">Absence</th>
+                        <th id="action">Etat</th>
+                        <!-- <th id="action">Générer</th> -->
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of dataAttest | paginate: { 
+                        itemsPerPage: itemsPerPage,
+                        currentPage: page,
+                        totalItems: totalItems}; let i = index" (click)="openDetail(p.id)" style="cursor: pointer;">
+                        <td>{{p.matricule}}</td>
+                        <td>{{p.prenom}}</td>
+                        <td>{{p.nom}}</td>
+                        <td>{{p.reference}}</td>
+                        <td *ngIf="user != 'AGN' && user != 'INT'" >{{p.agence}}</td>
+                        <td >{{p.dateFin  | date:'MMMM yyyy'}}</td>
+                        <td *ngIf="scrWidth>991" >{{p.nombreJourAbscence}} jours</td>
+                        <td>{{p.statut}}</td>
+                        <!-- <td><button (click)="openModal('custom-modal-'+p.id);">Voir</button></td> -->
+                        <!-- modal -->
+                        <!-- <div class="modal">
+                            <jw-modal id="custom-modal-{{p.id}}">
+                                <mat-icon style="cursor: pointer;" (click)="closeModal('custom-modal-'+p.id);" class="clear">clear</mat-icon>
+                                <div class="all" id="htmlData" #htmlData>
+                                    <h1>Créer une Attestation de Présence pour {{p.prenom}} {{p.nom}}</h1>
+                                    <div>
+                                        <form >
+                                            <div class="forms">
+                                                <div>
+                                                    <p class="text-attestation">
+                                                        Bonjour M. <span class="text-span-attestation">{{p.manager?.prenom}} {{p.manager?.nom}}</span>, 
+                                                        vous attestez que M. <span class="text-span-attestation">{{p.prenom}} {{p.nom}}</span>
+                                                        <span class="text-span-attestation">{{p.matricule}}</span>, a travaillé dans la 
+                                                        structure durant la période que vous allez choisir dans le formulaire.
+                                                    </p>
+                                                    
+                                                    
+                                                    <div class="content-error-msg" *ngIf="successMsg == false">
+                                                        <p class="error-alert">{{ result?.message}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="content-button-submit">
+                                    <button (click)="openPDF()" class="button-submit">Valider</button>
+                                </div>
+                            </jw-modal>
+                        </div>  -->
+                    <!-- modal -->
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

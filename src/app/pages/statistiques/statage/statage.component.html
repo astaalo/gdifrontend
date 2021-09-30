@@ -1,0 +1,57 @@
+<div class="content-diagram-effectif">
+    <div *ngIf="scrWidth>991" class="stat">
+        <div class="elmt2" title="messages2">
+            <div class="tit">
+                <p class="total">Variation de l’effectif</p>
+                <div [formGroup]="anneeForm" class="filter-date">
+                    <div [style.border]="borderfilter1" id="filter-annee" class="filtrer-annees">
+                        <mat-icon [style.color]="colorfilter1" id="icon-calendar-annee"  class="icone-calendar1" fontSet="material-icons-outlined">date_range</mat-icon>
+                        <select class="select-mois" formControlName="anneeA">
+                            <option class="option" value="null">Annee</option>
+                            <option *ngFor="let p of lastTenYear" class="option" [value]="p.annee">{{p.annee}}</option>
+                        </select>
+                    </div>
+                    <div [style.border]="borderfilter1" id="filter-annee" class="filtrer-annees">
+                        <mat-icon [style.color]="colorfilter1" id="icon-calendar-annee"  class="icone-calendar1" fontSet="material-icons-outlined">home</mat-icon>
+                        <select class="select-mois" formControlName="societeA">
+                            <option *ngFor="let p of dataSociete" class="option" [value]="p.id">{{p.libelle}}</option>
+                        </select>
+                    </div>
+                    <div class="content-extraction">
+                        <button (click)="dateSelectionner(anneeForm.value.anneeA, anneeForm.value.societeA)" class="button-rafraichir">Rafraichir</button>
+                    </div>
+                    <!-- <div class="content-extraction">
+                        <button (click)="exportStatInterimaireByYear()" class="button-extraire">Extraire en CSV</button>
+                    </div> -->
+                </div>
+            </div>
+            <div class="diagra1">
+                <div id="chart1">
+                    <apx-chart
+                        [series]="chartOptions1.series"
+                        [chart]="chartOptions1.chart"
+                        [dataLabels]="chartOptions1.dataLabels"
+                        [plotOptions]="chartOptions1.plotOptions"
+                        [responsive]="chartOptions1.responsive"
+                        [xaxis]="chartOptions1.xaxis"
+                        [legend]="chartOptions1.legend"
+                        [fill]="chartOptions1.fill"
+                        [colors]="chartOptions1.colors"
+                        [dataLabels]="chartOptions1.dataLabels"
+                    ></apx-chart>
+                </div>
+            </div>
+            <div class="lesbouton2">
+                <div  class="button3"> 
+                    <div class="color"></div> 
+                    <p>Hommes</p>
+                </div>
+                <div  class="button4"> 
+                    <div class="color"></div> 
+                    <p>Femmes</p>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+</div>

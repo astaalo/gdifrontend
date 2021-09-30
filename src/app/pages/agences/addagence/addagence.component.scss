@@ -1,0 +1,581 @@
+.all-container {
+    background-color: #f5f6f9;
+}
+.all {
+    background: white;
+    margin-right: 0px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.all1 {
+    width: 500px;
+    margin: 0 auto;
+}
+.filename{
+    font-size: 12px;
+}
+.nom-du-fichier {
+    color: #ff7900;
+}
+.p1 {
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #222222;
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+.matri {
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #222222;
+    margin-top: 30px;
+    margin-left: -20px;
+    span {
+        font-weight: bold;
+    }
+}
+.grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+}
+.image-upload {
+    width: 140px;
+    height: 140px;
+    margin-left: 0px;
+    border-radius: 20px;
+    border: solid 3px #009393;
+}
+.content-image-upload {
+    width: 140px;
+    height: 140px;
+    margin-left: 0px;
+    border-radius: 20px;
+    border: solid 3px #009393;
+    background-image: url("../../../../assets/images/default.png");
+    background-size: cover;
+}
+::-webkit-file-upload-button {
+    
+    width: 158px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 5px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid black;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+/* for poor sods using IE */
+::-ms-browse {
+    content: 'Ajouter Photo';
+    width: 120px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 5px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.button::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+}
+.button::before {
+    content: 'Ajouter Photo';
+    width: 120px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid black;
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-top: 5px;
+}
+.others {
+    margin-left: 10px;
+}
+input {
+    padding-left: 10px;
+    outline: none;
+    font-size: 14px;
+}
+.input1 input {
+    width: 315px;
+    height: 30px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 10px;
+}
+.input2 input {
+    width: 145px;
+    height: 30px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 10px;
+}
+.input4 textarea {
+    width: 315px;
+    height: 64px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 10px;
+    outline: none;
+    padding-left: 10px;
+}
+.input3 {
+    margin-left: 10px;
+}
+.buttons {
+    width: 106px;
+    margin: 0 auto;
+}
+.button2 {
+    width: 106px;
+    height: 30px;
+    background: #f16e00;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: -0.2px;
+    color: white;
+    border-radius: none;
+    margin-top: 5px;
+    border: none;
+    margin-bottom: 10px;
+}
+.trait {
+    border: 1px solid #979797;
+    background-color: #979797;
+    margin-top: 10px;
+}
+.p2 {
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #222222;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.buttons1 {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.button3::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+}
+.button3 {
+    width: 100px;
+}
+.button4 {
+    width: 100px;
+}
+.button5 {
+    width: 100px;
+}
+.button6 {
+    width: 100px;
+}
+.button3::before {
+    content: 'NINEA';
+    width: 90px;
+    height: 20px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-top: 5px;
+
+}
+.button4::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+}
+.button4::before {
+    content: 'RCCM';
+    width: 90px;
+    height: 20px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-top: 5px;
+}
+.button5::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+}
+.button5::before {
+    content: 'Contrat';
+    width: 90px;
+    height: 20px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-top: 5px;
+
+}
+.button6::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+}
+.button6::before {
+    content: 'CNI DG';
+    width: 90px;
+    height: 20px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-top: 5px;
+}
+
+.content-error-msg{
+    width: 300px;
+    margin-left: 0px;
+  }
+  .error-alert{
+    color: #ff0000;
+    font-size: 12px;
+  }
+
+  .error-content-image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    
+}
+.error-image {
+    width: 160px;
+    height: 150px;
+    background-image: url("../../../../assets/images/error-message.png");
+    background-size: cover;
+}
+.error-text{
+    text-align: center;
+    color: #ff0000;
+    font-size: 28px;
+}
+.error-message-admin{
+    text-align: center;
+    font-size: 18px;
+}
+.clear-error {
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.error-content-button{
+    width: 50px;
+    margin: 0 auto;
+}
+.error-button{
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #f5f6f9;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px #ff0000;
+}
+@media (max-width: 991px) {
+    .chiffre-aside {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 1px;
+        background-color: white;
+        padding: 0px;
+        margin-top: 10px;
+        border-bottom: 1px solid #f5f6f9;
+    }
+    .grid-container-aside {
+        grid-template-columns: 55px 1fr 55px;
+    }
+    .grid-container1-aside {
+        grid-template-columns: 1fr 125px;
+    }
+    .all-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "tableau"
+          "aside";
+    }
+    
+    .all {
+        margin-top: 10px;
+        margin-right: 0px;
+        padding-top: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .all1 {
+        width: 290px;
+        margin: 0 auto;
+    }
+    .p1 {
+        font-size: 14px;
+        margin-top: 0px;
+        margin-bottom: 0;
+    }
+    .matri {
+        font-size: 14px;
+        margin-top: 20px;
+        margin-left: -20px;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "photo"
+          "others";
+    }
+    .photo {
+        width: 120px;
+        display: block;
+        margin: 10px auto;
+    }
+    img {
+        width: 100px;
+        height: 100px;
+        margin-left: 0px;
+        border-radius: 20px;
+    }
+    ::-webkit-file-upload-button {
+        
+        width: 70px;
+        height: 20px;
+        padding: 5px 2px;
+        font-size: 10px;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    /* for poor sods using IE */
+    ::-ms-browse {
+        content: 'Ajouter Photo';
+        width: 70px;
+        height: 20px;
+        padding: 5px 2px;
+        font-size: 10px;
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+    .button::-webkit-file-upload-button {
+        visibility: hidden;
+        outline: none;
+    }
+    .button {
+        width: 120px;
+        margin: 0 auto;
+    }
+    .button::before {
+        content: 'Ajouter Photo';
+        width: 80px;
+        height: 20px;
+        font-size: 10px;
+        margin-top: 10px;
+        margin-left: 0px;
+        padding-top: 8px;
+    }
+    .others {
+        margin-left: 5px;
+    }
+    input {
+        padding-left: 10px;
+        outline: none;
+    }
+    .input1 input {
+        width: 270px;
+        height: 30px;
+        margin-bottom: 15px;
+        font-size: 10px;
+    }
+    .input2 input {
+        width: 122px;
+        height: 30px;
+        margin-bottom: 15px;
+        font-size: 10px;
+    }
+    .input4 textarea {
+        width: 280px;
+        height: 80px;
+        margin-bottom: 15px;
+        font-size: 10px;
+    }
+    .input3 {
+        margin-left: 10px;
+    }
+    .buttons {
+        width: 80px;
+        margin: 0 auto;
+    }
+    .button2 {
+        width: 80px;
+        height: 30px;
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .trait {
+        margin-top: 20px;
+    }
+    .p2 {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .buttons1 {
+        display: block;
+    }
+    .button3 {
+        width: 120px;
+    }
+    .button3::-webkit-file-upload-button {
+        visibility: hidden;
+        outline: none;
+    }
+    .button3::before {
+        content: 'NINEA';
+        width: 100px;
+        height: 20px;
+        font-size: 10px;
+        border: 2px solid black;
+        margin-top: 10px;
+        margin-left: 0px;
+        padding-top: 8px;
+    
+    }
+    .button4 {
+        width: 120px;
+    }
+    .button4::-webkit-file-upload-button {
+        visibility: hidden;
+        outline: none;
+    }
+    .button4::before {
+        content: 'RCCM';
+        width: 100px;
+        height: 20px;
+        font-size: 10px;
+        border: 2px solid black;
+        margin-top: 10px;
+        margin-left: 0px;
+        padding-top: 8px;
+    }
+    .button5 {
+        width: 120px;
+    }
+    .button5::-webkit-file-upload-button {
+        visibility: hidden;
+        outline: none;
+    }
+    .button5::before {
+        content: 'Contrat';
+        width: 100px;
+        height: 20px;
+        font-size: 10px;
+        border: 2px solid black;
+        margin-top: 10px;
+        margin-left: 0px;
+        padding-top: 8px;
+    
+    }
+    .button6 {
+        width: 120px;
+    }
+    .button6::-webkit-file-upload-button {
+        visibility: hidden;
+        outline: none;
+    }
+    .button6::before {
+        content: 'CNI DG';
+        width: 100px;
+        height: 20px;
+        font-size: 10px;
+        cursor: pointer;
+        outline: none;
+        border: 2px solid black;
+        margin-top: 10px;
+        margin-left: 0px;
+        padding-top: 8px;
+    }
+    
+}

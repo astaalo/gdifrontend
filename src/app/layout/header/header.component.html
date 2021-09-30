@@ -1,21 +1,20 @@
 <div class="content-web" *ngIf="scrWidth>991">
   <nav class="nav-global">
-    <div routerLink="/login" style="cursor: pointer;" class="logo">
-      <img class="img-logo" src="../assets/icones/images-logo-orange.png" alt="">
+    <div style="cursor: pointer;" class="logo">
+      <!-- <img class="img-logo" src="../../../assets/icones/images-logo-orange.png" alt=""> -->
+      <div class="img-logo"></div>
       <div class="title-logo" *ngIf="scrWidth>991">
         <span>Gestion des <br> Interimaires</span>
       </div>
     </div>
-    <div class="search">
-        <mat-icon fontSet="material-icons-outlined" >search</mat-icon>
-        <input [(ngModel)]="filterterm" class="input-search" type="text"  name="search" id="" placeholder="Rechercher interimaires, Agences et Manager">
+    <div class="search"  *ngIf="user!='INT'"> 
         <button  class="buttona" (click)="openModal('custom-modal-50');">Recherche avancée</button>
     </div>
-    <div class="notif-chat-profil" style="margin-left: auto;margin-right: 0;">
+    <div  class="notif-chat-profil" style="margin-left: auto;margin-right: 0;" >
         <div style="cursor: pointer;" class="elmt notif" title="notifications">
-            <div routerLink="/accueil/alertes" style="outline: none;">
+            <div  routerLink="/accueil/alertes" style="outline: none;">
                <mat-icon class="icon" fontSet="material-icons-outlined" >notifications</mat-icon>
-               <span class="info-notif">notif</span>
+               <span *ngFor="let p of lastnotif"  class="info-notif" [style.background]="getcolornotif(p)">notif</span>
             </div>
         </div>
         <div style="cursor: pointer;" class="elmt1 chat" title="messages">
@@ -25,11 +24,10 @@
         </div>
         <div style="cursor: pointer;" class="profil d-flex">
           <div (click)="updown()">
-            <img class="img-profil" src="../assets/icones/Oval.png" alt="">
-            <span class="info-status">on line</span>
+            <img class="img-profil" src="{{photo}}" alt="">
           </div>
           <div (click)="updown()" *ngIf="scrWidth>991" class="nom d-flex" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-            Serigne
+            {{prenom}}
           </div>
           <div class="updown" (click)="updown()">
             <mat-icon *ngIf="!click" fontSet="material-icons-outlined" >expand_more</mat-icon>
@@ -38,9 +36,9 @@
         </div>
         <div  *ngIf="click" class="profilinfo" style="cursor: pointer;">
           <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset" style="will-change: transform;">
-            <p class="profi" (click)="updown()" routerLink="/accueil/compte">profil</p>
+            <p class="profi" *ngIf="role != 'DRH'" (click)="redirection()" > profil</p>
             <br>
-            <p class="deconnecte" (click)="logout()" routerLink="/login">déconnexion</p>
+            <p class="deconnecte" (click)="updown()" routerLink="/login">déconnexion</p>
           </div>
         </div>
     </div>
@@ -66,40 +64,54 @@
                     </div>
                     <div class="sele">
                       <div class="sele1">
-                        <select class="custom-select" formControlName="direction">
-                            <option value="" disabled selected hidden>Direction</option>
-                            <option *ngFor="let moi of mois" [ngValue]="moi">{{moi}}</option>
+                        <select class="custom-select" #entite formControlName="societe" (change)="directionsListe(entite.value)">
+                            <option value="" disabled selected hidden>Société</option>
+                            <option *ngFor="let p of dataSociete" [ngValue]="p.id">{{p.libelle}}</option>
                          </select>
                       </div>
                       <div class="sele2">
-                        <select class="custom-select" formControlName="departement">
-                            <option value="" disabled selected hidden>Département</option>
-                            <option *ngFor="let som of sommes" [ngValue]="som">{{som}}</option>
+                        <select class="custom-select" #direct formControlName="direction" (change)="departementListe(direct.value)">
+                            <option value="" disabled selected hidden>Direction</option>
+                            <option *ngFor="let p of dataDirection" [ngValue]="p.id">{{p.libelle}}</option>
                         </select>
                       </div>
                       <div class="sele3">
-                        <select class="custom-select" formControlName="service">
-                            <option value="" disabled selected hidden>Services</option>
-                            <option *ngFor="let som of sommes" [ngValue]="som">{{som}}</option>
+                        <select class="custom-select" #dep formControlName="departement" (change)="serviceListe(dep.value)">
+                            <option value="" disabled selected hidden>Département</option>
+                            <option *ngFor="let p of dataDepartement" [ngValue]="p.id">{{p.libelle}}</option>
                         </select>
                       </div>
                     </div>
                     <div class="sele">
                       <div class="sele1">
-                        <select class="custom-select" formControlName="agence">
-                            <option value="" disabled selected hidden>Agence</option>
-                            <option *ngFor="let moi of mois" [ngValue]="moi">{{moi}}</option>
+                        <select class="custom-select" formControlName="service">
+                            <option value="" disabled selected hidden>Service</option>
+                            <option *ngFor="let p of donneeService" [ngValue]="p.id">{{p.libelle}}</option>
                          </select>
                       </div>
                       <div class="sele2">
-                        <select class="custom-select" formControlName="annee">
-                            <option value="" disabled selected hidden>Année</option>
-                            <option *ngFor="let som of sommes" [ngValue]="som">{{som}}</option>
+                        <select class="custom-select" formControlName="agence">
+                            <option value="" disabled selected hidden>Agence</option>
+                            <option *ngFor="let p of dataAgence" [ngValue]="p.id">{{p.nom}}</option>
                         </select>
                       </div>
-                      <div class="input2">
-                        <input class="input4" type="text" formControlName="poste" placeholder="Poste">
+                      <div class="sele3">
+                        <select class="custom-select" formControlName="annee">
+                            <option value="" disabled selected hidden>Annee</option>
+                            <option *ngFor="let p of lastTenYear" [ngValue]="p.annee">{{p.annee}}</option>
+                        </select>
                       </div>
+                    </div>
+                    <div class="sele">
+                      <div class="sele1">
+                        <select class="custom-select" formControlName="poste">
+                            <option value="" disabled selected hidden>Poste</option>
+                            <option *ngFor="let p of listeFonction" [ngValue]="p.id">{{p.libelle}}</option>
+                         </select>
+                      </div>
+                    </div>
+                    <div class="content-error-msg" *ngIf="successRequest == false">
+                      <p class="error-alert">{{messageError}}</p>
                     </div>
                     <div class="boutonsea">
                         <button (click)="onSubmit()" class="buttonsea">Rechercher</button>
@@ -120,7 +132,7 @@
       <mat-icon *ngIf="side" (click)="closeSidenav('custom-modal-8');" class="icon-toggle-mobile">menu</mat-icon>
     </div>
     <div (click)="closeSidenav('custom-modal-8');" routerLink="/login" style="cursor: pointer;" class="logo-mobile">
-      <img class="img-logo-mobile" src="../assets/icones/images-logo-orange.png" alt="">
+      <img class="img-logo-mobile" src="../../../assets/icones/images-logo-orange.png" alt="">
       <p class="title-logo-mobile">GDI</p>
     </div>
     <div (click)="closeSidenav('custom-modal-8');" class="notif-chat-profil-mobile" >
@@ -141,7 +153,7 @@
     <div class="all-sidenav" *ngIf="scrWidth<991">
       <div class="menu-sidenav" [style.height.px]="scrHeight">
         <div  *ngFor="let p of menus ;let i = index"  (click)="selected=i" >
-          <li [style.marginTop.px]="getMargin(p)">
+          <li *ngIf="p.path != 'statistique'" [style.marginTop.px]="getMargin(p)">
               <a class="nav-link" [routerLink]="p.path"  [routerLinkActive]="['active']" style="text-decoration: none;">
                   <div class="grid-container" (click)="navigate(p,'custom-modal-8')">
                       <div *ngIf="!p.liste" class="item1" [style.background]="selected==i?'#ff7900':'white'" (click)="selected=i">

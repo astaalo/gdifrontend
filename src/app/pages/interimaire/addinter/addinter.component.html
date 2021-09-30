@@ -1,0 +1,376 @@
+<div class="all-container">
+  <div class="all">
+    <div *ngIf="!isAdmissible" class="content-search-inter">
+      <div class="content-text-explication">
+        <p class="ajouter">Bien lire avant de faire la recherche</p>
+        <p class="text-explication-libelle">
+          Avant d’ajouter un intérimaire, il faut d’abord faire une recherche sur la 
+          personne que vous devez ajouter comme intérimaire. Vous devez bien remplir 
+          les informations de ces champs. Et voici les différents résultats qu’on peut 
+          avoir après la recherche:
+          <br><br>
+          Si la personne est sur la liste noire de la société: Vous aurez une notification 
+          vous disant que vous ne pouvez pas ajouter cette personne comme intérimaire car 
+          il se trouve sur la liste noire de la société.
+          <br><br>
+          Si la personne ne se trouve pas sur la liste noire et était dans la société que 
+          vous avez sélectionné et a déjà fait 24 mois: Vous serez redirigé sur la page détail 
+          de l’intérimaire et vous pourrez voir ses différents contrats avec la société. 
+          Et vous ne pouvez pas ajouter un autre contrat dans cette société.
+          <br><br>
+          Si la personne ne se trouve pas sur la liste noire et était dans la société que vous 
+          avez sélectionné et n’a pas encore fait 24 mois: Vous serez redirigé sur la page détail 
+          de l’intérimaire et vous pourrez voir ses différents contrats avec la société. Et vous 
+          pouvez ajouter un autre contrat dans cette société en cliquant sur le bouton ajouter 
+          un contrat.
+          <br><br>
+          Si la personne ne se trouve pas sur la liste noire et n'est pas dans la société que 
+          vous avez sélectionné mais dans une autre société, vous serez redirigé sur le 
+          formulaire pour l’ajouter comme un autre intérimaire.
+          <br><br>
+          Si la personne ne se trouve pas sur la liste noire et n’a jamais eu de contrat avec 
+          aucune société, alors vous serez redirigé sur le formulaire pour l’ajouter comme intérimaire.
+        </p>
+      </div>
+      <div [formGroup]="searchForm" class="content-form-search">
+        <p class="ajouter">Rechercher un interimaire</p>
+        <div class="content-form">
+          <div class="content-row-form">
+            <div class="content-input">
+              <p class="label-input1">Type de Pièce</p>
+              <select class="select-search"  formControlName="typePiece" required>
+                <option class="option" value="" disabled selected hidden>Choisir le type de Pièce</option>
+                <option *ngFor="let data of ListePiece" [value]="data.libelle">{{data.libelle}}</option>
+              </select>
+              <p class="error-require-input-search" *ngIf="videtypePiece" >Veuillez séléctionner un type de pièce</p>
+            </div>
+            <div class="content-input">
+              <p class="label-input2">Numéro Pièce</p>
+              <input class="input-search" type="text" formControlName="numeroPiece" placeholder="Numero Pièce" required>
+              <p class="error-require-input-search" *ngIf="videnumeroPiece" >Veuillez renseigner le numéro de piéce</p>
+            </div>
+          </div>
+          <div class="content-row-form">
+            <div class="content-input">
+              <p class="label-input1">Société</p>
+              <select class="select-search" #entite formControlName="societe" (change)="directionsListe(entite.value)" required>
+                <option class="option" value="" disabled selected hidden>Choisir une société</option>
+                <option *ngFor="let data of dataSociete" [value]="data.id">{{data.libelle}}</option>
+              </select>
+              <p class="error-require-input-search" *ngIf="videsociete" >Veuillez séléctionner une Société</p>
+            </div>
+            <div class="content-input">
+              <p class="label-input2">Numéro Téléphone</p>
+              <input class="input-search" type="number" formControlName="telephone" placeholder="Numero Téléphone" required>
+              <p class="error-require-input-search" *ngIf="videtelephone" >Veuillez renseigner le numéro de téléphone</p>
+            </div>
+          </div>
+          <div class="content-button-form">
+            <button (click)="rechercherInterimaire()" class="button-rechercher">Rechercher</button>
+          </div>
+          <div class="text-result-search">
+            <p *ngIf="!isBlackliste" class="text-blacklist">
+              Vous ne pouvez pas ajouter <span class="inter-blackliste">{{prenom}} {{nom}}
+              </span> comme intérimaire dans une société liée à la SONATEL.
+              Il se trouve sur la liste noire de la société.
+            </p>
+            <p *ngIf="isAdmissible" class="text-blacklist">
+              Vous pouvez ajouter <span class="inter-ok">{{prenom}} {{nom}}
+              </span> en tant qu' intérimaire dans cette société pour une durée maximum de 
+              <span class="inter-ok">{{duree}}</span> mois.
+            </p>
+            <p *ngIf="isAdmissible" class="text-blacklist">
+              Vous ne pouvez pas ajouter <span class="inter-end">{{prenom}} {{nom}}
+              </span> en tant qu'intérimaire dans cette société car il a déja fait 
+              <span class="inter-end">24 mois</span> dans cette société.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isAdmissible" class="all1">
+      <p class="ajouter">Ajouter</p>
+        <div class="form" [formGroup]="interForm">
+          <mat-horizontal-stepper [linear]="isLinear" #stepper labelPosition="bottom">
+            <mat-step [stepControl]="interForm">
+              <ng-template matStepLabel>
+                  <div class="head">
+                    <div class="header" [style.background]="colora">
+                        <p class="titre"> 1. Infos personnelles</p>
+                    </div>
+                </div>
+              </ng-template>
+              <div>
+                  <form [formGroup]="interForm">
+                      <div>
+                      <div class="grid">
+                        <div class="photo">
+                          <div *ngIf="!image" class="content-image-upload"></div>
+                          <img class="image-upload" *ngIf="image" [src]="image"  alt="">
+                          <input formControlName="photo" class="buttonphoto1" type="file" (change)="getPhoto($event.target)">
+                        </div>
+                        <div class="others">
+                          <div class="infoinput2">
+                            <select class="select5"  formControlName="typePiece" [(ngModel)]="typePiece">
+                              <option class="option" value="" disabled selected hidden>Type Pièce</option>
+                              <option *ngFor="let data of ListePiece" [value]="data.libelle">{{data.libelle}}</option>
+                            </select>
+                            <input class="input3" type="text" formControlName="numeroPiece" [(ngModel)]="numeroPiece" placeholder="Numero Pièce">
+                          </div>
+                          <!-- <div class="infoinput1">
+                            <input type="text" formControlName="numeroPiece" placeholder="Numero Pièce">
+                          </div> -->
+                          <div class="infoinput2">
+                            <input type="text" formControlName="prenom" placeholder="Prenom">
+                            <input class="input3" type="text" formControlName="nom" placeholder="Nom">
+                          </div>
+                          <div class="infoinput1">
+                            <input type="text" formControlName="email" placeholder="Email">
+                          </div>
+                          <div class="infoinput1">
+                            <input type="text" formControlName="telephone" placeholder="Téléphone" [(ngModel)]="telephone"> 
+                          </div>
+                          <div class="infoinput1">
+                            <input type="text" formControlName="adresse" placeholder="Adresse">
+                          </div>
+                          <div class="infoinput2">
+                            <input type="date" formControlName="dateNaissance" placeholder="Date de Naissance">
+                            <input class="input3" type="text" formControlName="lieuNaissance" placeholder="Lieu de Naissance">
+                          </div>
+                          <div class="infoinput2">
+                            <select class="select5" formControlName="sexe" >
+                              <option class="option" value="" disabled selected hidden>Genre</option>
+                              <option *ngFor="let data of ListeSexe" [value]="data.libelle">{{data.libelle}}</option>
+                            </select>
+                            <select class="select6"formControlName="sitmat" >
+                              <option class="option" value="" disabled selected hidden>Situation Matrimoniale</option>
+                              <option *ngFor="let data of ListeSitmat" [value]="data.libelle">{{data.libelle}}</option>
+                            </select>
+                          </div>
+                          <div class="infoinput1">
+                            <input type="text" formControlName="universite" placeholder="Université ou Ecole">
+                          </div>
+                          <div class="infoinput1">
+                            <input type="text"  list="professions" formControlName="profession" placeholder="Votre Profession" (change)="saveProfession($event)">
+                            <datalist id="professions">
+                              <option *ngFor="let c of listeFonction" [value]="c.libelle" >{{c.libelle}}</option>
+                            </datalist>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="buttons">
+                      <button class="button1" type="button">Annuler</button>
+                      <button class="button2"  type="button" (click)="submitted1()" mat-button matStepperNext>Suivant</button>
+                    </div>
+                  </form>
+              </div>
+            </mat-step>
+
+            <mat-step [stepControl]="interForm" >
+              <ng-template matStepLabel>
+                  <div class="head">
+                      <div class="header" [style.background]="colorb">
+                          <p class="titre"> 2. Contrat</p>
+                        </div>
+                  </div> 
+                </ng-template>
+              <div>
+                <form [formGroup]="interForm">
+                    <div>
+                    <div class="grid" >
+                      <div >
+                        <div class="photo">
+                          <button class="button-choisir-fichier" (change)="getFileContrat($event)">
+                            Choisir Contrat <img class="button-choisir-fichier-image" src="../../../assets/images/pdf image.png" alt="">
+                          </button>
+                          <input formControlName="contratDoc"  class="buttonphoto2" type="file" (change)="getFileContrat($event)" >
+                          
+                          <p class="fileName">{{contratName}}</p>
+                        </div>
+                      </div>
+                      <div class="others">
+                        <div class="contratinput2">
+                          <select class="select5" formControlName="categorieId">
+                            <option class="option" value="" disabled selected hidden>Catégorie</option>
+                            <option *ngFor="let data of dataCategorie" [value]="data.id">{{data.libelle}}</option>
+                          </select>
+                          <input class="input3" type="text" formControlName="salaireBrut" placeholder="Montant Salaire Brut">
+                        </div>
+                        <div class="contratinput2">
+                          <input type="date" formControlName="dateDebut" placeholder="Date de Début">
+                          <input class="input3" type="date" formControlName="dateFin" placeholder="Date de Fin">
+                        </div>  
+                        <div class="contratinput2">
+                          <select class="select5" #entite formControlName="societeId" [(ngModel)]="societe" (change)="directionsListe(entite.value)">
+                            <option class="option" value="" disabled selected hidden>Societe</option>
+                            <option *ngFor="let data of dataSociete" [value]="data.id">{{data.libelle}}</option>
+                          </select>
+                          <select class="select6" #direction  formControlName="directionId" (change)="departementListe(direction.value)">
+                            <option class="option" value="" disabled selected hidden>Direction</option>
+                            <option *ngFor="let data of dataDirection" value="{{data.id}}">{{data.libelle}}</option>
+                          </select>
+                          
+                        </div>
+                        <div class="contratinput2">
+                          <select class="select5" #departement formControlName="departementId" (change)="serviceListe(departement.value)">
+                            <option class="option" value="" disabled selected hidden>Département</option>
+                            <option *ngFor="let data of dataDepartement" value="{{data.id}}">{{data.libelle}}</option>
+                          </select>
+                          <select class="select6"  formControlName="structureId">
+                            <option class="option" value="" disabled selected hidden>Service</option>
+                            <option *ngFor="let data of donneeService" value="{{data.id}}">{{data.libelle}}</option>
+                          </select> 
+                        </div>
+                        <div class="contratinput2">
+                          <input type="text" list="domaines" (change)="saveDomaine($event)" formControlName="domaineId" placeholder="Domaine">
+                          <datalist id="domaines">
+                            <option *ngFor="let c of dataDomaine" [value]="c.libelle" >{{c.libelle}}</option>
+                          </datalist>
+                          <input class="input3" type="date" formControlName="dateSignature" placeholder="Date de Signature">
+                        </div>
+                        <div class="contratinput2">
+                          <input type="text" list="postes" (change)="savePoste($event)" formControlName="poste" placeholder="Titre du Poste">
+                          <datalist id="postes">
+                            <option *ngFor="let c of listeFonction" [value]="c.libelle" >{{c.libelle}}</option>
+                          </datalist>
+                          <select class="select6"  formControlName="site">
+                            <option class="option" value="" disabled selected hidden>Site</option>
+                            <option *ngFor="let data of dataSite" value="{{data.id}}">{{data.libelle}}</option>
+                          </select> 
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                  <button class="button1"  type="button" mat-button matStepperPrevious>Précédent</button>
+                  <button class="button2" (click)="submitted2()" type="button"  mat-button matStepperNext>Suivant</button>
+              </form>
+              </div>
+            </mat-step>
+
+            <mat-step [stepControl]="interForm" label="Email" >
+              <ng-template matStepLabel>
+                  <div class="head">
+                      <div class="header" [style.background]="colorc">
+                          <p class="titre"> 3. Documents</p>
+                        </div>
+                    </div>
+                </ng-template>
+              <div>
+                <div *ngIf="!submited">
+                  <form [formGroup]="interForm">
+                      <div>
+                      <div class="center">
+                        <div class="fiche-et-pv" >
+                          <div class="otherfile" >
+                            <input formControlName="fileCni" class="buttonCNI" type="file" (change)="getFileCni($event)" >
+                            <p class="fileName">{{cniName}}</p>
+                          </div>
+                          <div class="otherfile" >
+                            <input formControlName="fileFicheposte" class="buttonphoto3" type="file" (change)="getFichePoste($event)" >
+                            <p class="fileName">{{fichedeposteName}}</p>
+                          </div>
+                          <div class="otherfile" >
+                            <input formControlName="fileproceverbal" class="buttonphoto4" type="file" (change)="getProceVerbal($event)" >
+                            <p class="fileName">{{proceverbalName}}</p>
+                          </div>
+                        </div>
+                        <div class="les-diplomes-content">
+                          <div class="diplome-title">
+                            <p class="diplome-title-text">Diplomes</p>
+                          </div>
+                          <div class="liste-diplome">
+                            <div >
+                              <div class="liste-diplome-content">
+                                <input fomControlName="diplome1" class="buttondiplome" type="file" (change)="getDiplome1($event)" >
+                                <p class="diplomename">{{diplomeName1}}</p>
+                                <mat-icon class="add-diplome" fontSet="material-icons-outlined" (click)="addDiplome1()">add</mat-icon>
+                              </div>
+                              <div class="liste-diplome-content" [style.display]="selected1==true?'flex':'none'">
+                                <input fomControlName="diplome2" class="buttondiplome" type="file" (change)="getDiplome2($event)" >
+                                <p class="diplomename">{{diplomeName2}}</p>
+                                <mat-icon class="add-diplome" fontSet="material-icons-outlined" (click)="addDiplome2()">add</mat-icon>
+                                <mat-icon class="add-diplome"  (click)="deleteDiplome2()">delete</mat-icon>
+                              </div>
+                              <div class="liste-diplome-content" [style.display]="selected2==true?'flex':'none'">
+                                <input fomControlName="diplome3" class="buttondiplome" type="file" (change)="getDiplome3($event)" >
+                                <p class="diplomename">{{diplomeName3}}</p>
+                                <mat-icon class="add-diplome"  (click)="deleteDiplome3()">delete</mat-icon>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="content-error-msg" *ngIf="successMsg == false">
+                      <p class="error-alert">{{ data?.message}}</p>
+                   </div>
+                    <button class="button1" mat-button matStepperPrevious>Précédent</button>
+                    <button class="button2" type="button" (click)="submit()" matSteppperNext>Enregistrer</button>
+                </form>
+                </div>
+                <div class="message" *ngIf="submited" >
+                  <div class="grid1">
+                    <div class="image">
+                      <img class="image-valide" src="assets/images/valide.png" alt="">
+                    </div>
+                    <div class="text">
+                      <p class="p1">
+                        L’agent <span>{{data.data.interimaire.prenom}} {{data.data.interimaire.nom}}
+                        </span>  a été ajouté avec succès à la liste des interimaires. <br> 
+                        Une notification sera envoyée à <span>son manageur</span> et à l’<span>
+                          agence d’interim</span>.
+                      </p>
+                    </div>
+                  </div>
+                  <button class="button3" type="button" (click)="removeItem()" (click)="stepper.reset()">Ajouter un autre</button>
+                  <button class="button4" (click)="removeItem()" routerLink="/accueil/interenattente">Liste interimaires</button>
+                  <button class="button5" (click)="removeItem()" routerLink="/accueil/homedrh">Tableau de bord</button>
+                </div>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+          <div [style.border-left]="color1" class="triangle1"></div>
+          <div [style.border-left]="color2" class="triangle2"></div>
+          <div [style.border-left]="color3" class="triangle3"></div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+  <sonatel-pma-errormodal id="error-modal-1">
+      <div class="error-modal-all" >
+          <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+          <div class="error-content-image">
+            <div class="error-image"></div>
+        </div>
+          <p class="error-text">{{errorMsg}}</p>
+          <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+          <div class="error-content-button">
+              <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+          </div>
+      </div>
+  </sonatel-pma-errormodal>
+</div>
+
+<!--modal1-->
+<div class="modal">
+  <sonatel-pma-errormodal id="blacklist-modal-1">
+      <div class="error-modal-all" >
+          <mat-icon style="cursor: pointer;" (click)="closeErrorModal('blacklist-modal-1');" class="clear-error">clear</mat-icon>
+          <div class="blackliste-content-image">
+            <div class="blackliste-image"></div>
+        </div>
+          <p class="blackliste-message-admin">
+            Vous ne pouvez pas ajouter <span class="inter-blackliste">{{prenom}} {{nom}}
+            </span> comme intérimaire dans une société liée à la SONATEL.
+            Il se trouve sur la liste noire de la société.
+          </p> 
+          <div class="error-content-button">
+              <button (click)="closeErrorModal('blacklist-modal-1');" class="error-button">Ok</button>
+          </div>
+      </div>
+  </sonatel-pma-errormodal>
+</div>

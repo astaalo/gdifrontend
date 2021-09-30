@@ -1,0 +1,43 @@
+<div class="objectif-container">
+    <h1 class="titre-objectif">Liste des objectifs du contrat de {{item.prenom}} {{item.nom}}</h1>
+    <button *ngIf="role == 'MNG'" class="button-ajouter" >Ajouter Objectif</button>
+    <div class="content-list-objectif">
+        <div class="item-objectif" *ngFor="let p of objectif | paginate: {  itemsPerPage: itemsPerPage,
+            currentPage: page,
+            totalItems: totalItems
+            }; let i = index">
+            <div class="content-item-object">
+                <p class="objectif-title">{{p.titre}}</p>
+                <p class="objectif-content">{{p.description}}</p>
+                <div class="note-et-comments">
+                    <p class="text-note-comments">
+                        <span class="note-title">Barème</span>:<span class="la-note"> {{p.bareme}} </span>
+                        <!-- <span class="comment-title">Commentaires</span>:<span class="le-commentaire">
+                            {{p.commentaire}}
+                        </span> -->
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <pagination-controls (pageChange)="gty(page = $event)" previousLabel="Prcédent" nextLabel="Suivant"></pagination-controls>
+        </div>
+    </div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+    <sonatel-pma-errormodal id="error-modal-1">
+        <div class="error-modal-all" >
+            <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+            <div class="error-content-image">
+                <div class="error-image"></div>
+            </div>
+            <p class="error-text">{{errorMsg}}</p>
+            <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+            <div class="error-content-button">
+                <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+            </div>
+        </div>
+    </sonatel-pma-errormodal>
+  </div>

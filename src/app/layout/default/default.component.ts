@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidenavService } from 'src/app/sidenav/sidenav.service';
+import { SidenavService } from 'src/app/modal/sidenav/sidenav.service';
 
 @Component({
   selector: 'app-default',

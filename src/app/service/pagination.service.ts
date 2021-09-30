@@ -47,8 +47,8 @@ export class PaginationService {
       id: 7,  title: 'Alertes',
       path: '/',  icon: "query_builder",
     },{
-      id: 8,  title: 'Mon Compte',
-      path: 'compte',  icon: "folder_shared",
+      id: 8,  title: 'Attestat',
+      path: 'attestationmesinterimaires',  icon: "folder_shared",
     },{
       id: 9,  title: 'Statistiques',
       path: '/',  icon: "leaderboard",
@@ -62,17 +62,26 @@ export class PaginationService {
     {
       id: 1, title: 'Tableau de bord',
       path: 'home', icon: "home",
+    },{
+      id: 7,  title: 'Objectifs',
+      path: 'mesobjectif',  icon: "done_all",
     }, {
       id: 5,  title: 'Mes Demandes',
       path: 'demande',  icon: "local_mall",
     },{
       id: 4,  title: 'Mon Manager',
-      path: 'manager',  icon: "grade",
+      path: 'monmanager',  icon: "grade",
     },
     {
-      id: 3,  title: 'Mon Agence d\'interim',
-      icon: "local_mall",  path: 'agence',
+      id: 3,  title: 'Mon Agence',
+      icon: "local_mall",  path: 'monagence',
       click: false,  activeChoice: -1,
+    }, {
+      id: 4,  title: 'Liste Attestations',
+      path: 'attestation',  icon: "grade",
+    },{
+      id: 7,  title: 'Alertes',
+      path: 'alertes',  icon: "query_builder",
     },{
       id: 8,  title: 'Mon Compte',
       path: 'compte',  icon: "folder_shared",
@@ -94,7 +103,11 @@ export class PaginationService {
           id: 1,  title: 'Liste sous contrat',  path: 'souscontrat',
         }, {
           id: 2, title: 'Liste en fin de contrat',  path: 'fincontrat',
-        },
+        }, {
+          id: 2, title: 'Liste en attente',  path: 'interenattente',
+        }, {
+          id: 2, title: 'Liste archivé',  path: 'interarchive',
+        }
       ]
     }, {
       id: 4,  title: 'Agence d\'interim',
@@ -104,7 +117,7 @@ export class PaginationService {
           title: 'Liste Agence',  path: 'listagence',
         },{
           title: 'Ajouter Agence',  path: 'ajouteragence',
-        },
+        }
       ]
     },{
       id: 5,  title: 'Manager',  icon: "grade",
@@ -116,22 +129,94 @@ export class PaginationService {
           title: 'Ajouter',  path: 'ajoutermanager',
         },
       ]
-    }, {
-      id: 4,  title: 'Présence',
-      icon: "grade", path: 'presence',   
-    }, {
+    },{
+      id: 5,  title: 'Liste Attestations',  icon: "grade",
+      icon2: "expand_more",  icon3: "expand_less",
+    //  click: false,  activeChoice: -1,
+      liste: [  {
+          title: 'Pour tous',  path: 'listeattestation',
+        }, {
+          title: 'Pour mes Interimaires',  path: 'attestationmesinterimaires',
+        },
+      ]
+    },{
+      id: 5,  title: 'Liste Restauration',
+      path: 'restauration',  icon: "restaurant",
+    }
+    ,{
       id: 5,  title: 'Demandes',
       path: 'lesdemande',  icon: "local_mall",
     },{
+      id: 11,  title: 'Liste Utilisateur',
+      path: 'listeuser',  icon: "person",
+    },{
       id: 6,  title: 'Alertes',
       path: 'alertes',  icon: "query_builder",
+    }
+    // ,{
+    //   id: 9,  title: 'Statistiques',
+    //   path: 'statistique',  icon: "leaderboard",
+    // }
+    ,{
+      id: 8,  title: 'Statistiques',  icon: "grade",
+      icon2: "expand_more",  icon3: "expand_less",
+    //  click: false,  activeChoice: -1,
+      liste: [  
+        {
+          title: 'Par Effectif',  path: 'stateffectif',
+        }, {
+          title: 'Par Genre',  path: 'statgenre',
+        },{
+          title: 'Par Agence',  path: 'statagence',
+        }, {
+          title: 'Par Présence',  path: 'statpresence',
+        },{
+          title: 'Par Domaine',  path: 'statdomaine',
+        },{
+          title: 'Par Catégorie',  path: 'statcategorie',
+        },{
+          title: 'Par Tranche d\'age',  path: 'statage',
+        },
+      ]
     },{
-      id: 8,  title: 'Statistiques',
-      path: 'statistique',  icon: "leaderboard",
+      id: 11,  title: 'Liste Noire',
+      path: 'blacklist',  icon: "person_off",
     },{
       id: 10,  title: 'Paramètres',
       path: 'parametre',  icon: "settings",
     },
+
+    {
+      id: 11,  title: 'Settings',  icon: "settings",
+      icon2: "expand_more",  icon3: "expand_less",
+    //  click: false,  activeChoice: -1,
+      liste: [  
+        {
+          title: 'Domaine',  path: 'ajoutdomaine',
+        }, {
+          title: 'Fonction',  path: 'ajoutfonction',
+        },{
+          title: 'Site',  path: 'listesite',
+        }, {
+          title: 'Catégorie',  path: 'ajoutcategorie',
+        },{
+          title: 'Comission',  path: 'ajoutcommission',
+        },{
+          title: 'Direction',  path: 'listdirection',
+        },{
+          title: 'Profil',  path: 'listprofil',
+        }
+        ,{
+          title: 'Periode',  path: 'listperiode',
+        }
+        ,{
+          title: 'Societe',  path: 'listsociete',
+        }
+        ,{
+          title: 'Structure',  path: 'liststructure',
+        },
+      ]
+    }
   ];
 
   public agencenav = [
@@ -147,16 +232,21 @@ export class PaginationService {
         id: 1,  title: 'Liste sous contrat',  path: 'souscontrat',
       }, {
         id: 2, title: 'Liste en fin de contrat',  path: 'fincontrat',
+      }, {
+        id: 2, title: 'Liste en attente',  path: 'interenattente',
       },{
         id: 4,  title: 'Ajouter',  path: 'addinter',
       },
       ]
     }, {
-      id: 4,  title: 'Présence',
-      icon: "grade", path: 'presence',   
-    }, {
+      id: 4,  title: 'Liste Attestations',
+      path: 'attestation',  icon: "done_all",
+    },{
       id: 5,  title: 'Demandes',
       path: 'lesdemande',  icon: "local_mall",
+    },{
+      id: 11,  title: 'Liste Utilisateur',
+      path: 'listeuser',  icon: "person",
     },{
       id: 6,  title: 'Alertes',
       path: 'alertes',  icon: "query_builder",
@@ -164,8 +254,8 @@ export class PaginationService {
       id: 8,  title: 'Mon Compte',
       path: 'agence',  icon: "folder_shared",
     },{
-      id: 9,  title: 'Statistiques',
-      path: 'statistique',  icon: "leaderboard",
+      id: 11,  title: 'Liste Noire',
+      path: 'blacklist',  icon: "person_off",
     },{
       id: 10,  title: 'Paramètres',
       path: 'parametre',  icon: "settings",
@@ -177,18 +267,28 @@ export class PaginationService {
       id: 1, title: 'Tableau de bord',
       path: 'home', icon: "home",
     }, {
-      id: 5,  title: 'Interimaire',
-      path: 'listinter',  icon: "person",
-    },{
+      id: 3,  title: 'Interimaires',
+      icon: "person",  icon2: "expand_more", icon3: "expand_less",
+      liste: [{
+          id: 1,  title: 'Liste sous contrat',  path: 'souscontrat',
+        }, {
+          id: 2, title: 'Liste en fin de contrat',  path: 'fincontrat',
+        },
+      ]
+    }, {
+      id: 3,  title: 'Attestation',
+      icon: "done_all",  icon2: "expand_more", icon3: "expand_less",
+      liste: [{
+          id: 1,  title: 'Ajouter Attestation',  path: 'addattestation',
+        }, {
+          id: 2, title: 'Liste Attestations',  path: 'listeattestation',
+        },
+      ]
+    }
+    ,{
       id: 3,  title: 'Agence d\'interim',
       icon: "local_mall",  path: 'listagence',
     },{
-      id: 4,  title: 'Attestations de Présence',
-      path: 'attestation',  icon: "grade",
-    }, {
-      id: 4,  title: 'Présence',
-      icon: "grade", path: 'presence',   
-    }, {
       id: 5,  title: 'Demandes',
       path: 'lesdemande',  icon: "local_mall",
     },{
@@ -198,9 +298,6 @@ export class PaginationService {
     ,{
       id: 8,  title: 'Mon Compte',
       path: 'manager',  icon: "folder_shared",
-    },{
-      id: 9,  title: 'Statistiques',
-      path: 'statistique',  icon: "leaderboard",
     },{
       id: 10,  title: 'Paramètres',
       path: 'parametre',  icon: "settings",
@@ -240,14 +337,18 @@ export class PaginationService {
 
   getMenu() {
     this.role = localStorage.getItem('user')
-    if(this.role == "interimaire") {
+    if(this.role == "INT") {
       this.menus = this.internav;
-    } else if(this.role == "drh") {
+    } else if(this.role == "DRH") {
       this.menus = this.drhnav;
-    } else if(this.role == "agence") {
+    } else if(this.role == "AGN") {
       this.menus = this.agencenav;
-    } else if(this.role == "manager") {
+    } else if(this.role == "MNG") {
       this.menus = this.managernav;
+    }else if(this.role == "ASTDG") {
+      this.menus = this.agencenav;
+    } else if(this.role == "DRHAG") {
+      this.menus = this.agencenav;
     } else {
       this.menus = this.eventSources
     }

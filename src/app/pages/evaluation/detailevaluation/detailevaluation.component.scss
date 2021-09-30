@@ -1,0 +1,1077 @@
+.button-modifier {
+    width: 100px;
+    height: 30px;
+    color: black;
+    background-color: #ffffff;
+    border: 1px solid black;
+    outline: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.content-header {
+    display: grid;
+    grid-template-columns: 1fr 110px;
+}
+.all-container {
+    // display: grid;
+    // grid-template-columns: 1fr 290px;
+    background-color: #f5f6f9;
+}
+.compte{
+    background-color: white;
+    margin-right: 0px;
+    padding: 10px;
+}
+.detail{
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.progres {
+    background-color: white;
+    height: 100px;
+    margin-top: 0px;
+}
+.duree{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #222222; 
+    text-align: center;
+    margin-top: 0px;
+    span{
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: -0.12px;
+    } 
+}
+.bar{
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+#progress_bar{
+    margin-bottom: 20px;
+    height:11px;
+    background-color: #f5f6f9;
+}
+
+#green_bar{
+    height:11px;
+    float:left;
+    overflow:hidden;
+    background:#ff7900;
+}
+.position{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 3px solid;
+    position: absolute;
+    top: -10px;
+    background-color: white;
+}
+
+.datefin {
+    text-align: right;
+    margin-top: -35px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 300px  1fr;
+    grid-gap: 1px;
+    margin-top: 5px;
+}
+.info{
+    border: 1px solid #f5f6f9;
+    margin-right: 5px;
+}
+.ima {
+    position: relative;
+}
+.image-interimaire {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    border: 3px solid #009393;
+}
+.image-contact {
+    width: 50px;
+    height: 50px;
+}
+    .im1 {
+        position: absolute;
+        top: 25px;
+        right: -10px;
+    }
+    .im2 {
+        position: absolute;
+        top: 120px;
+        right: -10px;
+    }
+.prenom{
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.16px;
+    text-align: center;
+    color: #222222;
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+.fonction{
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: -0.13px;
+    text-align: center;
+    color: #222222;
+    margin: 0;
+}
+.key{
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    .value {
+        font-weight: bold;
+    }
+}
+.lot1{
+    margin-top: 10px;
+}
+.lot2{
+    margin-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    color: #222222;
+    .value {
+        font-weight: bold;
+    }
+}
+.info-evaluation{
+    border: 1px solid #f5f6f9;
+    background-color: #f5f6f9;
+}
+.content-evaluation{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #f5f6f9;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+}
+.key-evaluation-head{
+    margin-top: 5px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+.title-liste-objectif{
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.value-objectif-description{
+    color: black;
+    font-weight: 600;
+}
+.value-objectif-note{
+    color: #009393;
+    font-weight: 600;
+}
+.key-evaluation{
+    margin-top: 5px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+.key-evaluation-commentaire{
+    margin: 5px;
+    font-size: 13px;
+    text-align: justify;
+}
+.value-evaluation-head{
+    color: #ff7900;
+    font-size: 13px;
+    font-weight: bold;
+}
+.value-evaluation-note{
+    padding: 3px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #009393;
+}
+.value-commentaire{
+    color: #000000;
+    font-size: 10px;
+    font-style: italic;
+}
+.lesbouton{
+    margin-top: 40px;
+}
+.button1 {
+    width: 70px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+.button2 {
+    width: 152px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.button3 {
+    width: 108px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.button4 {
+    width: 80px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.button-historique{
+    width: 150px;
+    height: 30px;
+    background-color: #fff;
+    color: #009393;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid #009393;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.button5 {
+    width: 150px;
+    height: 30px;
+    background-color: #fff;
+    color: #ff7900;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid #ff7900;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.button6 {
+    width: 150px;
+    height: 30px;
+    background-color: #ff7900;
+    color: white;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.button7 {
+    width: 120px;
+    height: 30px;
+    background-color: #fff;
+    color: #ff0000;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid #ff0000;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.button8 {
+    width: 150px;
+    height: 30px;
+    background-color: #ff0000;
+    color: white;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.filename {
+    color: #ff7900;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+// modal 1
+.btns2{
+    width: 350px;
+    margin: 0 auto;
+}
+.btn2 {
+    width: 142px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: #000000;
+    border: none;
+    background-color: #32c832;
+    margin-top: 7px;
+}
+.btn2a {
+    width: 166px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: #ffffff;
+    border: none;
+    background-color: #cd3c14;
+    margin-top: 7px;
+    margin-left: 30px;
+}
+.textLayer {
+    height: 70vh;
+    width: 100%;
+}
+//modal 2
+.tableau {
+    position: relative;
+}
+.dtl1{
+    font-size: 21px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    color: #222222;
+}
+.clear {
+    width: 16px;
+    height: 16px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: -10px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 130px 1fr 160px;
+    border-radius: 1px;
+    border: solid 1px #979797;
+    margin-top: 5px;
+}
+.date {
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    color: #222222;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.user {
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    color: #222222;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btn1 {
+    width: 140px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: #000000;
+    background-color: white;
+    border: 3px solid black;
+    margin-top: 7px;
+    margin-right: 20px;
+}
+
+//modal 3
+.btns3{
+    width: 150px;
+    margin: 0 auto;
+}
+//modal-4
+.listeo {
+    font-size: 21px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    color: #222222;
+    margin-left: 30px;
+}
+.objet {
+    width: 650px;
+    margin: 20px auto;
+    .title {
+        font-size: 21px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.12px;
+        color: #222222;
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+    .libelle {
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.09px;
+        text-align: justify;
+        color: #222222;
+        margin-top: 2px;
+    }
+}
+.btnso {
+    width: 115px;
+    margin: 40px auto;
+}
+.btno {
+    margin-top: 30px;
+    width: 111px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background-color: #000000;
+}
+.modal-renouveler {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px;
+}
+.clear-renouveler {
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.form-contrat {
+    width: 530px;
+    margin: 10px auto;
+}
+input {
+    outline: none;
+}
+.input2 input {
+    width: 232px;
+    height: 30px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+.input3 {
+    margin-left: 10px;
+}
+select {
+    width: 255px;
+    height: 34px;
+    margin-bottom: 10px;
+    background-color: #f5f6f9;
+    outline: none;
+    color: black;
+    border: 1px solid #d8d8d8;
+    padding: 5px;
+    option {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 10px;
+        letter-spacing: 0.07px;
+        color: #000;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+.buttoncontrat {
+    width: 150px;
+}
+.buttoncontrat::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+}
+.buttoncontrat::before {
+    content: 'Contrat';
+    width: 128px;
+    height: 25px;
+    background-color: #f5f6f9;
+    border: none;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #d8d8d8;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+.buttonprocesVerbal {
+    width: 150px;
+}
+.buttonprocesVerbal::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+}
+.buttonprocesVerbal::before {
+    content: 'Procés Verbal';
+    width: 128px;
+    height: 25px;
+    background-color: #f5f6f9;
+    border: none;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #d8d8d8;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+.buttonficheposte {
+    width: 150px;
+    margin-left: 0px;
+}
+.buttonficheposte::-webkit-file-upload-button {
+    visibility: hidden;
+    outline: none;
+}
+.buttonficheposte::before {
+    content: 'Fiche de Poste';
+    width: 128px;
+    height: 25px;
+    background-color: #f5f6f9;
+    border: none;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #d8d8d8;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+.buttons-fichier {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 10px;
+}
+.buttons-content-valider {
+    width: 100px;
+    margin: 0 auto;
+}
+.button-enregistrer-contrat {
+    width: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #ff7900;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border: none;
+    height: 30px;
+    margin-top: 15px;
+}
+.text-droit {
+    text-align: justify;
+}
+.libelle-motif {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.textarea-motif {
+    padding: 10px;
+    width: 660px;
+    height: 60px;
+    outline: none;
+}
+.input-valider {
+    width: 95%;
+    height: 30px;
+    background-color: #f5f6f9;
+    border-radius: 1px;
+    border: solid 1px #d8d8d8;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+.content-structure{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    max-width: 350px;
+}
+.content-error-msg{
+    width: 300px;
+    margin-left: 0px;
+  }
+  .error-alert{
+    color: #ff0000;
+    font-size: 12px;
+  }
+
+  .error-content-image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.error-image {
+    width: 160px;
+    height: 150px;
+    background-image: url("../../../../assets/images/error-message.png");
+    background-size: cover;
+}
+.error-text{
+    text-align: center;
+    color: #ff0000;
+    font-size: 28px;
+}
+.error-message-admin{
+    text-align: center;
+    font-size: 18px;
+}
+.clear-error {
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.error-content-button{
+    width: 50px;
+    margin: 0 auto;
+}
+.error-button{
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    color: #ff0000;
+    background-color: #f5f6f9;
+    border-radius: 5px;
+    outline: none;
+    border: solid 1px #ff0000;
+}
+@media (max-width: 991px) {
+    .chiffre-aside {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 1px;
+        background-color: white;
+        padding: 0px;
+        margin-top: 10px;
+        border-bottom: 1px solid #f5f6f9;
+    }
+    .grid-container-aside {
+        grid-template-columns: 55px 1fr 55px;
+    }
+    .grid-container1-aside {
+        grid-template-columns: 1fr 125px;
+    }
+    .all-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "tableau"
+          "aside";
+    }
+    .compte{
+        margin-top: 10px;
+        margin-right: 0px;
+        padding: 15px;
+    }
+    .detail{
+        font-size: 16px;
+    }
+    .progres {
+        background-color: white;
+        height: 90px;
+        margin-top: 0px;
+    }
+    .duree{
+        font-size: 14px;
+        
+        span{
+            font-size: 14px;
+        } 
+    }
+    .bar{
+        margin-top: 20px;
+    }
+    #progress_bar{
+        height: 8px;
+    }
+    
+    #green_bar{
+        height: 8px;
+    }
+    .position{
+        height: 20px;
+        width: 20px;
+        top: -10px;
+    }
+    .datedebut {
+       font-size: 10px;
+       margin-top: -10px;
+    }
+    .datefin {
+        margin-top: -20px;
+        font-size: 10px;
+    }
+    .lesbouton{
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "image"
+          "info";
+        margin-top: 5px;
+    }
+    .ima {
+        position: relative;
+        width: 230px;
+        margin: 0 auto;
+    }
+    .image-interimaire {
+        width: 210px;
+        height: 210px;
+        border-radius: 40px;
+        border: 3px solid #009393;
+    }
+    .prenom {
+        font-size: 18px;
+    }
+    .fonction {
+        font-size: 18px;
+    }
+    .im1 {
+        position: absolute;
+        top: 10%;
+        left: 83%;
+    }
+    .image-contact {
+        width: 50px;
+        height: 50px;
+    }
+    .im2 {
+        position: absolute;
+        top: 45%;
+        left: 83%;
+    }
+    .info {
+        margin-top: 0px;
+    }
+    .key {
+        font-size: 16px;
+    }
+    .value {
+        font-size: 16px;
+    }
+    .button1 {
+        width: 80px;
+        height: 30px;
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 5px 2px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+        border: 3px solid black;
+        margin-top: 20px;
+    }
+    .button2 {
+        width: 200px;
+        height: 30px;
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 5px 2px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+        border: 3px solid black;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+    .button3 {
+        width: 145px;
+        height: 30px;
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 5px 2px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+        border: 3px solid black;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    .button4 {
+        width: 100px;
+        height: 30px;
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 5px 2px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+        border: 3px solid black;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .button-aside {
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .button1-aside {
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .manager-detail-aside {
+        width: 280px;
+        margin-left: 0 auto;
+    }
+    .btns2{
+        width: 250px;
+        margin: 0 auto;
+    }
+    .btn2 {
+        width: 110px;
+        height: 30px;
+        font-size: 12px;
+    }
+    .btn2a {
+        width: 110px;
+        height: 30px;
+        font-size: 12px;
+        margin-left: 20px;
+    }
+    .dtl1 {
+        font-size: 14px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: 80px 1fr 80px;
+        margin-top: 5px;
+    }
+    .date {
+        font-size: 10px;
+        margin-left: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .user {
+        font-size: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .btn1 {
+        width: 80px;
+        height: 25px;
+        font-size: 8px;
+        border: 1px solid black;
+        margin-top: 5px;
+    }
+    .listeo {
+        font-size: 14px;
+        margin-left: 30px;
+    }
+    .objet {
+        width: 250px;
+        margin: 20px auto;
+        .title {
+            font-size: 13px;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+        .libelle {
+            font-size: 10px;
+            
+        }
+    }
+    .btnso {
+        width: 85px;
+        margin: 30px auto;
+    }
+    .btno {
+        margin-top: 25px;
+        width: 80px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .prenom-aside {
+        font-size: 12px;
+      }
+      .poste-aside {
+        font-size: 10px;
+      }
+      .tmp-aside {
+        font-size: 10px;
+      }
+}

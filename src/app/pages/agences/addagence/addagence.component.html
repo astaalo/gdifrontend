@@ -1,0 +1,106 @@
+<div class="all-container">
+  <div class="all">
+    <div class="all1">
+        <p class="p1">Ajouter une Agence</p>
+        <div class="form">
+          <form [formGroup]="infoForm" (ngSubmit)="submitted1()">
+            <div>
+              <div class="grid">
+                <div class="photo">
+                  <img class="image-upload" *ngIf="image" src="{{image}}" alt="logo">
+                  <div *ngIf="!image" class="content-image-upload"></div>
+                  <!-- <img class="image-upload" *ngIf="!image" alt="" [src]="url1" height="60"> -->
+                  <input formControlName="logo" class="button" type="file" (change)="getLogo($event.target)" >
+                </div>
+                <div class="others">
+                  <div class="input1">
+                    <input type="text" formControlName="nom" placeholder="Nom entreprise">
+                    <div class="form-control-feedback"
+                      *ngIf="infoForm.controls['nom'].errors && (infoForm.controls['nom'].dirty || infoForm.controls['nom'].touched)">
+                      <p class="error-alert" *ngIf="infoForm.controls['nom'].errors.required">le nom est obligatoire</p>
+                    </div>
+                  </div>
+                  <div class="input2">
+                    <input type="text" formControlName="nomdg" placeholder="Nom Directeur Général">
+
+                    <input class="input3" type="number" formControlName="numdg" placeholder="Téléphone DG">
+
+                  </div>
+                  <div class="input1">
+                    <input type="text" formControlName="email" placeholder="Email">
+                    <div class="form-control-feedback"
+                      *ngIf="infoForm.controls['email'].errors && (infoForm.controls['email'].dirty || infoForm.controls['email'].touched)">
+                      <p class="error-alert" *ngIf="infoForm.controls['email'].errors.required">l'email est obligatoire</p>
+                      <p class="error-alert" *ngIf="infoForm.controls['email'].errors.pattern">Veuillez saisir un email valide</p>
+                    </div>
+                  </div>
+                  <div class="input2">
+                    <input type="text" formControlName="mobile" placeholder="Téléphone Mobile">
+
+                    <input class="input3"  type="text" formControlName="fixe" placeholder="Téléphone Fixe">
+                  </div>
+                  <div class="input1">
+                    <input type="text" formControlName="siteweb" placeholder="Site web">
+                  </div>
+                  <div class="input4">
+                    <textarea type="textarea" formControlName="adresse" placeholder="Adresse"></textarea>
+                    <div class="form-control-feedback"
+                      *ngIf="infoForm.controls['adresse'].errors && (infoForm.controls['adresse'].dirty || infoForm.controls['adresse'].touched)">
+                      <p class="error-alert" *ngIf="infoForm.controls['adresse'].errors.required">l'adresse est obligatoire</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             <div class="trait"></div>
+                <div class="boutons">
+                  <p class="p2">Documents Entreprise</p>
+                  <div class="buttons1">
+                    <input formControlName="ninea" class="button3" type="file" (change)="getNinea($event.target)" >
+                    <input formControlName="rccm" class="button4" type="file" (change)="getRccm($event.target)" >
+                    <input formControlName="contrat" class="button5" type="file" (change)="getContrat($event.target)" >
+                    <input formControlName="cnidg" class="button6" type="file" (change)="getCnidg($event.target)" >
+                  </div>
+                  <div class="filenames">
+                    <div class="nom-file2">
+                        <p class="filename" *ngIf="ninea">Fichier Ninea: <span class="nom-du-fichier">{{filename2}}</span></p>
+                    </div>
+                    <div class="nom-file3">
+                        <p class="filename" *ngIf="rccm">Fichier RCCM: <span class="nom-du-fichier">{{filename3}}</span></p>
+                    </div>
+                    <div class="nom-file4">
+                      <p class="filename" *ngIf="contrat">Fichier Contrat: <span class="nom-du-fichier">{{filename4}}</span></p>
+                    </div>
+                    <div class="nom-file5">
+                      <p class="filename" *ngIf="cnidg">Fichier CNI Dg: <span class="nom-du-fichier">{{filename5}}</span></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="content-error-msg" *ngIf="successMsg == false">
+              <p class="error-alert">{{ data?.message}}</p>
+            </div>
+            <div class="buttons">
+              <button class="button2" type="submit">Enregistrer</button>
+            </div>
+          </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--modal1-->
+<div class="modal">
+  <sonatel-pma-errormodal id="error-modal-1">
+      <div class="error-modal-all" >
+          <mat-icon style="cursor: pointer;" (click)="closeErrorModal('error-modal-1');" class="clear-error">clear</mat-icon>
+          <div class="error-content-image">
+              <div class="error-image"></div>
+          </div>
+          <p class="error-text">{{errorMsg}}</p>
+          <p class="error-message-admin">Veuillez contacter l'administrateur du site à partir de la page paramètre</p> 
+          <div class="error-content-button">
+              <button (click)="closeErrorModal('error-modal-1');" class="error-button">Ok</button>
+          </div>
+      </div>
+  </sonatel-pma-errormodal>
+</div>

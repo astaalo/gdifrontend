@@ -1,0 +1,51 @@
+<div [formGroup]="structureForm" class="content-form-search">
+    <p class="ajouter">Ajout Structure</p>
+    <div class="content-form">
+      <div class="content-row-form">
+        <div class="content-input">
+          <div class="content-input">
+            <p class="label-input2">Libelle</p>
+            <input class="input-search" type="text" formControlName="libelle" placeholder="Libelle" required>
+            <!-- <p class="error-require-input-search" *ngIf="videnumeroPiece" >Veuillez renseigner le Libelle</p> -->
+          </div>
+        <div class="content-input">
+          <p class="label-input1">Direction</p>
+          <select class="select-search"  formControlName="directionId" required>
+            <option class="option" value="" disabled selected hidden>Choisir la Direction</option>
+            <option *ngFor="let data of dataDirection" [value]="data.libelle">{{data.libelle}}</option>
+          </select>
+          <!-- <p class="error-require-input-search" *ngIf="videtypePiece" >Veuillez séléctionner une direction</p> -->
+        </div>
+        <div class="content-input">
+          <p class="label-input1">Services</p>
+          <select class="select-search" #entite formControlName="societe" (change)="directionsListe(entite.value)" required>
+            <option class="option" value="" disabled selected hidden>Choisir un service</option>
+            <option *ngFor="let data of dataDirection" [value]="data.id">{{data.libelle}}</option>
+          </select>
+          <!-- <p class="error-require-input-search" *ngIf="videsociete" >Veuillez séléctionner un service</p> -->
+        </div>
+        <div class="content-input"></div>
+          <p class="label-input1">Type de Structure</p>
+          <select class="select-search"  formControlName="typeStructureId" required>
+            <option class="option" value="" disabled selected hidden>Choisir le type de Structure</option>
+            <option *ngFor="let data of dataDirection" [value]="data.libelle">{{data.libelle}}</option>
+          </select>
+          <!-- <p class="error-require-input-search" *ngIf="videtypePiece" >Veuillez séléctionner un type de Structure</p> -->
+        </div>
+      </div>
+      <div class="content-row-form">
+        <div class="content-input">
+          <p class="label-input2">BU</p>
+          <input class="input-search" type="text" formControlName="bu" placeholder="Bu" required>
+          <!-- <p class="error-require-input-search" *ngIf="videtelephone" >Veuillez renseigner la BU</p> -->
+        </div>
+        <div class="content-input">
+          <p class="label-input2">Pole</p>
+          <input class="input-search" type="text" formControlName="pole" placeholder="Pole" required>
+          <!-- <p class="error-require-input-search" *ngIf="videtelephone" >Veuillez renseigner le pole</p> -->
+        </div>
+      </div>
+      <div class="content-button-form">
+        <button class="button-rechercher">Rechercher</button>
+      </div>
+  </div>
